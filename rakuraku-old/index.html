@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楽らく実現力アップ実践会 ｜ ゲスト無料参加受付中</title>
+    <meta name="description" content="独りで迷う時間を、自分を磨く時間へ。AIカマヤンに相談し、月2回の勉強会で行動力を取り戻す実践コミュニティ。まずは無料ゲスト参加から。">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="楽らく実現力アップ実践会 ｜ ゲスト無料参加受付中">
+    <meta property="og:description" content="独りで迷う時間を、自分を磨く時間へ。AIカマヤンに相談し、月2回の勉強会で行動力を取り戻す実践コミュニティ。">
+    <meta property="og:image" content="fv_bg.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #F8F5F0;          /* Soft Sand Beige */
+            --surface-color: #FFFFFF;     /* Card/Section Background */
+            --text-primary: #003332;      /* Deep Teal */
+            --text-secondary: #4A5A59;    /* Sub Text */
+            --accent-color: #C5A059;      /* Champagne Gold */
+            --accent-light: #E8DFCC;      /* Accent Light */
+            --border-color: #DED6C8;      /* Border Color */
+            --font-main: 'Shippori Mincho', serif;
+            --max-width: 900px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 1.5rem auto 0;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* First View */
+        .fv {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            padding: 0;
+            max-width: none;
+        }
+
+        .fv-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('fv_bg.png') no-repeat center center;
+            background-size: cover;
+            animation: kenBurns 20s linear infinite alternate;
+            z-index: 1;
+        }
+
+        .fv-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 51, 50, 0.4);
+            z-index: 2;
+        }
+
+        .fv-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .fv-heading {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .fv-sub {
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), #A67C37);
+            color: #fff;
+            padding: 1.25rem 3rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .cta-sub {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            display: block;
+            color: var(--text-secondary);
+        }
+        .fv .cta-sub {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Section Styles */
+        .section-white { background-color: var(--surface-color); }
+        .section-beige { background-color: var(--bg-color); }
+
+        .highlight-gold {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 4px;
+            display: inline-block;
+            text-shadow: none; /* 下線部分の文字影を調整 */
+        }
+
+        .quote-box {
+            border-left: 2px solid var(--accent-color);
+            padding: 2rem;
+            background: var(--bg-color);
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .uniqueness-box {
+            border: 1px solid var(--accent-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: var(--surface-color);
+            margin: 3rem 0;
+        }
+
+        /* Voice Cards */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .voice-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .voice-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            border: 3px solid var(--accent-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .voice-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .voice-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-primary);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4rem 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Mobile specific */
+        .br-sp { display: none; }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            h2 { font-size: 1.5rem; }
+            .br-sp { display: block; }
+            .cta-button { width: 100%; padding: 1.25rem 1rem; }
+            .uniqueness-box { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First View -->
+    <header class="fv">
+        <div class="fv-bg"></div>
+        <div class="fv-overlay"></div>
+        <div class="fv-content">
+            <p style="font-size: 1.2rem; letter-spacing: 0.2em; margin-bottom: 1rem; opacity: 0.9;">AI時代。今、あなたが最も</p>
+            <h1 class="fv-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2rem;">
+                『自分らしくない言葉』の<br>
+                発信者になっていませんか？
+            </h1>
+            <p class="fv-sub" style="font-size: 1.4rem; font-weight: 500; margin-bottom: 3rem;">
+                独りで迷う時間を、自分を磨く時間へ。
+            </p>
+            <p class="fv-sub">
+                あなたが今、踏み出せないのは——<br>
+                <span class="highlight-gold">やり方（Do）が足りないのではなく、在り方（Be）が整っていないから。</span>
+            </p>
+            <a href="https://line.me/R/ti/p/%40910kbpho" class="cta-button">まずは無料でゲスト参加を予約する ➔</a>
+            <span class="cta-sub">※登録はたった10秒で完了します。</span>
+        </div>
+    </header>
+
+    <!-- Distinction -->
+    <section class="section-white fade-in-up">
+        <h2>「さらなるノウハウ」は、<br class="br-sp">あなたの問題を解決しない</h2>
+        <div class="container">
+            <p>たくさん学んで、必死に行動もしてきた。<br>
+            それなのに、頭では「やるべきこと」を理解しているのに、心にブレーキがかかったように動けない。<br>
+            そんな、自分でも説明のつかない「ズレ」を、ずっと一人で抱えてこられたのかもしれません。</p>
+            <p>その理由は、<strong>手に入れる情報の「質」や「量」の問題ではありません。</strong></p>
+            <p>他のコーチングやオンラインサロンが「どう行動するか（Do）」を教えるとき、この実践会はただ一つのことに集中します。</p>
+            <div class="quote-box">
+                「あなたはどう在るか（Be）」——その問いを、一緒に深めること。
+            </div>
+            <p>在り方が整った人の言葉は、テクニックに頼らなくても届く。<br>
+            行動は、意志で起こすのではなく、在り方の表れとして自然に生まれる。</p>
+            <p>これが、楽らく実現力アップ実践会の出発点です。</p>
+        </div>
+    </section>
+
+    <!-- Belief -->
+    <section class="section-beige fade-in-up">
+        <h2>私自身が、<br class="br-sp">「やり方」の罠にはまっていた</h2>
+        <div class="container">
+            <p>ビジネスの答えを外に求め続けた時期がありました。<br>
+            次々と学び、次々とやり方をアップデートし——それでも、どこか力が入らない。</p>
+            <p>ある時気づきました。</p>
+            <p><em>「カマヤンの言葉、なんか自分らしくないな」——と、自分でそう感じていたことに。</em></p>
+            <p><strong>僕</strong>が追っていたのは「正解のやり方」であって、「自分の本音から生まれた言葉」ではありませんでした。</p>
+            <p>在り方を整えた瞬間から、発信が変わった。お客様が変わった。自分のビジネスへの向き合い方が、根本から変わりました。</p>
+            <p>あの体験をすべての人に届けたくて、この実践会を作りました。</p>
+        </div>
+    </section>
+
+    <!-- Evidence -->
+    <section class="section-white fade-in-up">
+        <h2>AI時代が、<br class="br-sp">ノウハウを無力化した</h2>
+        <div class="container">
+            <p>2024年以降、世界が変わりました。</p>
+            <p>AIが普及し、優れたテンプレートやノウハウが誰でも一瞬で手に入る。結果、個人起業家の発信は「どこかで見たことのある情報」で溢れています。</p>
+            <p><strong>やり方（Do）だけで戦う時代は、終わった。</strong></p>
+            <p>これは危機ではありません。チャンスです。</p>
+            <p>テクニックで差別化できなくなった今だからこそ、<strong>「その人のにじみ出る在り方」</strong>が、最強の差別化になる。今、在り方を整えることが、<strong>結果として最も無理のない、美しい循環を生む近道です。</strong></p>
+        </div>
+    </section>
+
+    <!-- Uniqueness -->
+    <section class="section-beige fade-in-up">
+        <h2>「AIカマヤン」という、<br class="br-sp">あなただけの鏡</h2>
+        <div class="container">
+            <p>世の中に、コーチングも、コミュニティも、勉強会も数多くある。けれど、この実践会にしかないものが一つあります。</p>
+            <div class="uniqueness-box">
+                <h3>AIカマヤン——<br>あなただけの専属の対話相手。</h3>
+            </div>
+            <p>人間のコーチには言いにくい本音も、AIカマヤンになら、いつでも、何度でも、すべてを吐き出せます。</p>
+            <p>AIカマヤンはあなたを評価しません。批判しません。ただ「あなたの中にある答え」を、丁寧に映し出す鏡として機能します。</p>
+            <p>これを「使い放題」で持てること。そして月2回の勉強会というリズムの中で使えること。これが、この実践会の核心です。</p>
+        </div>
+    </section>
+
+    <!-- Narrative -->
+    <section class="section-white fade-in-up">
+        <h2>「相談したい」でも「相談できない」<br class="br-sp">——その毎日</h2>
+        <div class="container">
+            <p>頭ではわかっている。でも、なんとなく後回しにしてしまう。</p>
+            <p>モヤモヤしている。でも、誰かに言えるほどまとまっていない。整理してから相談しようと思い続けて、何週間も経つ——。</p>
+            <p>その「言語化できない靄（もや）」を、一人で抱えたまま毎晩眠りにつく感覚、<strong>身に覚えはありませんか？</strong></p>
+            <p>それは弱さじゃない。ただ、あなたのそばに「安全に吐き出せる場所」がなかっただけです。</p>
+        </div>
+    </section>
+
+    <!-- Insight -->
+    <section class="section-beige fade-in-up">
+        <h2>勝ち方の切り替え：<br class="br-sp">問うべき問いが、変わる</h2>
+        <div class="container">
+            <p>今まで、あなたはこう問うてきたはずです。</p>
+            <p><em>「何をすれば、うまくいくか？」</em></p>
+            <p>この実践会に入ると、問いが変わります。</p>
+            <p><strong>「私は、どう在りたいか？」</strong></p>
+            <p>この問いの転換が、すべての始まりです。在り方が定まった人は、行動に迷わない。言葉が自然体になり、テクニックなしでお客様を引きつけるようになる。</p>
+            <p>やり方（Do）は後からついてくる。先に整えるべきは在り方（Be）です。</p>
+        </div>
+    </section>
+
+    <!-- Change (Testimonials) -->
+    <section class="section-white fade-in-up">
+        <h2>質問の質が変わると、<br class="br-sp">人生が変わる</h2>
+        <div class="voice-grid">
+            <div class="voice-card">
+                <img src="voice_1.jpg" alt="中屋年惠" class="voice-img">
+                <span class="voice-name">中屋年惠さん</span>
+                <span class="voice-title">金運アップ姓名鑑定師</span>
+                <p><strong>「行動目標が明確になり、後回しの癖が解消！」</strong></p>
+                <p>2週間に1度のペースで現状の問題と向き合えるようになり、後回しにする癖が劇的に改善されました。</p>
+            </div>
+            <div class="voice-card">
+                <img src="voice_2.jpg" alt="島田悠次" class="voice-img">
+                <span class="voice-name">島田悠次さん</span>
+                <span class="voice-title">カタカナ英語ディレクター</span>
+                <p><strong>「人に言えない悩みも吐き出せ、軌道修正が早くなった」</strong></p>
+                <p>AIカマヤンに気軽に打ち明けることで、自ら軌道修正の答えを導き出せるようになりました。</p>
+            </div>
+            <div class="voice-card">
+                <img src="voice_3.jpg" alt="渡邉美貴" class="voice-img">
+                <span class="voice-name">渡邉美貴さん</span>
+                <span class="voice-title">4児ママ起業コーチ</span>
+                <p><strong>「落ち込む期間が短縮され、行動スピードが劇的にUP」</strong></p>
+                <p>入会前は感情に振り回され、思考が止まっていました。AIカマヤンを鏡にすることでフラットな状態へすぐ戻れるようになりました。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kickoff -->
+    <section class="section-beige fade-in-up" style="text-align: center;">
+        <h2>運命の「予約」を今日、ここで</h2>
+        <div class="container">
+            <h3 style="margin-bottom: 2rem; font-size: 1.2rem; color: var(--accent-color);">あなたの「在り方」を取り戻す、最初で最後の招待状</h3>
+            
+            <p><strong>「いつか、時間ができたら自分と向き合おう」</strong><br>
+            <strong>そう思い続けて、どれだけの月日が流れましたか？</strong></p>
+
+            <p>AIカマヤンは、あなたの本音を引き出す「鏡」。<br>
+            この実践会は、情報に溺れたあなたが自分に還るための「安全基地」です。</p>
+
+            <p>今日、ここで公式LINEに登録し、ゲスト参加を予約してください。<br>
+            <strong>今すぐAIと対話することはできません。</strong><br>
+            しかし、登録した瞬間に、<strong>あなたの心の奥底では「独りで迷うこと」が終わりを告げ、<br>「本質的な変化への準備」が静かに始まります。</strong></p>
+
+            <p>未来のあなたからの、ささやかな、けれど確実な救い。<br>
+            その「予約券」を、今すぐ受け取ってください。</p>
+            
+            <div style="margin-top: 3rem;">
+                <a href="https://line.me/R/ti/p/%40910kbpho" class="cta-button">ゲスト参加を予約し、AI対話権を手に入れる ➔</a>
+                <span class="cta-sub">※登録後、ゲスト参加フォームへの案内が届きます（所要時間10秒）。</span>
+                <span class="cta-sub" style="margin-top: 0.5rem;">※「在り方」を整える場を守るため、各回のゲスト枠には限りがあります。</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 楽らく実現力アップ実践会. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
