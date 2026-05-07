@@ -279,9 +279,7 @@
             transition: transform 0.3s ease;
         }
 
-        .voice-card:hover {
-            transform: translateY(-5px);
-        }
+
 
         /* ── Video Player ── */
         .video-container {
@@ -305,9 +303,15 @@
             transition: opacity 0.3s;
         }
 
-        .video-container:hover img {
-            opacity: 0.9;
-            transform: scale(1.02);
+        /* PCのみホバーエフェクトを有効にする（スマホの2タップ問題を防止） */
+        @media (hover: hover) {
+            .voice-card:hover {
+                transform: translateY(-5px);
+            }
+            .video-container:hover img {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
         }
 
         .video-container iframe {
