@@ -567,7 +567,8 @@
 
         function loadVideo(container, videoId) {
             const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+            // autoplay=1, rel=0, playsinline=1 を追加して即時再生を強化
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`);
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             iframe.setAttribute('allowfullscreen', 'true');
             
