@@ -327,39 +327,8 @@
         }
 
         .video-container:hover img {
-            opacity: 0.8;
-        }
-
-        .video-container .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: rgba(197, 160, 89, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s, background-color 0.3s;
-            z-index: 2;
-        }
-
-        .video-container:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
-            background-color: rgba(197, 160, 89, 1);
-        }
-
-        .video-container .play-button::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 10px 0 10px 18px;
-            border-color: transparent transparent transparent #ffffff;
-            margin-left: 4px;
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .video-container iframe {
@@ -517,24 +486,21 @@
         <div class="voice-grid">
             <div class="voice-card">
                 <div class="video-container" onclick="loadVideo(this, 'IXp2rD0wU-Y')">
-                    <img src="https://img.youtube.com/vi/IXp2rD0wU-Y/maxresdefault.jpg" alt="中屋年惠さん">
-                    <div class="play-button"></div>
+                    <img src="thumb_nakaya.jpg" alt="中屋年惠さん">
                 </div>
                 <span class="voice-name">中屋年惠さん</span>
                 <span class="voice-title">金運アップ姓名鑑定師</span>
             </div>
             <div class="voice-card">
                 <div class="video-container" onclick="loadVideo(this, '3F_qJv5kVu0')">
-                    <img src="https://img.youtube.com/vi/3F_qJv5kVu0/maxresdefault.jpg" alt="島田悠次さん">
-                    <div class="play-button"></div>
+                    <img src="thumb_shimada.jpg" alt="島田悠次さん">
                 </div>
                 <span class="voice-name">島田悠次さん</span>
                 <span class="voice-title">カタカナ英語ディレクター</span>
             </div>
             <div class="voice-card">
                 <div class="video-container" onclick="loadVideo(this, 'JpKUL8Oz1fU')">
-                    <img src="https://img.youtube.com/vi/JpKUL8Oz1fU/maxresdefault.jpg" alt="渡邉美貴さん">
-                    <div class="play-button"></div>
+                    <img src="thumb_watanabe.jpg" alt="渡邉美貴さん">
                 </div>
                 <span class="voice-name">渡邉美貴さん</span>
                 <span class="voice-title">4児ママ起業コーチ</span>
