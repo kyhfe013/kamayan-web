@@ -649,16 +649,27 @@
         window.addEventListener('scroll', () => {
             const fvHeight = fv.offsetHeight;
             const scrollPos = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const bodyHeight = document.body.offsetHeight;
 
-            // ファーストビューを過ぎた、かつ、最下部から200px以上手前にいる時だけ表示
-            if (scrollPos > fvHeight - 100 && (scrollPos + windowHeight) < (bodyHeight - 200)) {
+            // ファーストビューを過ぎたら表示
+            if (scrollPos > fvHeight - 100) {
                 stickyCta.classList.add('visible');
             } else {
                 stickyCta.classList.remove('visible');
             }
         });
+
+        // フッターが見えたら追従ボタンを隠す（Intersection Observer）
+        const footer = document.querySelector('footer');
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stickyCta.style.display = 'none';
+                } else {
+                    stickyCta.style.display = 'flex';
+                }
+            });
+        }, { threshold: 0.1 });
+        footerObserver.observe(footer);
 
         // Intersection Observer for scroll animations
         const observerOptions = {
