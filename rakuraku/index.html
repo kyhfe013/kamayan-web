@@ -18,49 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ── Sticky CTA ── */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
+        html, body {
+            overflow-x: hidden;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-
-        .sticky-cta .cta-button {
-            width: 100%;
-            max-width: 500px;
             margin: 0;
-            font-size: 1rem;
-            padding: 1rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            .sticky-cta {
-                padding: 0.8rem;
-            }
-            .sticky-cta .cta-button {
-                font-size: 0.9rem;
-            }
+            padding: 0;
         }
 
         :root {
@@ -443,6 +405,53 @@
             }
             .profile-text {
                 text-align: left;
+            }
+        }
+
+        /* ── Sticky CTA (Moved to bottom for priority) ── */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .sticky-cta.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sticky-cta .cta-button {
+            width: 100%;
+            max-width: 500px;
+            margin: 0;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 0.8rem;
+            }
+            .sticky-cta .cta-button {
+                font-size: 0.9rem;
             }
         }
     </style>
