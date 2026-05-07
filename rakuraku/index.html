@@ -291,6 +291,8 @@
             overflow: hidden;
             cursor: pointer;
             margin: 0;
+            display: block;
+            text-decoration: none;
         }
 
         .video-container img {
@@ -301,6 +303,7 @@
             height: 100%;
             object-fit: cover;
             transition: opacity 0.3s;
+            border: none;
         }
 
         /* PCのみホバーエフェクトを有効にする（スマホの2タップ問題を防止） */
@@ -458,19 +461,19 @@
         <h2>質問の質が変わると、<br class="br-sp">人生が変わる</h2>
         <div class="voice-grid">
             <div class="voice-card">
-                <div class="video-container" onclick="loadVideo(this, 'IXp2rD0wU-Y')">
+                <a href="javascript:void(0)" class="video-container" onclick="loadVideo(this, 'IXp2rD0wU-Y')">
                     <img src="thumb_nakaya.jpg" alt="中屋年惠さん">
-                </div>
+                </a>
             </div>
             <div class="voice-card">
-                <div class="video-container" onclick="loadVideo(this, '3F_qJv5kVu0')">
+                <a href="javascript:void(0)" class="video-container" onclick="loadVideo(this, '3F_qJv5kVu0')">
                     <img src="thumb_shimada.jpg" alt="島田悠次さん">
-                </div>
+                </a>
             </div>
             <div class="voice-card">
-                <div class="video-container" onclick="loadVideo(this, 'JpKUL8Oz1fU')">
+                <a href="javascript:void(0)" class="video-container" onclick="loadVideo(this, 'JpKUL8Oz1fU')">
                     <img src="thumb_watanabe.jpg" alt="渡邉美貴さん">
-                </div>
+                </a>
             </div>
         </div>
     </section>
