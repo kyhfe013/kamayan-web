@@ -361,16 +361,17 @@
             h2 { margin-bottom: 3rem; }
 
             .voice-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 1000px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+                max-width: 1100px;
                 margin: 0 auto;
             }
 
-            /* 3つ目のカード（奇数番目で最後のもの）を中央寄せにする */
-            .voice-card:last-child:nth-child(odd) {
-                grid-column: 1 / span 2;
-                max-width: 480px;
-                justify-self: center;
+            .voice-card {
+                flex: 0 1 calc(50% - 1rem); /* 2列表示、隙間を考慮 */
+                max-width: 500px;
             }
 
             .cta-button {
