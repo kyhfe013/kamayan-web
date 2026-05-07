@@ -521,28 +521,38 @@
         });
 
         function loadVideo(container, videoId) {
-            // コンテナの中にプレイヤー用の要素を作成
-            const playerDivId = 'player-' + videoId;
-            container.innerHTML = `<div id="${playerDivId}"></div>`;
+            // IDの前後の余計な空白を削除
+            const vId = videoId.trim();
+            const playerDivId = 'player-' + vId;
             
-            // YouTube Playerを初期化
-            new YT.Player(playerDivId, {
-                height: '100%',
-                width: '100%',
-                videoId: videoId,
-                playerVars: {
-                    'autoplay': 1,
-                    'playsinline': 1,
-                    'rel': 0,
-                    'modestbranding': 1,
-                    'controls': 1
-                },
-                events: {
-                    'onReady': function(event) {
-                        event.target.playVideo();
+            // APIが準備できているか確認
+            if (typeof YT !== 'undefined' && YT.Player) {
+                container.innerHTML = `<div id="${playerDivId}"></div>`;
+                new YT.Player(playerDivId, {
+                    height: '100%',
+                    width: '100%',
+                    videoId: vId,
+                    playerVars: {
+                        'autoplay': 1,
+                        'playsinline': 1,
+                        'rel': 0,
+                        'modestbranding': 1,
+                        'controls': 1,
+                        'mute': 0
+                    },
+                    events: {
+                        'onReady': function(event) {
+                            event.target.playVideo();
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                // APIが未ロードの場合のフォールバック
+                container.innerHTML = `<iframe 
+                    src="https://www.youtube.com/embed/${vId}?autoplay=1&rel=0&playsinline=1&modestbranding=1" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>`;
+            }
         }
     </script>
 </body>
