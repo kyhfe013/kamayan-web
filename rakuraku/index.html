@@ -19,13 +19,13 @@
     
     <style>
         :root {
-            --bg-color: #F8F5F0;          /* Soft Sand Beige */
-            --surface-color: #FFFFFF;     /* Card/Section Background */
-            --text-primary: #003332;      /* Deep Teal */
-            --text-secondary: #4A5A59;    /* Sub Text */
-            --accent-color: #C5A059;      /* Champagne Gold */
-            --accent-light: #E8DFCC;      /* Accent Light */
-            --border-color: #DED6C8;      /* Border Color */
+            --bg-color: #F8F5F0;
+            --surface-color: #FFFFFF;
+            --text-primary: #003332;
+            --text-secondary: #4A5A59;
+            --accent-color: #C5A059;
+            --accent-light: #E8DFCC;
+            --border-color: #DED6C8;
             --font-main: 'Shippori Mincho', serif;
             --max-width: 900px;
         }
@@ -40,7 +40,8 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: var(--font-main);
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 1.9;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -48,10 +49,11 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         section {
-            padding: 100px 20px;
+            padding: 80px 24px;
             max-width: var(--max-width);
             margin: 0 auto;
         }
@@ -63,13 +65,13 @@
         /* Typography */
         h1, h2, h3 {
             font-weight: 600;
-            letter-spacing: 0.1em;
-            line-height: 1.5;
+            letter-spacing: 0.06em;
+            line-height: 1.6;
         }
 
         h2 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            margin-bottom: 2.5rem;
             text-align: center;
             position: relative;
         }
@@ -77,36 +79,37 @@
         h2::after {
             content: '';
             display: block;
-            width: 40px;
+            width: 36px;
             height: 2px;
             background-color: var(--accent-color);
-            margin: 1.5rem auto 0;
+            margin: 1.2rem auto 0;
         }
 
         p {
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.95;
+            margin-bottom: 1.4rem;
         }
 
         /* Animations */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(24px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
         .fade-in-up.active {
             opacity: 1;
             transform: translateY(0);
         }
 
         @keyframes kenBurns {
-            0% { transform: scale(1); }
+            0%   { transform: scale(1);   }
             100% { transform: scale(1.1); }
         }
 
-        /* First View */
+        /* ── First View ── */
         .fv {
-            height: 100vh;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -119,23 +122,16 @@
 
         .fv-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('fv_bg.png') no-repeat center center;
-            background-size: cover;
+            inset: 0;
+            background: url('fv_bg.png') no-repeat center center / cover;
             animation: kenBurns 20s linear infinite alternate;
             z-index: 1;
         }
 
         .fv-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 51, 50, 0.4);
+            inset: 0;
+            background: rgba(0, 40, 39, 0.52);
             z-index: 2;
         }
 
@@ -143,136 +139,199 @@
             position: relative;
             z-index: 3;
             text-align: center;
-            padding: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            padding: 40px 24px 60px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .fv-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            opacity: 0.85;
+            margin-bottom: 1.2rem;
         }
 
         .fv-heading {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
+            font-size: clamp(1.55rem, 5.5vw, 3rem);
+            line-height: 1.5;
+            margin-bottom: 1.8rem;
         }
 
-        .fv-sub {
-            font-size: 1.1rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 3rem;
+        .fv-body {
+            font-size: clamp(0.9rem, 3vw, 1.05rem);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            opacity: 0.95;
         }
 
-        /* CTA Button */
+        /* ── CTA Button ── */
+        .cta-wrap {
+            margin-top: 2.4rem;
+        }
+
         .cta-button {
             display: inline-block;
+            width: 100%;
+            max-width: 420px;
             background: linear-gradient(135deg, var(--accent-color), #A67C37);
             color: #fff;
-            padding: 1.25rem 3rem;
+            padding: 1.3rem 2rem;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+            letter-spacing: 0.05em;
+            line-height: 1.5;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            text-align: center;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 12px 24px rgba(197,160,89,0.35);
         }
 
         .cta-sub {
-            font-size: 0.85rem;
-            margin-top: 1rem;
             display: block;
+            font-size: 0.82rem;
+            margin-top: 0.8rem;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
+
         .fv .cta-sub {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.75);
         }
 
-        /* Section Styles */
+        /* ── Section Colors ── */
         .section-white { background-color: var(--surface-color); }
-        .section-beige { background-color: var(--bg-color); }
+        .section-beige  { background-color: var(--bg-color); }
 
+        /* ── Inline Highlights ── */
         .highlight-gold {
             border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 4px;
-            display: inline-block;
-            text-shadow: none;
+            padding-bottom: 3px;
         }
 
+        /* ── Quote Box ── */
         .quote-box {
-            border-left: 2px solid var(--accent-color);
-            padding: 2rem;
+            border-left: 3px solid var(--accent-color);
+            padding: 1.4rem 1.6rem;
             background: var(--bg-color);
             margin: 2rem 0;
+            font-size: 1.05rem;
             font-style: italic;
+            line-height: 1.85;
         }
 
+        /* ── Uniqueness Box ── */
         .uniqueness-box {
             border: 1px solid var(--accent-color);
-            padding: 3rem 2rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             background-color: var(--surface-color);
-            margin: 3rem 0;
+            margin: 2.4rem 0;
+            border-radius: 4px;
         }
 
-        /* Voice Cards */
+        .uniqueness-box h3 {
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            line-height: 1.65;
+        }
+
+        /* ── Benefit List ── */
+        .benefit-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-list li {
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .benefit-list li:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ── Voice Cards ── */
         .voice-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin-top: 2.8rem;
         }
 
         .voice-card {
             background: var(--surface-color);
-            padding: 2rem;
-            border-radius: 4px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem 1.6rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             text-align: center;
         }
 
         .voice-img {
-            width: 120px;
-            height: 120px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.2rem;
             object-fit: cover;
             border: 3px solid var(--accent-light);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .voice-name {
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
             display: block;
+            margin-bottom: 0.3rem;
         }
 
         .voice-title {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
             display: block;
+            margin-bottom: 1rem;
         }
 
-        /* Footer */
+        .voice-card p {
+            font-size: 0.93rem;
+            text-align: left;
+            line-height: 1.85;
+        }
+
+        /* ── Footer ── */
         footer {
             background-color: var(--text-primary);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 4rem 20px;
+            color: rgba(255,255,255,0.55);
+            padding: 3.5rem 20px;
             text-align: center;
             font-size: 0.8rem;
         }
 
-        /* Mobile specific */
-        .br-sp { display: none; }
+        /* ── Tablet+ ── */
+        @media (min-width: 640px) {
+            .voice-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-        @media (max-width: 768px) {
-            section { padding: 60px 20px; }
-            h2 { font-size: 1.5rem; }
-            .br-sp { display: block; }
-            .cta-button { width: 100%; padding: 1.25rem 1rem; }
-            .uniqueness-box { padding: 2rem 1.5rem; }
+        @media (min-width: 900px) {
+            section { padding: 100px 32px; }
+            h2 { margin-bottom: 3rem; }
+
+            .voice-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cta-button {
+                width: auto;
+                padding: 1.25rem 3.5rem;
+            }
         }
     </style>
 </head>
@@ -283,20 +342,21 @@
         <div class="fv-bg"></div>
         <div class="fv-overlay"></div>
         <div class="fv-content">
+            <p class="fv-label">AI時代。今、あなたが最も</p>
             <h1 class="fv-heading">
                 AIが答えを出す時代。<br>
                 そこに、あなたの言葉はありますか？
             </h1>
-            <p class="fv-sub">
+            <p class="fv-body">
                 テンプレートに頼るほど、自分らしくなくなる。<br>
-                ノウハウを増やすほど、動けなくなる。
-            </p>
-            <p class="fv-sub">
+                ノウハウを増やすほど、動けなくなる。<br><br>
                 その原因は、やり方（Do）が間違っているわけではありません。<br>
-                むしろ、<span class="highlight-gold">必死に正解を探し、やり方を詰め込むほど、あなたの「在り方（Be）」との間にズレが生じ、ブレーキがかかっているのです。</span>
+                必死に正解を探し、やり方を詰め込むほど、あなたの「在り方（Be）」との間にズレが生じ、<br class="br-sp">ブレーキがかかっているのです。
             </p>
-            <a href="https://line.me/R/ti/p/%40910kbpho" class="cta-button">独りで迷う時間を終わらせ、自分を取り戻す ➔</a>
-            <span class="cta-sub">※LINE登録後、ご希望の参加日をタップするだけで予約完了です。</span>
+            <div class="cta-wrap">
+                <a href="https://line.me/R/ti/p/%40910kbpho" class="cta-button">独りで迷う時間を終わらせ、自分を取り戻す ➔</a>
+                <span class="cta-sub">※LINE登録後、ご希望の参加日をタップするだけで予約完了です。</span>
+            </div>
         </div>
     </header>
 
@@ -324,10 +384,10 @@
         <div class="container">
             <p>在り方を整えた先に待っているのは、必死な努力による成果ではありません。<br>
             水が流れるように、自然体の自分で成果が循環します。</p>
-            <ul style="list-style: none; margin-bottom: 2rem;">
-                <li style="margin-bottom: 1rem;">・迷いやモヤモヤから、<strong>「自分の中の答え」へと最短で復帰できる</strong></li>
-                <li style="margin-bottom: 1rem;">・言葉が自然体になり、<strong>「あなたにお願いしたい」とお客様から選ばれる</strong></li>
-                <li style="margin-bottom: 1rem;">・意志の力を使わずに、<strong>「気づけば行動していた」という軽やかな自分</strong>に出会える</li>
+            <ul class="benefit-list">
+                <li>迷いやモヤモヤから、<strong>「自分の中の答え」へと最短で復帰できる</strong></li>
+                <li>言葉が自然体になり、<strong>「あなたにお願いしたい」とお客様から選ばれる</strong></li>
+                <li>意志の力を使わずに、<strong>「気づけば行動していた」という軽やかな自分</strong>に出会える</li>
             </ul>
             <p>「頑張っているのに、空回りしている」という感覚。それを手放し、あなた自身の本音でビジネスを動かす喜びを取り戻します。</p>
         </div>
@@ -351,7 +411,7 @@
             それは2024年以降、AIの普及によって「優れた正論」や「完璧なノウハウ」が価値を失ったからです。</p>
             <p><strong>情報の海に溺れれば溺れるほど、あなたの「個性」は磨り減っていく。</strong></p>
             <p>今、在り方を整えることは、単なる自己啓発ではありません。<br>
-            AI時代に「あなたという人間」で選ばれ続けるための、**最も本質的で、自然な道です。**</p>
+            AI時代に「あなたという人間」で選ばれ続けるための、<strong>最も本質的で、自然な道です。</strong></p>
         </div>
     </section>
 
