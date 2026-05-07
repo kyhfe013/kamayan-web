@@ -501,6 +501,7 @@
         <p>&copy; 楽らく実現力アップ実践会. All rights reserved.</p>
     </footer>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         // Intersection Observer for scroll animations
         const observerOptions = {
@@ -520,14 +521,28 @@
         });
 
         function loadVideo(container, videoId) {
-            const iframe = document.createElement('iframe');
-            // autoplay=1, rel=0, playsinline=1 を追加して即時再生を強化
-            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`);
-            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-            iframe.setAttribute('allowfullscreen', 'true');
+            // コンテナの中にプレイヤー用の要素を作成
+            const playerDivId = 'player-' + videoId;
+            container.innerHTML = `<div id="${playerDivId}"></div>`;
             
-            container.innerHTML = '';
-            container.appendChild(iframe);
+            // YouTube Playerを初期化
+            new YT.Player(playerDivId, {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'playsinline': 1,
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'controls': 1
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.playVideo();
+                    }
+                }
+            });
         }
     </script>
 </body>
