@@ -399,6 +399,45 @@
             .profile-text {
                 text-align: left;
             }
+        /* ── Sticky CTA ── */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta .cta-button {
+            width: 100%;
+            max-width: 500px;
+            margin: 0;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 0.8rem;
+            }
+            .sticky-cta .cta-button {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -580,8 +619,26 @@
         <p>&copy; 楽らく実現力アップ実践会. All rights reserved.</p>
     </footer>
 
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="https://line.me/R/ti/p/%40910kbpho" class="cta-button">無料ゲスト参加を予約する ➔</a>
+    </div>
+
 
     <script>
+        // Sticky CTA Visibility
+        const stickyCta = document.querySelector('.sticky-cta');
+        const fv = document.querySelector('.fv');
+
+        window.addEventListener('scroll', () => {
+            const fvHeight = fv.offsetHeight;
+            if (window.scrollY > fvHeight - 100) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1
