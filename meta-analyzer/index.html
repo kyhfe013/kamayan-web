@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「休めない」「倒れられない」あなたのための、身体の棚卸し｜メタアナライザー・コンディションセッション</title>
+    <meta name="description" content="多忙な経営スケジュールを崩さず、客観データでコンディションを整える。生体電磁気学に基づく生体スキャン技術「メタアナライザー」を活用した、40〜50代女性経営者向け完全個別コンディショニング。">
+    <link rel="canonical" href="https://web.kamayancoach.com/meta-analyzer/">
+    
+    <!-- OGP -->
+    <meta property="og:site_name" content="Kama-yan Executive Wellness">
+    <meta property="og:title" content="「休めない」「倒れられない」あなたのための、身体の棚卸し｜メタアナライザー・コンディションセッション">
+    <meta property="og:description" content="人間ドックでは「異常なし」。けれど確実に蓄積している疲労と判断力の鈍り。客観データで全身の生体バランスを可視化し、周波数を調律する90分。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://web.kamayancoach.com/meta-analyzer/">
+    <meta property="og:image" content="https://web.kamayancoach.com/meta-analyzer/hero.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           Executive Wellness Design System
+           Concept: 高級プライベートクリニック / スイス・北欧メディカルスパの知性と静寂
+           Target:  40〜50代 中小企業女性経営者
+           ========================================================================== */
+
+        :root {
+            /* Backgrounds (オフホワイト / ウォームグレー / グレージュ) */
+            --bg-base:        #FAF9F5;
+            --bg-surface:     #F3F2EB;
+            --bg-card:        #FFFFFF;
+            --bg-highlight:   #F5F0E6; /* 当セッション比較用・淡いシャンパングレージュ */
+            
+            /* Dark Navy & Slate (信頼と知性のディープトーン) */
+            --navy-deep:      #121D24;
+            --navy-surface:   #1A2832;
+            --navy-card:      #21323E;
+            
+            /* Typography Colors */
+            --text-heading:   #101A20;
+            --text-primary:   #1D272E;
+            --text-secondary: #48555F;
+            --text-muted:     #78848F;
+            --text-light:     #E8E5DD;
+            
+            /* Accents (品格あるシャンパンゴールド) */
+            --gold:           #C5A059;
+            --gold-light:     #E5D3B0;
+            --gold-dark:      #9E7D3B;
+            --gold-hover:     #B38E46;
+            --terracotta:     #A85A48;
+            
+            /* Borders */
+            --border:         #E5E2D8;
+            --border-subtle:  #EFECE3;
+            --border-dark:    #283A48;
+            
+            /* Fonts */
+            --font-serif:     'Shippori Mincho', 'Noto Serif JP', Georgia, serif;
+            --font-sans:      'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-en:        'Inter', sans-serif;
+            
+            /* Layout & Spacing */
+            --max-w:          860px;
+            --line-height:    1.9;
+            --letter-spacing: 0.04em;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== Layout Units ===== */
+        .wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        section.dark {
+            background-color: var(--navy-deep);
+            color: var(--text-light);
+            padding: 7rem 0;
+        }
+
+        section.surface {
+            background-color: var(--bg-surface);
+        }
+
+        /* ===== Typography ===== */
+        h1, h2, h3, .serif-font {
+            font-family: var(--font-serif);
+            letter-spacing: 0.03em;
+        }
+
+        h1 {
+            font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.38;
+            color: var(--text-heading);
+            margin-bottom: 1.8rem;
+        }
+
+        h2 {
+            font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+            font-weight: 700;
+            line-height: 1.45;
+            color: var(--text-heading);
+            margin-bottom: 1.6rem;
+        }
+
+        section.dark h1,
+        section.dark h2 {
+            color: #FFFFFF;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        section.dark h3 {
+            color: var(--gold-light);
+        }
+
+        p {
+            margin-bottom: 1.6rem;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        section.dark p {
+            color: #D1D9DE;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        section.dark strong {
+            color: #FFFFFF;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== Section Badges & Labels ===== */
+        .section-tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-bottom: 1.6rem;
+        }
+
+        .section-tag {
+            font-family: var(--font-en);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(197, 160, 89, 0.45);
+            background: rgba(197, 160, 89, 0.05);
+            padding: 0.35rem 0.9rem;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        section.dark .section-tag {
+            color: var(--gold-light);
+            border-color: rgba(229, 211, 176, 0.4);
+            background: rgba(229, 211, 176, 0.07);
+        }
+
+        /* ===== First View (Hero) ===== */
+        .hero {
+            padding: 5.5rem 0 4.5rem;
+            background: linear-gradient(180deg, #FAF9F5 0%, #F3F2EB 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-header {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--gold-dark);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .hero-sub {
+            font-size: 1.12rem;
+            line-height: 1.95;
+            color: var(--text-secondary);
+            max-width: 740px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-visual {
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 45px rgba(18, 29, 36, 0.08);
+            margin: 2.5rem 0;
+            background-color: #FFFFFF;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-features {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            padding: 1.6rem 2rem;
+            border-radius: 4px;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.02);
+        }
+
+        .hero-features ul {
+            list-style: none;
+        }
+
+        .hero-features li {
+            position: relative;
+            padding-left: 1.6rem;
+            font-size: 1.02rem;
+            color: var(--text-heading);
+            font-weight: 600;
+            line-height: 1.85;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-features li:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero-features li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        /* ===== Buttons & CTA ===== */
+        .cta-wrap {
+            text-align: center;
+            margin: 2.2rem auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #C5A059 0%, #A8823B 100%);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            padding: 1.35rem 3rem;
+            border-radius: 3px;
+            box-shadow: 0 8px 24px rgba(197, 160, 89, 0.32);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(197, 160, 89, 0.45);
+            background: linear-gradient(135deg, #CFAC67 0%, #B58F47 100%);
+        }
+
+        .cta-note {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 0.85rem;
+            letter-spacing: 0.06em;
+        }
+
+        section.dark .cta-note {
+            color: var(--gold-light);
+        }
+
+        /* ===== Problem Check List ===== */
+        .check-list {
+            list-style: none;
+            margin: 2.5rem 0;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            background: #FFFFFF;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 1.1rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .check-item:hover {
+            border-color: var(--gold);
+            transform: translateX(3px);
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            margin-right: 1.2rem;
+            margin-top: 2px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            font-size: 0.85rem;
+        }
+
+        .check-text {
+            font-size: 1.08rem;
+            color: var(--text-heading);
+            font-weight: 600;
+            line-height: 1.75;
+        }
+
+        .insight-box {
+            background-color: #FFFFFF;
+            padding: 2rem 2.2rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--navy-deep);
+            margin-top: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        /* ===== Root Cause Highlight ===== */
+        .cause-callout {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            text-align: center;
+            margin: 2.5rem 0;
+            padding: 1.8rem 1.5rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            line-height: 1.6;
+        }
+
+        /* ===== Mechanism & Minimal Infographic ===== */
+        .infographic-flow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .info-step {
+            background: var(--navy-card);
+            border: 1px solid var(--border-dark);
+            padding: 2.2rem 1.8rem;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-step-num {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--gold-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .info-step h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            line-height: 1.45;
+        }
+
+        .info-step p {
+            font-size: 0.96rem;
+            color: #BAC7D0;
+            margin-bottom: 0;
+            line-height: 1.85;
+        }
+
+        .device-showcase {
+            margin-top: 3.5rem;
+            text-align: center;
+        }
+
+        .device-showcase-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--gold-light);
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .device-img-wrap {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .device-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .device-caption {
+            font-size: 0.88rem;
+            color: #8C9DA8;
+            margin-top: 1rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== Comparison Table (Desktop 3-Column) ===== */
+        .desktop-table-wrap {
+            margin: 3rem 0;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: #FFFFFF;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 1.4rem 1.6rem;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.75;
+            vertical-align: middle;
+        }
+
+        .compare-table th {
+            background-color: var(--bg-surface);
+            color: var(--text-heading);
+            font-weight: 700;
+            font-size: 1.02rem;
+        }
+
+        .compare-table td.col-label {
+            font-weight: 700;
+            color: var(--text-heading);
+            width: 22%;
+            background-color: #FAF8F5;
+        }
+
+        .compare-table td.col-general {
+            color: var(--text-secondary);
+            width: 25%;
+        }
+
+        .compare-table td.col-featured,
+        .compare-table th.col-featured {
+            background-color: var(--bg-highlight);
+            color: var(--text-heading);
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+
+        .compare-table th.col-featured {
+            background-color: #EFE8DA;
+        }
+
+        .badge-current {
+            display: inline-block;
+            background-color: var(--gold-dark);
+            color: #FFFFFF;
+            font-family: var(--font-en);
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.06em;
+        }
+
+        /* ===== Mobile Comparison Cards (Phone Responsive) ===== */
+        .mobile-compare-cards {
+            display: none; /* Desktop hidden */
+            margin: 2rem 0;
+        }
+
+        .mobile-item-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+        }
+
+        .mobile-item-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .mobile-row {
+            margin-bottom: 0.9rem;
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+
+        .mobile-row-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .mobile-row-featured {
+            background-color: var(--bg-highlight);
+            border-left: 3px solid var(--gold);
+            padding: 0.8rem 1rem;
+            border-radius: 3px;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+
+        /* ===== Session Steps Timeline ===== */
+        .step-timeline {
+            margin: 3rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.6rem;
+            transition: border-color 0.2s;
+        }
+
+        .step-item:hover {
+            border-color: var(--gold);
+        }
+
+        .step-header-wrap {
+            flex-shrink: 0;
+            width: 90px;
+            margin-right: 1.8rem;
+        }
+
+        .step-num {
+            font-family: var(--font-en);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            display: block;
+        }
+
+        .step-time {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .step-body h4 {
+            font-family: var(--font-serif);
+            font-size: 1.22rem;
+            color: var(--text-heading);
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .step-body p {
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            line-height: 1.85;
+        }
+
+        .step-body ul {
+            margin-top: 0.6rem;
+            padding-left: 1.3rem;
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+        }
+
+        /* ===== Testimonial Interview Cards ===== */
+        .interview-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .interview-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--gold);
+            padding: 2.5rem 2.8rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .interview-headline {
+            font-family: var(--font-serif);
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            line-height: 1.55;
+        }
+
+        .interview-profile {
+            font-family: var(--font-en);
+            font-size: 0.9rem;
+            color: var(--gold-dark);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.4rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.8rem;
+        }
+
+        .interview-content {
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 0;
+        }
+
+        /* ===== Pricing Cards ===== */
+        .pricing-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3.5rem 0;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2.8rem 2.2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.recommended {
+            border: 2px solid var(--gold);
+            box-shadow: 0 12px 38px rgba(197, 160, 89, 0.18);
+            background: #FFFCF7;
+        }
+
+        .plan-top-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #FFFFFF;
+            font-family: var(--font-en);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 0.35rem 1.3rem;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .plan-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .plan-overview {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 1.6rem;
+            min-height: 48px;
+            line-height: 1.7;
+        }
+
+        .plan-amount-box {
+            text-align: center;
+            padding: 1.3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .plan-price-num {
+            font-family: var(--font-en);
+            font-size: 2.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .plan-tax-note {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-left: 0.3rem;
+        }
+
+        .plan-features-list {
+            list-style: none;
+            margin-bottom: 2.2rem;
+            flex-grow: 1;
+        }
+
+        .plan-features-list li {
+            position: relative;
+            padding-left: 1.6rem;
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.9rem;
+            line-height: 1.75;
+        }
+
+        .plan-features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .special-benefit-box {
+            background-color: rgba(197, 160, 89, 0.12);
+            border-left: 3px solid var(--gold);
+            padding: 1.1rem 1.2rem;
+            border-radius: 3px;
+            margin-top: 1.2rem;
+            font-size: 0.92rem;
+            color: var(--text-heading);
+            line-height: 1.75;
+        }
+
+        .special-benefit-box strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--text-heading);
+        }
+
+        /* ===== FAQ Accordion ===== */
+        .faq-accordion {
+            margin: 3rem 0;
+        }
+
+        .faq-block {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+        }
+
+        .faq-head {
+            padding: 1.5rem 2rem;
+            font-weight: 700;
+            font-size: 1.08rem;
+            color: var(--text-heading);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        .faq-head:hover {
+            background-color: #FAF8F5;
+        }
+
+        .faq-indicator {
+            font-family: var(--font-en);
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-body {
+            padding: 0 2rem 1.6rem;
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.9;
+            border-top: 1px dashed var(--border);
+            padding-top: 1.3rem;
+        }
+
+        /* ===== Legal Notice Box ===== */
+        .legal-notice-box {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            padding: 2rem 2.2rem;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.85;
+            margin-top: 2.5rem;
+        }
+
+        .legal-notice-box h4 {
+            font-size: 0.98rem;
+            color: var(--text-heading);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .legal-notice-box p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .legal-notice-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== Floating Sticky CTA ===== */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 29, 36, 0.97);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--gold);
+            padding: 0.9rem 2rem;
+            z-index: 999;
+            box-shadow: 0 -6px 25px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+            transform: translateY(100%);
+        }
+
+        .sticky-cta-bar.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sticky-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sticky-label {
+            font-family: var(--font-en);
+            font-size: 0.78rem;
+            color: var(--gold-light);
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .sticky-main-text {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .sticky-btn {
+            background: linear-gradient(135deg, #C5A059 0%, #A8823B 100%);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 3px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 18px rgba(197, 160, 89, 0.38);
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .sticky-btn:hover {
+            background: linear-gradient(135deg, #CFAC67 0%, #B58F47 100%);
+            transform: translateY(-1px);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background-color: var(--navy-deep);
+            color: #7B8B96;
+            padding: 3.5rem 0;
+            text-align: center;
+            font-size: 0.88rem;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        footer p {
+            color: #7B8B96;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== Provider Section ===== */
+        .provider-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 3rem;
+            margin-top: 3.5rem;
+            align-items: start;
+        }
+
+        .provider-photo {
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+        }
+
+        .provider-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .provider-name-block {
+            margin-bottom: 1.6rem;
+        }
+
+        .provider-title-label {
+            font-family: var(--font-en);
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .provider-name {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            color: var(--text-heading);
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .provider-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.8rem;
+        }
+
+        .credential-tag {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 0.22rem 0.7rem;
+            border-radius: 2px;
+        }
+
+        .provider-bio {
+            color: var(--text-secondary);
+            line-height: 1.95;
+            margin-bottom: 1.4rem;
+        }
+
+        .provider-message {
+            background: #FFFFFF;
+            border-left: 4px solid var(--gold);
+            padding: 1.3rem 1.7rem;
+            border-radius: 3px;
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-heading);
+            line-height: 1.75;
+            font-weight: 600;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        /* ===== Interview Note ===== */
+        .interview-note {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== FAQ Body (hidden by default) ===== */
+        .faq-body {
+            display: none;
+        }
+
+        /* ===== Responsive Queries ===== */
+        @media (max-width: 860px) {
+            .infographic-flow {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .pricing-layout {
+                grid-template-columns: 1fr;
+                gap: 2.2rem;
+            }
+            .desktop-table-wrap {
+                display: none; /* Switch to Mobile Cards */
+            }
+            .mobile-compare-cards {
+                display: block; /* Show Mobile Cards */
+            }
+            .provider-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .provider-photo {
+                max-width: 180px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4.5rem 0;
+            }
+            .wrap {
+                padding: 0 1.25rem;
+            }
+            .step-item {
+                flex-direction: column;
+                padding: 1.6rem 1.4rem;
+            }
+            .step-header-wrap {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.8rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .interview-card {
+                padding: 1.8rem 1.5rem;
+            }
+            .sticky-cta-bar {
+                flex-direction: column;
+                gap: 0.7rem;
+                text-align: center;
+                padding: 0.9rem 1.2rem;
+            }
+            .sticky-btn {
+                width: 100%;
+                text-align: center;
+                padding: 0.85rem;
+            }
+            .btn-primary {
+                width: 100%;
+                padding: 1.25rem 1.5rem;
+                font-size: 1.08rem;
+            }
+            .check-item {
+                padding: 1.2rem 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.55rem, 5.2vw, 2.2rem);
+                line-height: 1.42;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         1. ファーストビュー (Hero Section)
+         ========================================================================== -->
+    <section class="hero" id="hero">
+        <div class="wrap">
+            <div class="hero-header">
+                <div class="section-tag-group">
+                    <span class="section-tag">完全プライベート対応</span>
+                    <span class="section-tag">オンライン全国対応</span>
+                    <span class="section-tag">経営者・事業主向け個別セッション</span>
+                </div>
+                <h1>
+                    「休めない」「倒れられない」<br>あなたのための、身体の棚卸し。
+                </h1>
+                <span class="hero-tagline">多忙な経営スケジュールを崩さず、客観データでコンディションを整える。</span>
+                <p class="hero-sub">
+                    人間ドックでは「異常なし」。けれど、確実に蓄積している重だるさや判断力の鈍り。<br>
+                    生体電磁気学の知見に基づく生体スキャン技術「メタアナライザー」を活用し、<br>
+                    オフィスや自宅にいながら、全身の生体バランスの可視化と周波数調律を行います。
+                </p>
+            </div>
+
+            <!-- Hero Visual: 知的で落ち着いた女性経営者の思索シーン -->
+            <div class="hero-visual">
+                <img src="hero.jpg" alt="落ち着いたエグゼクティブスイートで穏やかに思索する女性経営者" loading="eager">
+            </div>
+
+            <!-- Authority Points -->
+            <div class="hero-features">
+                <ul>
+                    <li>移動時間ゼロで受講可能な【完全オンライン対応】（※大阪・梅田での対面受講も選択可能）</li>
+                    <li>【オンライン限定特典】セッション後、3日ごとの定期調整＆フォロー通知（計4回）で安定化を支援</li>
+                </ul>
+            </div>
+
+            <div class="cta-wrap">
+                <a href="#pricing" class="btn-primary">セッション詳細・お申込みはこちら</a>
+                <span class="cta-note">※事前予約制／完全個別対応</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         2. 共感・問題提起 (Problem & Agitation)
+         ========================================================================== -->
+    <section id="problem">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">PROBLEM & AGITATION</span>
+                </div>
+                <h2>「気合い」と「サプリ」で乗り切る毎日に、<br>限界を感じていませんか？</h2>
+            </div>
+            
+            <p style="margin-top: 2rem;">
+                40代・50代を迎え、事業の重責を背負いながら走る女性経営者の方から、このような声を多くいただきます。
+            </p>
+
+            <ul class="check-list">
+                <li class="check-item">
+                    <div class="check-icon">✓</div>
+                    <div class="check-text">移動時間や通院の時間を捻出できないほど、日々のスケジュールが逼迫している</div>
+                </li>
+                <li class="check-item">
+                    <div class="check-icon">✓</div>
+                    <div class="check-text">寝ても翌朝に疲れが抜けない（午後の集中力や判断スピードの低下を実感する）</div>
+                </li>
+                <li class="check-item">
+                    <div class="check-icon">✓</div>
+                    <div class="check-text">健康診断では「異常なし」「加齢のせい」で片付けられるが、明らかに調子が落ちている</div>
+                </li>
+                <li class="check-item">
+                    <div class="check-icon">✓</div>
+                    <div class="check-text">更年期特有のバイオリズムの乱れを感じるが、周囲や社員には弱音を吐けない</div>
+                </li>
+                <li class="check-item">
+                    <div class="check-icon">✓</div>
+                    <div class="check-text">「自分が倒れたら事業が止まる」という責任感から、休むことに罪悪感がある</div>
+                </li>
+            </ul>
+
+            <div class="insight-box">
+                <h3 style="font-size: 1.25rem; color: var(--text-heading); margin-bottom: 0.6rem;">
+                    経営者は、判断そのものが仕事です。
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: 0;">
+                    心身のコンディション低下は、日々のモチベーションだけでなく、事業の意思決定の質に直結します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         3. 原因の提示 (Root Cause)
+         ========================================================================== -->
+    <section class="surface" id="cause">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">ROOT CAUSE</span>
+                </div>
+                <h2>なぜ、一般的な健康法では手応えが得られないのか？</h2>
+            </div>
+
+            <div style="max-width: 740px; margin: 2rem auto 0;">
+                <p>
+                    世の中には数多くの健康法やサプリメントが存在します。しかし、それらを試しても劇的な変化を感じられない理由は明快です。
+                </p>
+
+                <div class="cause-callout">
+                    「いまのあなたの身体の状態」を、客観的に把握できていないからです。
+                </div>
+
+                <p>
+                    人の身体は、日々のプレッシャー、生活リズム、年齢、体質によって刻一刻と変化しています。<br>
+                    他人に効果があった健康法が、現在のあなたにも有効とは限りません。場合によっては、良かれと思って続けている習慣が、知らず知らずのうちに消化器系や自律神経に過度な負担をかけていることすらあります。
+                </p>
+                <p>
+                    勘や一般論に頼ったセルフケアを続けることは、現状の試算表を見ずに経営判断を下すようなものです。<br>
+                    いま必要なのは、<strong>「自分自身の現在のコンディションを正確なデータとして把握すること」</strong>です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         4. メカニズムの提示 (Bio-Resonance Mechanism & Infographic)
+         ========================================================================== -->
+    <section class="dark" id="mechanism">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">BIO-RESONANCE MECHANISM</span>
+                </div>
+                <h2>なぜ「オンライン（非対面）」で身体の状態が測定できるのか？</h2>
+            </div>
+
+            <p style="text-align: center; max-width: 720px; margin: 1.5rem auto 2.8rem; color: #D1D9DE;">
+                「対面で機械に触れずに、なぜ遠隔で測定や調整ができるのか？」と疑問に思われるかもしれません。<br>
+                本セッションでは、スピリチュアルな感覚論ではなく、生体電磁気学（Bioelectromagnetics）および生体情報工学の知見に基づく、生体共鳴（バイオレゾナンス）アプローチを採用しています。
+            </p>
+
+            <!-- Minimal Infographic Flow -->
+            <div class="infographic-flow">
+                <div class="info-step">
+                    <span class="info-step-num">STEP 01</span>
+                    <h4>生体固有のシグナルの特定</h4>
+                    <p>
+                        物質としての肉体だけでなく、すべての細胞や臓器は固有の微弱な電磁気周波数（情報シグナル）を持っています。事前にお預かりする個人固有の識別情報（氏名・生年月日・写真等）をもとに、システム上で測定対象の周波数チャンネルを特定します。
+                    </p>
+                </div>
+
+                <div class="info-step">
+                    <span class="info-step-num">STEP 02</span>
+                    <h4>生体データベースとの照合</h4>
+                    <p>
+                        旧ソビエト連邦の宇宙医学研究を起源として蓄積された数万人規模の正常値データベースと、あなたの現在の周波数データを共鳴照合。どの器官に過度な負荷やズレが生じているかを割り出します。
+                    </p>
+                </div>
+
+                <div class="info-step">
+                    <span class="info-step-num">STEP 03</span>
+                    <h4>リアルタイムな画面共有による可視化</h4>
+                    <p>
+                        Zoomの画面共有を通じ、測定結果をリアルタイムで直接ご確認いただきます。「どこが」「どの程度」疲労しているのかを、ごまかしのない視覚データとして共有します。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Device Mockup UI Showcase -->
+            <div class="device-showcase">
+                <div class="device-showcase-title">▼ リアルタイム解析画面イメージ（iPad Pro / PC共有）</div>
+                <div class="device-img-wrap">
+                    <img src="device_mockup.jpg" alt="iPad Proに表示された生体周波数アナリティクスUI" loading="lazy">
+                </div>
+                <p class="device-caption">※旧ソビエト宇宙医学研究から発展した精緻な周波数アルゴリズムに基づき、現在の生体バランスを客観データとして図示します。</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         5. 本セッションの独自性 (Unique Value & Responsive Comparison)
+         ========================================================================== -->
+    <section id="uniqueness">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">UNIQUE VALUE</span>
+                </div>
+                <h2>ただ「測って終わり」の健康占いにはしません。<br>経営と生活を前に進めるための【データ解析 × 行動戦略】</h2>
+            </div>
+
+            <div style="max-width: 760px; margin: 2rem auto;">
+                <p>
+                    多くの測定サロンの欠点は、「データを見せられて終わり」になってしまう点にあります。<br>
+                    「ここが弱っています」「この習慣を改めましょう」と言われても、多忙を極める経営環境の中で実行できなければ意味がありません。
+                </p>
+                <p>
+                    本セッションでは、得られたデータをもとに、日々の多忙なスケジュールの中でどうコンディションを維持するかまで対話を通じて落とし込みます。
+                </p>
+            </div>
+
+            <!-- 1) Desktop 3-Column Table (PC表示) -->
+            <div class="desktop-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th class="col-label">項目</th>
+                            <th class="col-general">一般的な健康診断</th>
+                            <th class="col-general">通常のサロン・施術</th>
+                            <th class="col-featured">
+                                <span class="badge-current">当オンライン・セッション</span><br>
+                                メタアナライザー
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-label">場所・拘束時間</td>
+                            <td class="col-general">病院への移動・半日拘束</td>
+                            <td class="col-general">店舗への往復移動が必要</td>
+                            <td class="col-featured"><strong>オフィスや自宅から完全オンライン（移動ゼロ）</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="col-label">目的</td>
+                            <td class="col-general">病気の早期発見（異常値の検知）</td>
+                            <td class="col-general">一時的なリフレッシュ</td>
+                            <td class="col-featured"><strong>未病段階の負荷の可視化と根本調律</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="col-label">アプローチ</td>
+                            <td class="col-general">血液検査・画像診断</td>
+                            <td class="col-general">物理的な手技・マッサージ</td>
+                            <td class="col-featured"><strong>生体周波数のスキャン＆遠隔調律</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="col-label">受講後のフォロー</td>
+                            <td class="col-general">年1回の通知のみ</td>
+                            <td class="col-general">次回来店まで間が空く</td>
+                            <td class="col-featured"><strong>3日ごとの定期調整＆フィードバック（計4回）</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 2) Mobile Comparison Cards (スマホ専用：崩れない縦積みスタックUI) -->
+            <div class="mobile-compare-cards">
+                <div class="mobile-item-card">
+                    <div class="mobile-item-title">1. 場所・拘束時間</div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">病院・健康診断:</span>
+                        <span>病院への移動・半日拘束</span>
+                    </div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">通常のサロン・施術:</span>
+                        <span>店舗への往復移動が必要</span>
+                    </div>
+                    <div class="mobile-row-featured">
+                        <span class="mobile-row-label" style="color: var(--gold-dark); font-weight:700;">当セッション:</span>
+                        <span>オフィスや自宅から完全オンライン（移動ゼロ）</span>
+                    </div>
+                </div>
+
+                <div class="mobile-item-card">
+                    <div class="mobile-item-title">2. 目的</div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">病院・健診:</span>
+                        <span>病気の早期発見</span>
+                    </div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">通常のサロン:</span>
+                        <span>一時的なリフレッシュ</span>
+                    </div>
+                    <div class="mobile-row-featured">
+                        <span class="mobile-row-label" style="color: var(--gold-dark); font-weight:700;">当セッション:</span>
+                        <span>未病段階の可視化と調整</span>
+                    </div>
+                </div>
+
+                <div class="mobile-item-card">
+                    <div class="mobile-item-title">3. アプローチ</div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">病院・健診:</span>
+                        <span>血液・画像検査</span>
+                    </div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">通常のサロン:</span>
+                        <span>物理的な手技</span>
+                    </div>
+                    <div class="mobile-row-featured">
+                        <span class="mobile-row-label" style="color: var(--gold-dark); font-weight:700;">当セッション:</span>
+                        <span>生体周波数スキャン＆遠隔調律</span>
+                    </div>
+                </div>
+
+                <div class="mobile-item-card">
+                    <div class="mobile-item-title">4. 受講後のフォロー</div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">病院・健診:</span>
+                        <span>年1回の通知のみ</span>
+                    </div>
+                    <div class="mobile-row">
+                        <span class="mobile-row-label">通常のサロン:</span>
+                        <span>次回来店まで間が空く</span>
+                    </div>
+                    <div class="mobile-row-featured">
+                        <span class="mobile-row-label" style="color: var(--gold-dark); font-weight:700;">当セッション:</span>
+                        <span>3日ごとの定期調整＆フィードバック（計4回）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         6. セッションの流れ (Session Flow)
+         ========================================================================== -->
+    <section class="surface" id="flow">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">SESSION FLOW</span>
+                </div>
+                <h2>セッションの流れ（90分）</h2>
+            </div>
+
+            <div class="step-timeline">
+                <div class="step-item">
+                    <div class="step-header-wrap">
+                        <span class="step-num">STEP 01</span>
+                        <span class="step-time">15分</span>
+                    </div>
+                    <div class="step-body">
+                        <h4>事前ヒアリング</h4>
+                        <p>Zoomを繋ぎ、現在の事業状況、多忙度、自覚している疲労感、生活リズムを丁寧にお伺いします。</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-header-wrap">
+                        <span class="step-num">STEP 02</span>
+                        <span class="step-time">25分</span>
+                    </div>
+                    <div class="step-body">
+                        <h4>メタアナライザーによるスキャン・画面共有</h4>
+                        <p>生体情報の共鳴測定を実施。PC画面を共有しながら、現在の身体の負荷状況やアンバランスな箇所をリアルタイムで可視化します。</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-header-wrap">
+                        <span class="step-num">STEP 03</span>
+                        <span class="step-time">20分</span>
+                    </div>
+                    <div class="step-body">
+                        <h4>リアルタイム周波数調律</h4>
+                        <p>特に負荷がかかっている領域に対し、本来の安定した周波数をフィードバックし、乱れたバランスをリセットします。</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-header-wrap">
+                        <span class="step-num">STEP 04</span>
+                        <span class="step-time">15分</span>
+                    </div>
+                    <div class="step-body">
+                        <h4>現状の分析と課題の特定</h4>
+                        <ul>
+                            <li>現在の身体のボトルネックとなっている箇所の解説</li>
+                            <li>日常生活で無意識に負担をかけている要因の整理</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-header-wrap">
+                        <span class="step-num">STEP 05</span>
+                        <span class="step-time">15分</span>
+                    </div>
+                    <div class="step-body">
+                        <h4>現実的な行動計画の策定</h4>
+                        <p>多忙なスケジュールを圧迫するような非現実的な健康法は提案しません。「これだけは引く」「ここだけは意識する」という、最小の労力で最大のパフォーマンスを維持するためのルールを1〜2点に絞り込みます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         7. 受講者の声 (Testimonial Interviews)
+         ========================================================================== -->
+    <section id="testimonials">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">VOICE & CASES</span>
+                </div>
+                <h2>受講者の声（想定事例）</h2>
+            </div>
+
+            <div class="interview-grid">
+                <div class="interview-card">
+                    <div class="interview-headline">「オフィスにいながら受講でき、その後の定期フォローで仕事の集中力が持続しました」</div>
+                    <div class="interview-profile">48歳・IT関連企業 代表取締役</div>
+                    <p class="interview-content">
+                        移動時間が取れないためオンライン受講を選びました。画面越しに自分の身体の疲労ポイントが明確に図示され、なぜ午後に判断力が鈍るのかが論理的に理解できました。セッション後も3日ごとに調整と状況報告のメッセージが届くため、忙しい出張期間中も大きく崩れることなく乗り切ることができました。
+                    </p>
+                </div>
+
+                <div class="interview-card">
+                    <div class="interview-headline">「客観的なデータがあるから、無理な働き方を見直せました」</div>
+                    <div class="interview-profile">52歳・コンサルティング会社 経営</div>
+                    <p class="interview-content">
+                        誰にも弱音を吐けず、「経営者だから頑張らなければ」と無理を重ねていましたが、画面に表示された自律神経の負荷を見てハッとしました。単なる精神論ではなく、客観的なデータとして突きつけられたことで、業務の権限移譲やスケジュールの見直しに踏み切る良いきっかけになりました。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         8. 料金プラン (Pricing Plans)
+         ========================================================================== -->
+    <section class="surface" id="pricing">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">PRICE & PLANS</span>
+                </div>
+                <h2>料金プラン</h2>
+                <p style="text-align: center; margin-top: 1rem;">
+                    多忙なスケジュールやご都合に合わせて、2つの受講形式をご用意しています。
+                </p>
+            </div>
+
+            <div class="pricing-layout">
+                <!-- 1. 基本プラン：完全オンライン -->
+                <div class="pricing-card recommended">
+                    <span class="plan-top-badge">RECOMMENDED / 基本プラン</span>
+                    <h3 class="plan-title">完全オンライン・セッション</h3>
+                    <p class="plan-overview">移動の負担なく、オフィスやご自宅から受講いただける標準プランです。</p>
+                    
+                    <div class="plan-amount-box">
+                        <span class="plan-price-num">22,000</span>
+                        <span class="plan-tax-note">円（税込）</span>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li><strong>形式：</strong>オンライン（Zoom接続・90分）</li>
+                        <li><strong>移動時間ゼロ：</strong>オフィスや自宅からリラックスして参加可能</li>
+                        <li><strong>測定・調律：</strong>全身スキャン＆リアルタイム周波数調整</li>
+                        <li><strong>行動計画：</strong>データに基づく実行可能な個別ルール策定</li>
+                    </ul>
+
+                    <div class="special-benefit-box">
+                        <strong>【オンライン限定】安定化アフターフォロー付</strong>
+                        ・3日ごとの遠隔周波数調律（セッション当日を含め計4回）<br>
+                        ・各調整完了時のメッセージ報告（状態のフィードバックと過ごし方のアドバイス）<br>
+                        <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.4rem;">※セッションで整えた状態の定着を図り、日常の多忙によるリバウンドを防ぎます。</span>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="https://lin.ee/OQrQd4J" class="btn-primary" style="width: 100%;">オンラインセッションに申し込む</a>
+                        <span class="cta-note text-center">※事前予約制／完全個別対応</span>
+                    </div>
+                </div>
+
+                <!-- 2. 対面プラン：大阪・梅田プライベートサロン -->
+                <div class="pricing-card">
+                    <h3 class="plan-title">大阪・梅田プライベートサロン セッション</h3>
+                    <p class="plan-overview">直接対面でじっくりセッションを受けたい方のための、諸経費を含めたオールインワン・パッケージです。</p>
+                    
+                    <div class="plan-amount-box">
+                        <span class="plan-price-num">33,000</span>
+                        <span class="plan-tax-note">円（税込）</span>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li><strong>形式：</strong>対面セッション（大阪・梅田駅近郊の完全個室サロン・90分）</li>
+                        <li><strong>プライベート個室：</strong>落ち着いた上質な空間での完全個別対応</li>
+                        <li><strong>測定・調律：</strong>全身スキャン＆リアルタイム周波数調整</li>
+                        <li><strong>対話カウンセリング：</strong>直接対面での詳細な棚卸しと行動計画策定</li>
+                        <li><strong>諸経費込：</strong>サロンレンタル費用、諸経費がすべて含まれた明朗会計です。追加の実費請求等は一切ございません。</li>
+                        <li style="color: var(--text-muted);">※対面セッションには、オンライン限定の「計4回アフターフォロー」は含まれません。</li>
+                    </ul>
+
+                    <div style="margin-top: auto;">
+                        <a href="https://lin.ee/OQrQd4J" class="btn-primary" style="width: 100%; background: #182630;">対面セッションに申し込む</a>
+                        <span class="cta-note text-center">※事前予約制／完全個別対応</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         9. よくあるご質問 (FAQ)
+         ========================================================================== -->
+    <section id="faq">
+        <div class="wrap">
+            <div class="text-center">
+                <div class="section-tag-group">
+                    <span class="section-tag">FAQ</span>
+                </div>
+                <h2>よくあるご質問（FAQ）</h2>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-block">
+                    <div class="faq-head">
+                        <span>Q. オンライン（遠隔）での測定・調整の精度は対面と変わらないのですか？</span>
+                        <span class="faq-indicator">+</span>
+                    </div>
+                    <div class="faq-body">
+                        A. 差異はありません。メタアナライザーが扱うのは物理的な刺激ではなく、生体が発する情報シグナル（周波数）です。事前にお預かりする固有データを用いて共鳴関係を確立するため、受講場所による測定精度の低下はありません。画面共有を通じてリアルタイムに数値やグラフの変化をご確認いただけます。
+                    </div>
+                </div>
+
+                <div class="faq-block">
+                    <div class="faq-head">
+                        <span>Q. オンライン特典の「計4回の調整と報告」は拘束時間が発生しますか？</span>
+                        <span class="faq-indicator">+</span>
+                    </div>
+                    <div class="faq-body">
+                        A. いいえ、Zoom等でお時間を拘束することはありません。初回セッション後、3日ごとに遠隔にて周波数の安定化調整を行い、「本日〇〇のバランスを再調整しました。現在の状態から、今週は意識的に水分摂取を増やしてください」といった具体的なフィードバックとアドバイスをメッセージ（LINEまたはメール）でお届けします。
+                    </div>
+                </div>
+
+                <div class="faq-block">
+                    <div class="faq-head">
+                        <span>Q. 医療行為ですか？</span>
+                        <span class="faq-indicator">+</span>
+                    </div>
+                    <div class="faq-body">
+                        A. いいえ、医療行為ではありません。メタアナライザーは病気の診断や治療を目的とした医療機器ではなく、全身の周波数の状態を可視化し、セルフケアや生活習慣の改善に役立てるためのコンディショニング・システムです。
+                    </div>
+                </div>
+
+                <div class="faq-block">
+                    <div class="faq-head">
+                        <span>Q. 当日までに準備するものは何ですか？</span>
+                        <span class="faq-indicator">+</span>
+                    </div>
+                    <div class="faq-body">
+                        A. 画面共有で視覚データを詳細に確認していただくため、PCまたはタブレットからのZoom参加を推奨しています。また、周波数照合のため、お申し込み後に簡単な事前情報（お名前、生年月日など）をご提出いただきます。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Notice Box -->
+            <div class="legal-notice-box">
+                <h4>【注意事項・免責事項】</h4>
+                <p>※本セッションで使用するメタアナライザーは、日本の医薬品医療機器等法（薬機法）に基づく医療機器ではありません。</p>
+                <p>※医師法に基づく診断行為、治療行為、投薬指示は一切行いません。現在通院中の方や持病をお持ちの方は、主治医の指示を最優先してください。</p>
+                <p>※ペースメーカーをご使用中の方、妊娠中の方、てんかんの既往歴がある方は、事前にご相談いただくかご利用をお控えいただく場合があります。</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         10. 最終CTA (Final Call to Action)
+         ========================================================================== -->
+    <section class="dark" id="final-cta" style="text-align: center;">
+        <div class="wrap">
+            <div class="section-tag-group">
+                <span class="section-tag">RESERVATION</span>
+            </div>
+            <h2>事業の意思決定を研ぎ澄ます、<br>身体のコンディショニングを。</h2>
+            <p style="max-width: 680px; margin: 1.8rem auto 2.8rem; color: #D1D9DE;">
+                あなたの代わりはいません。感覚や気合いだけに頼るのをやめ、<br>
+                客観的なデータに基づいてコンディションを整える時間を取りませんか？
+            </p>
+            <div class="cta-wrap">
+                <a href="#pricing" class="btn-primary">セッション詳細・お申込みはこちら</a>
+                <span class="cta-note">※事前予約制／完全個別対応</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         11. フッター (Footer)
+         ========================================================================== -->
+    <footer id="footer">
+        <div class="wrap">
+            <p>&copy; 2026 Kama-yan. All Rights Reserved.</p>
+            <p style="font-size: 0.78rem; color: #5B6B75; margin-top: 0.5rem;">Meta Analyzer Executive Conditioning Session</p>
+        </div>
+    </footer>
+
+
+    <!-- ==========================================================================
+         12. 追従型固定CTAバー (Floating Sticky CTA)
+         ========================================================================== -->
+    <div class="sticky-cta-bar" id="stickyCtaBar">
+        <div class="sticky-info">
+            <span class="sticky-label">メタアナライザー・コンディションセッション（90分）</span>
+            <span class="sticky-main-text">【経営者限定】客観データで身体を整える</span>
+        </div>
+        <a href="#pricing" class="sticky-btn">セッションに申し込む</a>
+    </div>
+
+
+    <!-- ==========================================================================
+         Scripts: FAQ Accordion & Floating CTA Logic
+         ========================================================================== -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-head').forEach(header => {
+            header.addEventListener('click', () => {
+                const parent = header.parentElement;
+                const answer = parent.querySelector('.faq-body');
+                const indicator = header.querySelector('.faq-indicator');
+                
+                if (answer.style.display === 'none') {
+                    answer.style.display = 'block';
+                    indicator.textContent = '−';
+                } else {
+                    answer.style.display = 'none';
+                    indicator.textContent = '+';
+                }
+            });
+        });
+
+        // Floating Sticky CTA Observer
+        const heroSection = document.getElementById('hero');
+        const finalCtaSection = document.getElementById('final-cta');
+        const stickyCtaBar = document.getElementById('stickyCtaBar');
+
+        let passedHero = false;
+        let reachedFinal = false;
+
+        function checkStickyState() {
+            if (passedHero && !reachedFinal) {
+                stickyCtaBar.classList.add('active');
+            } else {
+                stickyCtaBar.classList.remove('active');
+            }
+        }
+
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                passedHero = !entry.isIntersecting;
+                checkStickyState();
+            });
+        }, { threshold: 0.1 });
+
+        heroObserver.observe(heroSection);
+
+        const finalObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                reachedFinal = entry.isIntersecting;
+                checkStickyState();
+            });
+        }, { threshold: 0.1 });
+
+        finalObserver.observe(finalCtaSection);
+    </script>
+</body>
+</html>
