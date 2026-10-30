@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AutoMeta V3 完全ご利用ガイド｜初期設定・毎日の使い方・お知らせ機能（LINE／メール）</title>
+<title>AutoMeta（オートメタ）総合利用ガイド｜初期設定・スケジュール運転・全機能マニュアル</title>
 <style>
   :root {
     --ink: #1c2024;
@@ -429,102 +429,36 @@
 <!-- Hero -->
 <header class="hero">
   <div class="hero-inner">
-    <span class="hero-badge">AutoMeta V3 公式マニュアル（版 3.10.34 対応）</span>
-    <h1>AutoMeta V3 完全ご利用ガイド</h1>
-    <p>初期セットアップから、毎日のスケジュール運転、V3 の新機能「LINE・メールでのお知らせ機能」まで、画面の見た目と手順をすべて解説しています。上から順番に進めるだけで全機能をお使いいただけます。</p>
+    <span class="hero-badge">AutoMeta 公式マニュアル（総合版）</span>
+    <h1>AutoMeta 総合ご利用ガイド</h1>
+    <p>メタアナライザーの自動操作ソフト「AutoMeta（オートメタ）」の総合取扱説明書です。初めてお使いになる際の初期セットアップから、日々のスケジュール自動運転、お知らせ機能（LINE・メール通知）、画面の見方やトラブルシューティングまで、全機能を網羅して解説しています。</p>
   </div>
 </header>
 
 <!-- Sticky Navigation -->
 <nav class="topnav" aria-label="目次">
   <div class="topnav-inner">
-    <a href="#v2-to-v3">🔄 V2→V3 の変更点</a>
-    <a href="#overview">🖥 メニューと基本</a>
+    <a href="#overview">🖥 概要・メニュー</a>
     <a href="#setup">🔧 1. 初回設定</a>
     <a href="#schedule">⏰ 2. スケジュール運転</a>
     <a href="#panel">📊 3. 運転パネル・確認待ち</a>
     <a href="#immediate">👤 4. すぐ実行・自動セラピー</a>
     <a href="#notify" class="nav-pro">📩 5. お知らせ機能【Pro】</a>
-    <a href="#settings">⚙ 6. 便利な設定・更新</a>
+    <a href="#settings">⚙ 6. 設定・保守</a>
     <a href="#faq">❓ 7. よくある質問（Q&A）</a>
   </div>
 </nav>
 
 <main class="container">
 
-  <!-- ===================================================================== -->
-  <!-- SECTION 0: V2 -> V3 で変わったこと                                     -->
-  <!-- ===================================================================== -->
-  <section id="v2-to-v3" class="section-card">
-    <h2>🔄 V2 から V3 へ更新された方へ（変わった点まとめ）</h2>
-    <p>V2 から V3 へ更新しても、<strong>これまで登録していた顧客・予定・座標の設定はすべてそのまま引き継がれます。</strong><br>
-    V3 では最大の目玉である<strong>「お知らせ機能（LINE・メール通知）」</strong>が追加されたほか、日々の運転で迷いやすかった箇所が以下のように改善されています。</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>分類</th>
-            <th>変わった項目</th>
-            <th>V2 までの動き</th>
-            <th>V3（現在）の動き・ご注意点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge badge-pro">最大の追加</span></td>
-            <td><strong>完了通知・異常通知（LINE／メール）</strong></td>
-            <td>通知機能なし（画面の「確認待ち」で見るのみ）</td>
-            <td><strong>ご自身の LINE 公式アカウント・Gmail から自動送信</strong>（プロプラン）<br>
-              ・<strong>顧客本人へ</strong>：スケジュール運転での完了通知（夜間は翌朝まで自動保留）<br>
-              ・<strong>ご自身へ</strong>：失敗・要確認・対象ソフト停止時の即時通知<br>
-              ・<strong>QR を 1 回読むだけ</strong>で顧客の LINE を簡単に紐づけ可能</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-new">新設</span></td>
-            <td><strong>通知状態の一覧表示</strong></td>
-            <td>なし</td>
-            <td>・予定一覧に<strong>「配信設定」列</strong>が追加<br>
-              ・「確認待ち」画面に<strong>「顧客へのお知らせ」列</strong>が追加され、<code>LINE 送信済み</code>／<code>保留中（08:00 に送ります）</code>／<code>送りません</code> が一目で分かる</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-req">重要</span></td>
-            <td><strong>新しい予定の「上限」と「実行方法」の初期値</strong></td>
-            <td>・上限：<strong>無制限</strong><br>・実行方法：<strong>この時刻ちょうどに</strong></td>
-            <td>・上限：<strong>3 回で終了</strong>（※毎日ずっと制限なしで続ける場合は<strong>「無制限」</strong>に変更してください）<br>
-              ・実行方法：<strong>以降、空いたら順番に</strong>（前の人が長引いても見送られず順番に実行）</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-req">重要</span></td>
-            <td><strong>「終わった予定を隠す」チェック</strong></td>
-            <td>上限に達した予定もすべて一覧に並び続けていた</td>
-            <td>予定一覧の上部に<strong>「終わった予定を隠す」</strong>（初期状態でオン）を追加。<br>
-              完了した予定は自動で隠れます。<strong>「登録した人が消えた？」と思ったときはチェックを外すと表示されます。</strong></td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-new">改善</span></td>
-            <td><strong>運転状態の表示と、開始し忘れ防止</strong></td>
-            <td>予定を保存して閉じたあと、運転開始を押し忘れることがあった</td>
-            <td>予定一覧の右上に<strong>「● 運転中（緑）」／「● 運転は停止中です（赤）」</strong>を常時表示。<br>
-              停止中に「保存して閉じる」を押すと、<strong>「このままスケジュール運転を開始しますか？」</strong>と確認が出ます。</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-new">改善</span></td>
-            <td><strong>対象ソフトが消えたときの「続きから再開」</strong></td>
-            <td>再起動しても、途中だった人の残りは行わなかった</td>
-            <td>運転中に対象ソフトが異常終了・消失した際、自動で立ち上げ直して画面の準備を待ち、<strong>終わったセラピー回数の続きから自動で再開</strong>します。</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-new">改善</span></td>
-            <td><strong>メニューと設定画面の整理</strong></td>
-            <td>「設定」の中にすべてのボタンが並んでいた</td>
-            <td>・メニュー下部に<strong>「お問い合わせ」</strong>ボタンを新設<br>
-              ・設定画面を見出しごとに整理し、座標の再登録は<strong>「測定値を設定し直す →」</strong>に集約</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+  <!-- Version Update Notice Banner -->
+  <div class="callout callout-tip" style="margin-top:8px;margin-bottom:24px;">
+    <div class="callout-title">💡 V2 からバージョン更新された方へ</div>
+    <p style="margin:4px 0 0;font-size:14px;line-height:1.7;">
+      V2 から V3 への変更点・新機能の差分のみを素早く確認したい方向けに、更新差分専用のガイドをご用意しています。<br>
+      👉 <a href="/v3/" style="font-weight:700;color:var(--brand-primary);text-decoration:underline;">AutoMeta V3 アップデートガイド（差分専用）はこちら（/v3/）</a>
+    </p>
+  </div>
 
   <!-- ===================================================================== -->
   <!-- SECTION 1: メニュー画面と基本ルール                                    -->
@@ -948,7 +882,7 @@
     </div>
 
     <h3>3-2. 「確認待ち」画面の見方</h3>
-    <p>運転パネルの <code>★ 未確認 ○ 件</code> をクリックすると開きます。V3 では<strong>「顧客へのお知らせ」列</strong>が追加され、通知が送られたかどうかもここで確認できます。</p>
+    <p>運転パネルの <code>★ 未確認 ○ 件</code> をクリックすると開きます。<strong>「顧客へのお知らせ」列</strong>があり、通知が送られたかどうかもここで確認できます。</p>
 
     <div class="win-mock">
       <div class="win-titlebar">
@@ -1346,7 +1280,7 @@ LINE のお名前だけでは、どなたかわからないことがあるため
             <td><strong>この PC</strong></td>
             <td><strong>異常終了時の自動再起動</strong></td>
             <td>オンにすると、万が一停止したときに 1 分以内に自動で再起動します。<br>
-              また V3 では、運転中に対象ソフト（メタアナライザー）が異常終了しても、自動で立ち上げ直して<strong>終わったセラピー回数の続きから自動で再開</strong>します。</td>
+              また、運転中に対象ソフト（メタアナライザー）が異常終了しても、自動で立ち上げ直して<strong>終わったセラピー回数の続きから自動で再開</strong>します。</td>
           </tr>
           <tr>
             <td><strong>ご利用</strong></td>
@@ -1476,7 +1410,7 @@ LINE のお名前だけでは、どなたかわからないことがあるため
 </main>
 
 <footer>
-  AutoMeta V3 ご利用ガイド（版 3.10.34 対応）
+  AutoMeta 総合ご利用ガイド（版 3.10.34 対応）｜<a href="/v3/" style="color:#60a5fa;text-decoration:underline;">V3 アップデートガイドはこちら</a>
 </footer>
 
 <script>
