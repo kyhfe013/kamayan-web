@@ -600,10 +600,12 @@
     </div>
 
     <div class="box box-warn">
-      <span class="box-title">💡 運転中の大切なルールと緊急停止の方法</span>
+      <span class="box-title">💡 運転の前に必ず確認する 4 つの基本ルール</span>
       <ul>
-        <li><strong>対象ソフト（メタアナライザー）を最小化しないでください</strong>：画面が見えている状態で色や文字を読み取って操作します。</li>
-        <li><strong>途中で今すぐ止めたいとき</strong>：キーボードの <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> を同時に押すか、画面右下（タスクトレイ）の AutoMeta アイコンを右クリックして停止できます。</li>
+        <li><strong>① 顧客のカードは、先に対象ソフト（メタアナライザー）側で作っておく</strong>：AutoMeta は対象ソフトのカード一覧を「姓・名」で検索して開きます（新しいカードを自動で作ることはしません）。初めて回す顧客は、先に対象ソフト側でカードを作成してください。</li>
+        <li><strong>② 運転中は対象ソフトを最小化しない・PC をスリープにしない</strong>：画面が見えている状態で色や文字を読み取って操作します。夜間運転を行う場合は、Windows の「電源とスリープ」設定でスリープを「なし（しない）」に設定してください。</li>
+        <li><strong>③ スケジュール運転中でも「メニュー」から予定の追加・変更ができます</strong>：運転パネルの「メニュー」ボタンを押せば、運転を止めずに予定の編集や「自動セラピー」を行えます（予定を保存すると 1 分以内に自動で反映されます）。</li>
+        <li><strong>④ 途中で今すぐ止めたいとき</strong>：運転パネルの <strong>「止める」</strong> ボタンを押すか、キーボードの <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> を同時に押してください。</li>
       </ul>
     </div>
   </section>
@@ -616,33 +618,50 @@
     <p>新しい PC に導入したときは、メニュー一番上に表示される <strong>「🔧 はじめての設定（順番に案内）」</strong>（または「⚙ 設定」→「はじめての設定」）を押して、上から順番に進めます。<br>
     <strong>★マークが付いた 3 つの手順</strong>が完了すると、スケジュール運転を開始できます。</p>
 
+    <div class="box box-info">
+      <span class="box-title">📌 位置（座標）を登録するときの共通ルール（<kbd>F1</kbd> キーで記録）</span>
+      <ul>
+        <li>位置を登録するときは、<strong>マウスでクリックせず、目標の上にマウスカーソルを乗せた状態でキーボードの <kbd>F1</kbd> キーを押します</strong>（クリックするとポップアップや画面が切り替わってしまうため）。</li>
+        <li>ノート PC 等で <kbd>F1</kbd> キーが効かない（音量変更などになる）場合は、<kbd>Fn</kbd> キーを押しながら <kbd>F1</kbd> を押すか、画面内の <strong>「F1 が使えないとき → 3 秒後に記録」</strong> ボタンを押してください。</li>
+      </ul>
+    </div>
+
     <div class="step-box">
       <h4><span class="num-circle">1</span> 対象ソフトを選ぶ <span class="badge badge-req">★必須</span></h4>
       <p><strong>先に開いておく画面</strong>：対象ソフト（メタアナライザー）を起動しておきます（どの画面でも構いません）。<br>
-      ボタンを押して、一覧から対象ソフトを選びます。</p>
+      一覧の 1 行目に表示される対象ソフト（<code>18D-NLS.exe</code> など）を選んで <strong>「この設定を保存」</strong> を押します。</p>
     </div>
 
     <div class="step-box">
       <h4><span class="num-circle">2</span> 一覧の 1 行目と 2 行目を登録 <span class="badge badge-req">★必須</span></h4>
-      <p><strong>先に開いておく画面</strong>：対象ソフトの<strong>「カード選択画面（顧客の一覧）」</strong>を開いておきます（顧客が 2 名以上並んでいる状態）。<br>
-      画面の案内に従い、顧客一覧の「1 行目の上」と「2 行目の上」にマウスを乗せて登録します（V3 では違う画面が開いている場合、始まる前に自動で教えてくれます）。</p>
+      <p><strong>先に開いておく画面</strong>：対象ソフトで「カードを選択します」を押し、<strong>「カード選択画面（顧客の一覧）」</strong>を開いておきます（顧客が 2 名以上並んでいる状態）。</p>
+      <ol>
+        <li>顧客一覧の<strong>【1 行目】</strong>の上にマウスを乗せて <kbd>F1</kbd> を押します。</li>
+        <li>続けて<strong>【2 行目】</strong>の上にマウスを乗せて <kbd>F1</kbd> を押します。<br>
+          <span style="color:var(--warn);font-weight:700;">※ 1 行目だけでなく、必ず 2 行目まで登録してください（行の間隔を測るため、2 行目を省くと比較用カード等で 2 行目以降を選べなくなります）。</span></li>
+      </ol>
     </div>
 
     <div class="step-box">
       <h4><span class="num-circle">3</span> 調査タイプ／マニュアル選択の位置を登録 <span class="badge badge-req">★必須</span></h4>
-      <p><strong>先に開いておく画面</strong>：対象ソフトの<strong>「調査のスキーム画面」</strong>（「ファスト・標準・詳細」や「スキーム 1〜5・自動選択」を選ぶ画面）を開いておきます。<br>
-      画面の案内に従い、それぞれの選択肢の位置を登録します。</p>
+      <p><strong>先に開いておく画面</strong>：顧客のカードを開いて「調査」を押し、<strong>「調査のスキーム画面」</strong>を開いておきます（※調査はまだ開始しないでください）。</p>
+      <ol>
+        <li>画面の案内に従い、まず<strong>「調査タイプ」のボタン自体</strong>にマウスを乗せて <kbd>F1</kbd> で記録し、<strong>その直後にそのボタンをクリックして一覧（ポップアップ）を開きます。</strong></li>
+        <li>開いた一覧の中の「ファスト」「標準」「詳細」の上に順番にマウスを乗せ、クリックせずに <kbd>F1</kbd> を押して記録します。</li>
+        <li>同じように<strong>「マニュアル選択」のボタン自体</strong>を <kbd>F1</kbd> で記録 → クリックして一覧を開き、「スキーム 1〜5」「自動選択」の上で順番に <kbd>F1</kbd> を押します（間違えたときは <kbd>F2</kbd> で 1 つ戻れます）。</li>
+        <li>すべて埋まったら、下にある <strong>「★ 記録した位置を確認（保存前に動作を確認）」</strong> を押し、両方とも「★開きました」と出ることを確かめてから <strong>「保存して閉じる」</strong> を押します。</li>
+      </ol>
     </div>
 
     <div class="step-box">
       <h4><span class="num-circle">4</span> 調査履歴の件数の位置を登録 <span class="badge badge-opt">任意（推奨）</span></h4>
       <p><strong>先に開いておく画面</strong>：<strong>「カードを選択した後の画面」</strong>（左下に調査履歴の件数が出ている画面）を開いておきます。<br>
-      登録しておくと、調査前後の件数の増え方で「確実に調査が完了したか」を自動で照合できるようになります。</p>
+      左下の件数の数字の上にマウスを乗せて <kbd>F1</kbd> を押し、<strong>「保存して閉じる」</strong> を押します。これを登録しておくと、調査前後の件数の増え方で「確実に調査が完了したか」を自動で照合できます。</p>
     </div>
 
     <div class="step-box">
       <h4><span class="num-circle">5</span> 利用者コードを登録 <span class="badge badge-req">利用確認</span></h4>
-      <p>インターネットにつないだ状態で、ご案内した利用者コード（<code>AM-XXXX-XXXX</code>）を入力して登録します。</p>
+      <p>インターネットにつないだ状態で、お渡しした利用者コード（<code>AM-XXXX-XXXX</code>）を入力し、<strong>「確認して保存」</strong> を押します（※ 2 週間に 1 度はインターネットにつないだ状態で AutoMeta を開いてください）。</p>
     </div>
 
     <div class="step-box">
@@ -846,29 +865,83 @@
   <!-- ===================================================================== -->
   <section id="panel" class="section-card">
     <h2>📊 3. 運転パネルと「確認待ち」画面の見方</h2>
-    <p>スケジュール運転を開始すると、画面の右上に小さな<strong>運転パネル</strong>が常時表示されます。</p>
+    <p>スケジュール運転を開始すると、画面の右下に<strong>運転パネル</strong>が表示されます。</p>
 
-    <h3>3-1. 運転パネルの 1 行目に出る表示</h3>
+    <!-- Visual Replica of ShowPanel -->
+    <div class="win-mock" style="max-width:460px;">
+      <div class="win-titlebar">
+        <span>AutoMeta (v3.10.34)</span>
+        <span class="win-close">×（隠す）</span>
+      </div>
+      <div class="win-body">
+        <div style="color:#555;font-weight:700;font-size:15px;">① ◌ 待機中（予定の時刻を待っています）／あとで送る 1 件</div>
+        <div style="margin-top:4px;">顧客 : -</div>
+        <div style="color:#333;font-size:13px;">本日  完了 1 / 要確認 0 / 失敗 0 / 見送り 0</div>
+        <hr class="win-hr">
+        <div style="color:#c0392b;font-weight:700;cursor:pointer;">② ★ 未確認 1 件 ← クリックで開く<br><span style="font-size:12px;font-weight:400;">　・山田 花子（01:22 完了）</span></div>
+        <hr class="win-hr">
+        <div style="background:#fff;border:1px solid #bbb;padding:8px;font-size:12px;color:#555;margin-bottom:10px;">
+          ③ 次の予定：<br>
+          ・今日 10:00 以降　佐藤 太郎（調査＋セラピー2回）<br>
+          ・終わった予定 1 件（高橋 一郎）
+        </div>
+        <div style="display:flex;gap:6px;">
+          <div class="win-btn" style="flex:1;">④ メニュー</div>
+          <div class="win-btn" style="flex:1;">⑤ 止める</div>
+          <div class="win-btn" style="flex:1;">⑥ ログ</div>
+          <div class="win-btn" style="flex:1;">⑦ 隠す</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>3-1. 運転パネルの各部と 4 つのボタン</h3>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>表示される文字</th>
+            <th>番号</th>
+            <th>表示・ボタン</th>
             <th>意味と動き</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td><span class="num-circle">1</span></td>
+            <td><strong>1 行目（現在の状態）</strong></td>
+            <td>・<code>◌ 待機中</code> ／ <code>● 調査中</code> ／ <code>● セラピー実行中</code> などが表示されます。<br>
+              ・<strong><code>／あとで送る ○ 件</code></strong>：夜間の「送信しない時間帯（21:00〜08:00 など）」に終わったため、<strong>翌朝 08:00 まで自動保留しているお知らせの件数</strong>です。朝になれば自動で送信されます。<br>
+              ・<strong><code>／未送信 ○ 件</code></strong>：これから送信するお知らせ、または通信エラー等で再試行中のお知らせの件数です。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">2</span></td>
             <td><strong><code>★ 未確認 ○ 件 ← クリックで開く</code></strong></td>
             <td>完了した方、または途中で止まって確認が必要な方の控えがあります。文字をクリックすると<strong>「確認待ち」画面</strong>が開きます。</td>
           </tr>
           <tr>
-            <td><strong><code>／あとで送る ○ 件</code></strong> <span class="badge badge-pro">Pro</span></td>
-            <td>夜間の「送信しない時間帯（既定 21:00〜08:00）」に完了したため、<strong>翌朝 08:00 まで送信を保留しているお知らせの件数</strong>です。異常ではありません。朝になれば自動で送信されます。</td>
+            <td><span class="num-circle">3</span></td>
+            <td><strong>次の予定欄</strong></td>
+            <td>これから実行される予定と、すでに上限に達した予定（<code>・終わった予定 ○ 件</code>）が表示されます。</td>
           </tr>
           <tr>
-            <td><strong><code>／未送信 ○ 件</code></strong> <span class="badge badge-pro">Pro</span></td>
-            <td>これから送信するお知らせ、または一時的な通信エラー等で再試行待ちのお知らせの件数です。</td>
+            <td><span class="num-circle">4</span></td>
+            <td><strong>メニュー</strong></td>
+            <td><strong>スケジュール運転を止めずに</strong>メニュー画面を開きます（ショートカット：<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>）。ここから予定を追加・編集して保存すれば、1 分以内に自動で運転に反映されます。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">5</span></td>
+            <td><strong>止める</strong></td>
+            <td><strong>スケジュール運転を停止します。</strong>（※パネル右上の「×」や「隠す」では運転は止まりません。運転を終了するときはこの「止める」を押してください）</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">6</span></td>
+            <td><strong>ログ</strong></td>
+            <td>本日の動作記録（ログファイル）をメモ帳で開きます。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">7</span></td>
+            <td><strong>隠す ／ 右上の「×」</strong></td>
+            <td><strong>スケジュール運転を動かしたまま</strong>、パネルだけを最小化して隠します（誤って「×」を押して夜間の運転が止まってしまうのを防ぐ設計です）。<br>
+              もう一度表示したいときは、タスクバーの AutoMeta アイコン、または画面右下（タスクトレイ）のアイコンから「パネルを表示」を押します。</td>
           </tr>
         </tbody>
       </table>
@@ -917,22 +990,24 @@
     <p>スケジュールの予定には入れず、その場で動かしたいときはメニュー画面の 2 つのボタンを使い分けます。</p>
 
     <div class="step-box">
-      <h4>方法 A：カード検索から調査・セラピーまで 1 人分通しで行う（👤 1 人だけ今すぐ実行）</h4>
-      <ol>
-        <li>対象ソフト（メタアナライザー）を起動しておきます。</li>
-        <li>AutoMeta のメニューで <strong>「👤 1 人だけ今すぐ実行」</strong> を押します。</li>
-        <li>氏名（姓・名）、調査を行うか、セラピー回数、調査タイプ、マニュアル選択を指定して開始します。</li>
-      </ol>
-      <p style="color:var(--sub);font-size:14px;">※「1 人だけ今すぐ実行」では、顧客への完了通知（LINE・メール）は送信されません。</p>
+      <h4>方法 A：調査 1 回 ＋ セラピー N 回を 1 人分通しで行う（👤 1 人だけ今すぐ実行）</h4>
+      <p>メニューで <strong>「👤 1 人だけ今すぐ実行」</strong> を押すと、顧客の指定方法を 2 つから選べます：</p>
+      <ul>
+        <li><strong>「名前で検索して開く」</strong>：対象ソフトのカード一覧から「姓・名」で検索してカードを開き、調査〜セラピーを行います。</li>
+        <li><strong>「いま開いているカードで実行する」</strong>：すでに対象ソフトでその顧客のカードを開いている場合は、こちらを選ぶと<strong>名前の入力や検索なしでそのまま調査〜セラピーを実行</strong>できます（検索での取り違えも起きません）。</li>
+      </ul>
+      <p style="color:var(--sub);font-size:14px;">※「1 人だけ今すぐ実行」では、顧客への完了通知（LINE・メール）は送信されません。<br>
+      ※画面下の「DryRun（クリックせず動きだけ確認）」にチェックを入れると、実際にはボタンを押さずに画面の読み取りだけをテストできます。</p>
     </div>
 
     <div class="step-box">
-      <h4>方法 B：自分で選んだ測定項目に、セラピーだけを繰り返す（▶ 自動セラピー）</h4>
+      <h4>方法 B：いま開いているカードに、セラピーだけを繰り返す（▶ 自動セラピー）</h4>
       <ol>
-        <li>対象ソフトでカードを開き、調査を済ませて<strong>測定項目（エタロン）にチェックを入れた画面（「自動セラピー」ボタンが見えている画面）</strong>を開きます。</li>
-        <li>AutoMeta のメニューで <strong>「▶ 自動セラピー」</strong> を押します。</li>
-        <li>繰り返す回数を指定して開始すると、指定回数だけ自動でセラピーを繰り返します。</li>
+        <li>対象ソフトで顧客のカードを開いた状態にします。</li>
+        <li>AutoMeta のメニューで <strong>「▶ 自動セラピー」</strong> を押します（開いているカードの氏名が自動で読み取られて表示されます）。</li>
+        <li><strong>「セラピーの回数」</strong>を選んで <strong>「開始」</strong> を押すと、調査は行わず、セラピーだけを指定回数繰り返します。</li>
       </ol>
+      <p style="color:var(--ok);font-size:14px;font-weight:700;">💡 スケジュール運転が「待機中」のときは、スケジュール運転を止めずにそのまま「▶ 自動セラピー」を実行できます（待機中のスケジュール運転へ自動で引き渡されます）。</p>
     </div>
   </section>
 
@@ -1222,6 +1297,16 @@ LINE のお名前だけでは、どなたかわからないことがあるため
       「お知らせの届け先」画面の <strong>「文面を編集」</strong> ボタンを押すと、その顧客にだけ送る個別メッセージを作成できます。<br>
       誰に個別文面を設定しているかは、「⚙ 設定」→「通知：オン／オフ」→<strong>「顧客ごとの文面」</strong>ボタンから一覧で確認・編集・共通文面へのリセットができます。
     </div>
+
+    <div class="box box-warn">
+      <span class="box-title">📌 お知らせ送信に関する 4 つの注意点</span>
+      <ul>
+        <li><strong>① 2 か所のチェックが必要です</strong>：「⚙ 設定」→「通知：オン／オフ」の<strong>「通知を使う」</strong>と、各顧客の「お知らせの届け先」にある<strong>「セラピーが終わったら、お知らせを送る」</strong>の両方にチェックが入っているときだけ送信されます。</li>
+        <li><strong>② LINE とメールの両方を登録した場合</strong>：1 人の顧客に LINE とメールアドレスの両方を登録すると、完了時に<strong>LINE とメールの両方へ</strong>届きます。片方だけでよい場合は、送りたい方だけ登録してください。</li>
+        <li><strong>③ 同じメールアドレスを複数の予定に重複登録はできません</strong>：1 回のセラピーで同じ方へ 2 通届くのを防ぐため、すでに別の予定に登録されているメールアドレスは保存時にブロックされます。</li>
+        <li><strong>④ LINE 公式アカウントの無料通数（月 200 通まで）</strong>：LINE 公式アカウントの無料プランは月 200 通までです（目安：1 日 6 人への送信で月約 180 通）。7 人以上に毎日送る場合は、LINE の有料プラン（ライトプラン等）にするか、制限のない Gmail 通知を併用してください。</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ===================================================================== -->
@@ -1356,6 +1441,24 @@ LINE のお名前だけでは、どなたかわからないことがあるため
       <div class="faq-body">
         スタンダードプランで登録できる顧客は <strong>5 人まで</strong> です（チェックを外して無効にしている予定も人数に含まれます）。<br>
         使わない予定を選んで「削除」するか、人数無制限・お知らせ機能付きのプロプランをご検討ください。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q10. 実行時に「カードが見つかりません」「別のカードが開いています」と止まります</summary>
+      <div class="faq-body">
+        <ul>
+          <li><strong>対象ソフト側にまだカードが無い場合</strong>：AutoMeta は新規カードの作成は行いません。先に対象ソフト（メタアナライザー）側でその顧客のカードを作成し、同じ「姓・名」を予定に入力してください。</li>
+          <li><strong>同じ姓名のカードが複数ある（比較用カードなど）場合</strong>：「⚙ 設定」→「測定値を設定し直す →」→「一覧の 1 行目と 2 行目を登録」で、2 行目まで登録されているかご確認ください（行の間隔を使って 2 行目以降のカードを探します）。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q11. 運転パネルを「×」で閉じたら、画面から消えてしまいました。運転は止まっていますか？</summary>
+      <div class="faq-body">
+        いいえ、<strong>運転は止まっていません</strong>（誤って「×」を押して夜間のスケジュールが止まるのを防ぐため、「×」や「隠す」はパネルを隠すだけの動きになっています）。<br>
+        パネルをもう一度表示したいときは、タスクバーの AutoMeta アイコン、または画面右下（タスクトレイ）のアイコンを右クリックして<strong>「パネルを表示」</strong>を押してください。本当に止めたいときはパネルの<strong>「止める」</strong>ボタンを押します。
       </div>
     </details>
 
