@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoMeta V3 完全ご利用ガイド｜初期設定・毎日の使い方・お知らせ機能（LINE／メール）</title>
+<style>
+  :root {
+    --ink: #1c2024;
+    --sub: #525d68;
+    --line: #dce2e8;
+    --bg: #f4f7fa;
+    --card: #ffffff;
+    --navy: #14365d;
+    --accent: #1d63dc;
+    --accent-soft: #edf4ff;
+    --ok: #137333;
+    --ok-soft: #eefaf1;
+    --warn: #b45309;
+    --warn-soft: #fff8eb;
+    --ng: #c0392b;
+    --ng-soft: #fdf0ee;
+    --pro: #6d28d9;
+    --pro-soft: #f5f0ff;
+    --win-bg: #f0f0f0;
+    --win-border: #888;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Meiryo UI", "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* Header & Hero */
+  .hero {
+    background: linear-gradient(135deg, #0f2942 0%, #1d4e89 100%);
+    color: #fff;
+    padding: 36px 20px 28px;
+    border-bottom: 4px solid #3b82f6;
+  }
+  .hero-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+  }
+  .hero p {
+    margin: 0;
+    color: #dbeafe;
+    font-size: 15px;
+    max-width: 820px;
+  }
+
+  /* Sticky Top Navigation */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .topnav-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .topnav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+  }
+  .topnav a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: #bfd6ff;
+  }
+  .topnav a.nav-pro {
+    background: var(--pro-soft);
+    color: var(--pro);
+    border-color: #ddd6fe;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 1040px;
+    margin: 28px auto 80px;
+    padding: 0 16px;
+  }
+  .section-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 32px 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+  @media (max-width: 680px) {
+    .section-card { padding: 22px 16px 26px; }
+    .hero h1 { font-size: 22px; }
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--navy);
+    font-size: 22px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  h3 {
+    margin: 30px 0 12px;
+    font-size: 18px;
+    color: var(--ink);
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+  }
+  h4 {
+    margin: 20px 0 8px;
+    font-size: 16px;
+    color: var(--navy);
+  }
+  p { margin: 10px 0; }
+  ul, ol { margin: 10px 0; padding-left: 24px; }
+  li { margin: 6px 0; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+  .badge-pro { background: var(--pro-soft); color: var(--pro); border: 1px solid #c4b5fd; }
+  .badge-new { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .badge-req { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .badge-opt { background: #e2e8f0; color: #475569; }
+
+  .num-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13.5px;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Callout Boxes */
+  .box {
+    border-left: 4px solid;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+  }
+  .box-title {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .box-info { border-color: var(--accent); background: var(--accent-soft); }
+  .box-ok   { border-color: var(--ok); background: var(--ok-soft); }
+  .box-warn { border-color: var(--warn); background: var(--warn-soft); }
+  .box-ng   { border-color: var(--ng); background: var(--ng-soft); }
+  .box-pro  { border-color: var(--pro); background: var(--pro-soft); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14.5px;
+    background: #fff;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 10px 13px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f1f5f9;
+    color: var(--navy);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* Windows GUI Mockup Styles (Exact visual replica of AutoMeta windows) */
+  .win-mock {
+    background: var(--win-bg);
+    border: 1px solid #7a7a7a;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    max-width: 720px;
+    margin: 18px auto;
+    overflow: hidden;
+    font-size: 13.5px;
+    color: #111;
+  }
+  .win-titlebar {
+    background: #ffffff;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .win-close { color: #888; font-weight: bold; }
+  .win-body { padding: 16px 20px; }
+  .win-hr { border: 0; border-top: 1px solid #ccc; margin: 12px 0; }
+  .win-btn {
+    display: inline-block;
+    background: #e1e1e1;
+    border: 1px solid #adadad;
+    border-radius: 3px;
+    padding: 6px 14px;
+    font-weight: 600;
+    color: #111;
+    text-align: center;
+    margin: 3px 2px;
+  }
+  .win-btn-primary {
+    border: 2px solid #0078d7;
+    background: #e5f1fb;
+  }
+  .win-btn-block {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 6px 0;
+  }
+  .win-input {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #7a7a7a;
+    padding: 3px 8px;
+    border-radius: 2px;
+    min-width: 90px;
+  }
+  .win-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 7px 0;
+  }
+  .win-section-label {
+    color: #002060;
+    font-weight: 700;
+    margin: 10px 0 4px;
+    font-size: 13.5px;
+  }
+  .win-table {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #a0a0a0;
+    font-size: 12.5px;
+    margin: 8px 0;
+  }
+  .win-table th {
+    background: #f0f0f0;
+    color: #222;
+    padding: 5px 8px;
+    border: 1px solid #d0d0d0;
+  }
+  .win-table td {
+    padding: 5px 8px;
+    border: 1px solid #e0e0e0;
+  }
+
+  /* Step Cards */
+  .step-box {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    background: #fafcfe;
+  }
+  .step-box h4 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16.5px;
+  }
+
+  /* Copyable Code / Template Block */
+  .copy-wrap {
+    position: relative;
+    margin: 12px 0 18px;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #fff;
+    color: var(--navy);
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--accent-soft); color: var(--accent); }
+  pre.tpl {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 16px 18px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: "Meiryo UI", Consolas, monospace;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  /* FAQ Accordion */
+  details.faq {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin: 10px 0;
+    background: #fff;
+    overflow: hidden;
+  }
+  details.faq summary {
+    padding: 13px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #f8fafc;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "＋";
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  details.faq[open] summary::after { content: "－"; }
+  details.faq .faq-body {
+    padding: 14px 18px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+  }
+
+  code {
+    background: #eef2f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+  }
+  kbd {
+    background: #334155;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Consolas, monospace;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--sub);
+    font-size: 13.5px;
+    padding: 24px 16px 48px;
+  }
+  @media print {
+    .topnav, .copy-btn { display: none; }
+    body { background: #fff; }
+    .section-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">AutoMeta V3 公式マニュアル（版 3.10.34 対応）</span>
+    <h1>AutoMeta V3 完全ご利用ガイド</h1>
+    <p>初期セットアップから、毎日のスケジュール運転、V3 の新機能「LINE・メールでのお知らせ機能」まで、画面の見た目と手順をすべて解説しています。上から順番に進めるだけで全機能をお使いいただけます。</p>
+  </div>
+</header>
+
+<!-- Sticky Navigation -->
+<nav class="topnav" aria-label="目次">
+  <div class="topnav-inner">
+    <a href="#v2-to-v3">🔄 V2→V3 の変更点</a>
+    <a href="#overview">🖥 メニューと基本</a>
+    <a href="#setup">🔧 1. 初回設定</a>
+    <a href="#schedule">⏰ 2. スケジュール運転</a>
+    <a href="#panel">📊 3. 運転パネル・確認待ち</a>
+    <a href="#immediate">👤 4. すぐ実行・自動セラピー</a>
+    <a href="#notify" class="nav-pro">📩 5. お知らせ機能【Pro】</a>
+    <a href="#settings">⚙ 6. 便利な設定・更新</a>
+    <a href="#faq">❓ 7. よくある質問（Q&A）</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 0: V2 -> V3 で変わったこと                                     -->
+  <!-- ===================================================================== -->
+  <section id="v2-to-v3" class="section-card">
+    <h2>🔄 V2 から V3 へ更新された方へ（変わった点まとめ）</h2>
+    <p>V2 から V3 へ更新しても、<strong>これまで登録していた顧客・予定・座標の設定はすべてそのまま引き継がれます。</strong><br>
+    V3 では最大の目玉である<strong>「お知らせ機能（LINE・メール通知）」</strong>が追加されたほか、日々の運転で迷いやすかった箇所が以下のように改善されています。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>分類</th>
+            <th>変わった項目</th>
+            <th>V2 までの動き</th>
+            <th>V3（現在）の動き・ご注意点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-pro">最大の追加</span></td>
+            <td><strong>完了通知・異常通知（LINE／メール）</strong></td>
+            <td>通知機能なし（画面の「確認待ち」で見るのみ）</td>
+            <td><strong>ご自身の LINE 公式アカウント・Gmail から自動送信</strong>（プロプラン）<br>
+              ・<strong>顧客本人へ</strong>：スケジュール運転での完了通知（夜間は翌朝まで自動保留）<br>
+              ・<strong>ご自身へ</strong>：失敗・要確認・対象ソフト停止時の即時通知<br>
+              ・<strong>QR を 1 回読むだけ</strong>で顧客の LINE を簡単に紐づけ可能</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-new">新設</span></td>
+            <td><strong>通知状態の一覧表示</strong></td>
+            <td>なし</td>
+            <td>・予定一覧に<strong>「配信設定」列</strong>が追加<br>
+              ・「確認待ち」画面に<strong>「顧客へのお知らせ」列</strong>が追加され、<code>LINE 送信済み</code>／<code>保留中（08:00 に送ります）</code>／<code>送りません</code> が一目で分かる</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-req">重要</span></td>
+            <td><strong>新しい予定の「上限」と「実行方法」の初期値</strong></td>
+            <td>・上限：<strong>無制限</strong><br>・実行方法：<strong>この時刻ちょうどに</strong></td>
+            <td>・上限：<strong>3 回で終了</strong>（※毎日ずっと制限なしで続ける場合は<strong>「無制限」</strong>に変更してください）<br>
+              ・実行方法：<strong>以降、空いたら順番に</strong>（前の人が長引いても見送られず順番に実行）</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-req">重要</span></td>
+            <td><strong>「終わった予定を隠す」チェック</strong></td>
+            <td>上限に達した予定もすべて一覧に並び続けていた</td>
+            <td>予定一覧の上部に<strong>「終わった予定を隠す」</strong>（初期状態でオン）を追加。<br>
+              完了した予定は自動で隠れます。<strong>「登録した人が消えた？」と思ったときはチェックを外すと表示されます。</strong></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-new">改善</span></td>
+            <td><strong>運転状態の表示と、開始し忘れ防止</strong></td>
+            <td>予定を保存して閉じたあと、運転開始を押し忘れることがあった</td>
+            <td>予定一覧の右上に<strong>「● 運転中（緑）」／「● 運転は停止中です（赤）」</strong>を常時表示。<br>
+              停止中に「保存して閉じる」を押すと、<strong>「このままスケジュール運転を開始しますか？」</strong>と確認が出ます。</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-new">改善</span></td>
+            <td><strong>対象ソフトが消えたときの「続きから再開」</strong></td>
+            <td>再起動しても、途中だった人の残りは行わなかった</td>
+            <td>運転中に対象ソフトが異常終了・消失した際、自動で立ち上げ直して画面の準備を待ち、<strong>終わったセラピー回数の続きから自動で再開</strong>します。</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-new">改善</span></td>
+            <td><strong>メニューと設定画面の整理</strong></td>
+            <td>「設定」の中にすべてのボタンが並んでいた</td>
+            <td>・メニュー下部に<strong>「お問い合わせ」</strong>ボタンを新設<br>
+              ・設定画面を見出しごとに整理し、座標の再登録は<strong>「測定値を設定し直す →」</strong>に集約</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 1: メニュー画面と基本ルール                                    -->
+  <!-- ===================================================================== -->
+  <section id="overview" class="section-card">
+    <h2>🖥 メニュー画面と 3 つの実行モードの使い分け</h2>
+    <p>デスクトップの「AutoMeta」ショートカット（またはフォルダ内の <code>2_START.bat</code>）をダブルクリックすると、メニュー画面が開きます。</p>
+
+    <!-- Visual Replica of ModeMenu -->
+    <div class="win-mock">
+      <div class="win-titlebar">
+        <span>AutoMeta - メニュー (v3.10.34)</span>
+        <span class="win-close">×</span>
+      </div>
+      <div class="win-body">
+        <div style="font-size:17px;font-weight:700;">AutoMeta</div>
+        <div style="color:#666;font-size:12px;">メタアナライザー自動操作   3.10.34</div>
+        <div style="color:#137333;font-weight:600;margin-top:4px;">対象ソフト: 18D-NLS.exe</div>
+        <div style="color:#555;font-size:12.5px;">ご利用: プロプラン（有効）</div>
+        <hr class="win-hr">
+        <div class="win-btn win-btn-block win-btn-primary">① ⏰　スケジュール</div>
+        <div style="color:#555;font-size:12px;margin-bottom:8px;">　予定を決めて、その予定どおりに自動で回します。ふだんの運用はこちら。</div>
+        <div class="win-btn win-btn-block">② 👤　1 人だけ今すぐ実行</div>
+        <div style="color:#555;font-size:12px;margin-bottom:8px;">　検索して顧客を選び、調査 ＋ セラピーを 1 回だけ回します（予定には入れません）。</div>
+        <div class="win-btn win-btn-block">③ ▶　自動セラピー</div>
+        <div style="color:#555;font-size:12px;margin-bottom:8px;">　いま開いているカードに、セラピーだけをくりかえします（調査は行いません）。</div>
+        <hr class="win-hr">
+        <div style="display:flex;gap:8px;">
+          <div class="win-btn" style="flex:1;">④ ⚙  設定</div>
+          <div class="win-btn" style="flex:1;">⑤ お問い合わせ</div>
+          <div class="win-btn" style="flex:1;">閉じる</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>番号</th>
+            <th>ボタン名</th>
+            <th>どんなときに使うか</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="num-circle">1</span></td>
+            <td><strong>⏰ スケジュール</strong></td>
+            <td><strong>毎日の自動運転（メイン機能）</strong>。複数の顧客の予定（曜日・時刻・回数・調査タイプ・お知らせの届け先）を登録し、自動で順番に回します。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">2</span></td>
+            <td><strong>👤 1 人だけ今すぐ実行</strong></td>
+            <td>予定には入れず、<strong>いま 1 人だけ「カード検索 → 調査 → セラピー」を通しで実行したいとき</strong>に使います（※完了通知は送られません）。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">3</span></td>
+            <td><strong>▶ 自動セラピー</strong></td>
+            <td>すでに対象ソフトでカードを開いて調査項目を選んだ状態で、<strong>「自動セラピー」ボタンの繰り返しクリックだけを任せたいとき</strong>に使います。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">4</span></td>
+            <td><strong>⚙ 設定</strong></td>
+            <td>初回設定、座標の測り直し、スキーム名の変更、<strong>LINE・メールのお知らせ設定</strong>、利用者コードの登録、最新版への更新を行います。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">5</span></td>
+            <td><strong>お問い合わせ</strong></td>
+            <td>LINE またはメールでのお問い合わせ、動作がうまくいかないときの「診断結果を作成」を行います。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-warn">
+      <span class="box-title">💡 運転中の大切なルールと緊急停止の方法</span>
+      <ul>
+        <li><strong>対象ソフト（メタアナライザー）を最小化しないでください</strong>：画面が見えている状態で色や文字を読み取って操作します。</li>
+        <li><strong>途中で今すぐ止めたいとき</strong>：キーボードの <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> を同時に押すか、画面右下（タスクトレイ）の AutoMeta アイコンを右クリックして停止できます。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 2: 初回セットアップ（はじめての設定）                          -->
+  <!-- ===================================================================== -->
+  <section id="setup" class="section-card">
+    <h2>🔧 1. 初回セットアップ（「はじめての設定」）</h2>
+    <p>新しい PC に導入したときは、メニュー一番上に表示される <strong>「🔧 はじめての設定（順番に案内）」</strong>（または「⚙ 設定」→「はじめての設定」）を押して、上から順番に進めます。<br>
+    <strong>★マークが付いた 3 つの手順</strong>が完了すると、スケジュール運転を開始できます。</p>
+
+    <div class="step-box">
+      <h4><span class="num-circle">1</span> 対象ソフトを選ぶ <span class="badge badge-req">★必須</span></h4>
+      <p><strong>先に開いておく画面</strong>：対象ソフト（メタアナライザー）を起動しておきます（どの画面でも構いません）。<br>
+      ボタンを押して、一覧から対象ソフトを選びます。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">2</span> 一覧の 1 行目と 2 行目を登録 <span class="badge badge-req">★必須</span></h4>
+      <p><strong>先に開いておく画面</strong>：対象ソフトの<strong>「カード選択画面（顧客の一覧）」</strong>を開いておきます（顧客が 2 名以上並んでいる状態）。<br>
+      画面の案内に従い、顧客一覧の「1 行目の上」と「2 行目の上」にマウスを乗せて登録します（V3 では違う画面が開いている場合、始まる前に自動で教えてくれます）。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">3</span> 調査タイプ／マニュアル選択の位置を登録 <span class="badge badge-req">★必須</span></h4>
+      <p><strong>先に開いておく画面</strong>：対象ソフトの<strong>「調査のスキーム画面」</strong>（「ファスト・標準・詳細」や「スキーム 1〜5・自動選択」を選ぶ画面）を開いておきます。<br>
+      画面の案内に従い、それぞれの選択肢の位置を登録します。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">4</span> 調査履歴の件数の位置を登録 <span class="badge badge-opt">任意（推奨）</span></h4>
+      <p><strong>先に開いておく画面</strong>：<strong>「カードを選択した後の画面」</strong>（左下に調査履歴の件数が出ている画面）を開いておきます。<br>
+      登録しておくと、調査前後の件数の増え方で「確実に調査が完了したか」を自動で照合できるようになります。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">5</span> 利用者コードを登録 <span class="badge badge-req">利用確認</span></h4>
+      <p>インターネットにつないだ状態で、ご案内した利用者コード（<code>AM-XXXX-XXXX</code>）を入力して登録します。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">6</span> ショートカット・自動起動・異常終了時の自動再起動 <span class="badge badge-opt">ワンクリック設定</span></h4>
+      <p>同じ画面の下にある 3 つのボタンを押すだけで、その場で設定できます：</p>
+      <ul>
+        <li><strong>ショートカットを作成</strong>：デスクトップに「AutoMeta」アイコンを作ります。</li>
+        <li><strong>PC 起動時の自動起動を登録</strong>：Windows を起動したときに自動でスケジュール運転を開始します。</li>
+        <li><strong>異常終了時の自動再起動を登録</strong>：万が一停止したときに自動で再起動して運転を続けます。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 3: 毎日の使い方（スケジュール運転）                            -->
+  <!-- ===================================================================== -->
+  <section id="schedule" class="section-card">
+    <h2>⏰ 2. 毎日の使い方（スケジュール運転）</h2>
+    <p>メニューの <strong>「⏰ スケジュール」</strong> を押すと、<strong>「予定の編集」</strong>（一覧画面）が開きます。</p>
+
+    <h3>2-1. 予定の一覧画面の見方</h3>
+
+    <!-- Visual Replica of ModeScheduleEditor -->
+    <div class="win-mock">
+      <div class="win-titlebar">
+        <span>AutoMeta - 予定の編集 (v3.10.34)</span>
+        <span class="win-close">×</span>
+      </div>
+      <div class="win-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <strong style="font-size:16px;">予定の編集</strong>
+          <span style="color:#c0392b;font-weight:700;">① ● 運転は停止中です</span>
+        </div>
+        <div style="color:#666;font-size:12px;margin:4px 0 8px;">行をダブルクリックすると編集できます。「順番に実行する」方は、この表の上から順に実行されます（▲▼ で入れ替え）。</div>
+        <div class="win-row">
+          <label><input type="checkbox" checked disabled> <strong>② 終わった予定を隠す</strong></label>
+          <span style="color:#666;font-size:12px;">有効 2 件 ／ 全 3 件（終わった予定 1 件を隠しています）</span>
+        </div>
+        <table class="win-table">
+          <thead>
+            <tr><th>順</th><th></th><th>顧客</th><th>実行内容</th><th>繰り返し</th><th>次に実行される</th><th>回数</th><th>③ 配信設定</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>✓</td><td>山田 花子</td><td>調査＋セラピー2回</td><td>毎日 01:00 以降</td><td>今日 01:00 以降</td><td>1 / 3</td><td>LINE</td></tr>
+            <tr><td>2</td><td>✓</td><td>佐藤 太郎</td><td>調査＋セラピー2回</td><td>毎日 01:00 以降</td><td>今日 01:00 以降</td><td>0 / 無制限</td><td>メール</td></tr>
+          </tbody>
+        </table>
+        <div class="win-row">
+          <span class="win-btn">＋ 追加</span>
+          <span class="win-btn">編集</span>
+          <span class="win-btn">複製</span>
+          <span class="win-btn">削除</span>
+          <span class="win-btn">有効／無効</span>
+          <span class="win-btn">▲ 上へ</span>
+          <span class="win-btn">▼ 下へ</span>
+        </div>
+        <hr class="win-hr">
+        <div style="display:flex;gap:8px;">
+          <div class="win-btn win-btn-primary" style="flex:1.3;padding:10px;font-weight:700;">④ ▶ この予定で運転を開始</div>
+          <div class="win-btn" style="flex:1;padding:10px;">保存して閉じる</div>
+          <div class="win-btn" style="flex:1;padding:10px;">閉じる</div>
+        </div>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>① 右上の運転状態表示</strong>：現在スケジュール運転が動いているか（緑色の「<code>● 運転中</code>」／赤色の「<code>● 運転は停止中です</code>」）が常に表示されます。停止中に「保存して閉じる」を押すと、<strong>「このままスケジュール運転を開始しますか？」</strong>と確認が出るので、開始忘れを防げます。</li>
+      <li><strong>② 終わった予定を隠す</strong>：チェックが入っていると、上限回数（例：3 回）や終了日に達した予定は一覧から隠れます。<strong>過去の予定を見たいときや、もう一度回したいときはチェックを外してください。</strong></li>
+      <li><strong>③ 配信設定</strong>：その顧客へのお知らせ設定（<code>LINE</code>／<code>メール</code>／<code>送らない</code> など）が表示されます。</li>
+      <li><strong>④ ▶ この予定で運転を開始</strong>：予定を保存して、ただちにスケジュール運転を開始します。</li>
+    </ul>
+
+    <h3>2-2. 予定の追加・編集画面（全項目の意味）</h3>
+    <p><strong>「＋ 追加」</strong>または行をダブルクリックすると、顧客ごとの設定画面が開きます。</p>
+
+    <!-- Visual Replica of PatientDialog -->
+    <div class="win-mock">
+      <div class="win-titlebar">
+        <span>AutoMeta - 予定を編集 (v3.10.34)</span>
+        <span class="win-close">×</span>
+      </div>
+      <div class="win-body">
+        <div style="font-weight:700;margin-bottom:4px;">① 顧客 <span style="font-weight:400;font-size:12px;color:#666;">★検索欄と同じ氏名に（実行前に照合）</span></div>
+        <div class="win-row">
+          <span>姓</span><span class="win-input">山田</span>
+          <span>名</span><span class="win-input">花子</span>
+          <span>ミドル</span><span class="win-input" style="min-width:60px;"></span>
+          <label><input type="checkbox" checked disabled> この予定を有効にする</label>
+        </div>
+        <div class="win-row">
+          <span class="win-btn" style="padding:3px 12px;">② お知らせの届け先</span>
+          <span style="color:#555;font-size:12.5px;">LINE：登録済み ／ メール：なし（終了後に通知）</span>
+        </div>
+        <hr class="win-hr">
+        <div style="font-weight:700;margin-bottom:4px;">③ 実行内容</div>
+        <div class="win-row">
+          <label><input type="checkbox" checked disabled> 調査を行う</label>
+          <span>セラピー</span><span class="win-input" style="min-width:50px;">2 ▼</span><span>回</span>
+        </div>
+        <div class="win-row">
+          <span>調査タイプ</span><span class="win-input">ファスト ▼</span>
+          <span>マニュアル選択</span><span class="win-input">スキーム 1 ▼</span>
+        </div>
+        <hr class="win-hr">
+        <div style="font-weight:700;margin-bottom:4px;">④ 繰り返しと実行方法</div>
+        <div class="win-row">
+          <label><input type="radio" checked disabled> 毎週</label>
+          <span>[✓月][✓火][✓水][✓木][✓金][✓土][✓日]</span>
+          <span style="margin-left:8px;"><label><input type="radio" disabled> 日数で</label> [ 1 ▼ ] 日おき</span>
+        </div>
+        <div class="win-row">
+          <span>時刻</span><span class="win-input" style="min-width:45px;">01 ▼</span> : <span class="win-input" style="min-width:45px;">00 ▼</span>
+          <label><input type="radio" disabled> この時刻ちょうどに</label>
+          <label><input type="radio" checked disabled> <strong>以降、空いたら順番に</strong></label>
+        </div>
+        <hr class="win-hr">
+        <div class="win-row">
+          <span>⑤ 開始日</span><span class="win-input">2026-10-01</span>
+          <span>終了日</span><span class="win-input"></span>
+          <span><strong>上限</strong></span><span class="win-input" style="min-width:65px;"><strong>3 ▼</strong></span><span>回で終了</span>
+        </div>
+        <div class="win-row">
+          <span>⑥ 遅れて起動したとき</span><span class="win-input" style="min-width:75px;">120分 ▼</span><span>以内なら実行する</span>
+          <span>メモ</span><span class="win-input" style="min-width:120px;"></span>
+        </div>
+        <hr class="win-hr">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+          <span class="win-btn">⑦ この顧客の実行履歴を削除</span>
+          <div>
+            <span class="win-btn win-btn-primary" style="min-width:100px;">OK</span>
+            <span class="win-btn" style="min-width:100px;">キャンセル</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>番号</th>
+            <th>項目名</th>
+            <th>詳しい説明・設定のポイント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="num-circle">1</span></td>
+            <td><strong>顧客（姓・名・ミドル）</strong></td>
+            <td>対象ソフトのカード検索欄と同じ氏名を入力します（実行前にカード名と一致するか照合します）。<br>
+              ・「ミドル」は比較用カード等と区別するときだけ入力し、通常は空欄にします。<br>
+              ・スタンダードプランは<strong>5 人まで</strong>登録できます（プロプランは無制限）。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">2</span></td>
+            <td><strong>お知らせの届け先</strong><br><span class="badge badge-pro">Pro</span></td>
+            <td>この顧客への完了通知のオン／オフ、<strong>「登録用の QR」</strong>の発行、メールアドレスの入力、この顧客だけの個別文面を設定します（詳しくは<a href="#notify">第 5 章</a>）。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">3</span></td>
+            <td><strong>実行内容<br>（調査タイプ／マニュアル選択）</strong></td>
+            <td>・「調査を行う」にチェックを入れると調査後にセラピーを行います。<br>
+              ・調査タイプとマニュアル選択の選択肢の意味：<br>
+              　- <strong><code>（変更しない）</code></strong>：対象ソフト側でいま選ばれている状態を触らずそのまま使います。<br>
+              　- <strong><code>（どれも選ばない）</code></strong>：マニュアル選択のチェックをすべて外した状態で調査します。<br>
+              　- <strong><code>スキーム 1〜5</code> ／ <code>自動選択</code></strong>：該当する項目に切り替えてから調査します（※スキームの名前は「設定」から変更できます）。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">4</span></td>
+            <td><strong>繰り返しと実行方法</strong></td>
+            <td>・「毎週（曜日指定）」または「日数で（前回の実行日から ○ 日おき）」を選べます。<br>
+              ・実行方法の違い：<br>
+              　- <strong><code>以降、空いたら順番に</code>（初期値・おすすめ）</strong>：指定時刻を過ぎたら、前の人のセラピーが終わり次第、予定一覧の上から順番に実行します。同じ時刻（例：01:00）に何人も並べて順番に回したいときに最適です。<br>
+              　- <strong><code>この時刻ちょうどに</code></strong>：前の人が長引いて指定時刻に始められなかった場合は見送ります。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">5</span></td>
+            <td><strong>開始日・終了日・上限</strong></td>
+            <td>・<strong>上限</strong>：新しく追加した予定は<strong>「3」回で終了</strong>になっています。<br>
+              ・<strong>制限なしで毎日ずっと回し続けたい場合は、一覧の一番上にある「無制限」を選んでください。</strong></td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">6</span></td>
+            <td><strong>遅れて起動したとき ○○ 以内なら実行する</strong></td>
+            <td>PC の電源が入っていなかったり運転を止めていたりして、<strong>指定時刻より遅れて「運転を開始」したとき</strong>に、何分遅れまでならその日の分を実行するかを決めます（既定：<code>120分</code>）。<br>
+              ・例えば夜中 <code>02:00</code> の予定（許容 <code>120分</code>）を、朝や昼に「運転開始」したときは、許容時間を過ぎているためその日は見送りになり、昼間に勝手に動き出すことはありません。<br>
+              ・※もともと運転が続いていて、前の人のセラピーが長引いて遅れた場合は、許容時間を過ぎていても順番に実行されます。</td>
+          </tr>
+          <tr>
+            <td><span class="num-circle">7</span></td>
+            <td><strong>この顧客の実行履歴を削除</strong></td>
+            <td>「3 回で終了」などの上限に達して完了した顧客を、<strong>もう一度 0 回からやり直したいとき</strong>に押します。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 4: 運転パネルと「確認待ち」の見方                              -->
+  <!-- ===================================================================== -->
+  <section id="panel" class="section-card">
+    <h2>📊 3. 運転パネルと「確認待ち」画面の見方</h2>
+    <p>スケジュール運転を開始すると、画面の右上に小さな<strong>運転パネル</strong>が常時表示されます。</p>
+
+    <h3>3-1. 運転パネルの 1 行目に出る表示</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>表示される文字</th>
+            <th>意味と動き</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><code>★ 未確認 ○ 件 ← クリックで開く</code></strong></td>
+            <td>完了した方、または途中で止まって確認が必要な方の控えがあります。文字をクリックすると<strong>「確認待ち」画面</strong>が開きます。</td>
+          </tr>
+          <tr>
+            <td><strong><code>／あとで送る ○ 件</code></strong> <span class="badge badge-pro">Pro</span></td>
+            <td>夜間の「送信しない時間帯（既定 21:00〜08:00）」に完了したため、<strong>翌朝 08:00 まで送信を保留しているお知らせの件数</strong>です。異常ではありません。朝になれば自動で送信されます。</td>
+          </tr>
+          <tr>
+            <td><strong><code>／未送信 ○ 件</code></strong> <span class="badge badge-pro">Pro</span></td>
+            <td>これから送信するお知らせ、または一時的な通信エラー等で再試行待ちのお知らせの件数です。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3-2. 「確認待ち」画面の見方</h3>
+    <p>運転パネルの <code>★ 未確認 ○ 件</code> をクリックすると開きます。V3 では<strong>「顧客へのお知らせ」列</strong>が追加され、通知が送られたかどうかもここで確認できます。</p>
+
+    <div class="win-mock">
+      <div class="win-titlebar">
+        <span>AutoMeta - 確認待ち (v3.10.34)</span>
+        <span class="win-close">×</span>
+      </div>
+      <div class="win-body">
+        <div style="font-weight:700;">確認待ち</div>
+        <div style="color:#666;font-size:12px;margin-bottom:8px;">終わった方の控えです。内容を確認したら ✓ を付けて、下のボタンで消してください。</div>
+        <table class="win-table">
+          <thead>
+            <tr><th></th><th>終了</th><th>顧客</th><th>顧客へのお知らせ</th><th>内容</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>☑</td><td>10/31 01:22</td><td>山田 花子</td><td style="color:#002060;">保留中（08:00 に送ります）</td><td>調査＋セラピー 2 回 完了</td></tr>
+            <tr><td>☑</td><td>10/30 14:15</td><td>佐藤 太郎</td><td style="color:#137333;">LINE 送信済み</td><td>調査＋セラピー 2 回 完了</td></tr>
+            <tr><td>☐</td><td>10/30 15:02</td><td>鈴木 一郎</td><td style="color:#666;">送りません（この方には送らない設定）</td><td>調査＋セラピー 1 回 完了</td></tr>
+          </tbody>
+        </table>
+        <div class="win-row" style="margin-top:10px;">
+          <span class="win-btn win-btn-primary">✓ の行を確認済みにする</span>
+          <span class="win-btn">すべてに ✓ を付ける</span>
+          <span class="win-btn">閉じる</span>
+        </div>
+      </div>
+    </div>
+
+    <ul>
+      <li>確認が終わった行にチェックを入れて<strong>「✓ の行を確認済みにする」</strong>を押すと、一覧から消えます。</li>
+      <li>右上の「×」や「閉じる」で閉じた場合は「あとで確認する」扱いとなり、記録は消えずに残ります。</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 5: 1人だけ今すぐ実行 ／ 自動セラピー                          -->
+  <!-- ===================================================================== -->
+  <section id="immediate" class="section-card">
+    <h2>👤 4. 目の前の方にすぐ使うとき（予定に入れずに実行）</h2>
+    <p>スケジュールの予定には入れず、その場で動かしたいときはメニュー画面の 2 つのボタンを使い分けます。</p>
+
+    <div class="step-box">
+      <h4>方法 A：カード検索から調査・セラピーまで 1 人分通しで行う（👤 1 人だけ今すぐ実行）</h4>
+      <ol>
+        <li>対象ソフト（メタアナライザー）を起動しておきます。</li>
+        <li>AutoMeta のメニューで <strong>「👤 1 人だけ今すぐ実行」</strong> を押します。</li>
+        <li>氏名（姓・名）、調査を行うか、セラピー回数、調査タイプ、マニュアル選択を指定して開始します。</li>
+      </ol>
+      <p style="color:var(--sub);font-size:14px;">※「1 人だけ今すぐ実行」では、顧客への完了通知（LINE・メール）は送信されません。</p>
+    </div>
+
+    <div class="step-box">
+      <h4>方法 B：自分で選んだ測定項目に、セラピーだけを繰り返す（▶ 自動セラピー）</h4>
+      <ol>
+        <li>対象ソフトでカードを開き、調査を済ませて<strong>測定項目（エタロン）にチェックを入れた画面（「自動セラピー」ボタンが見えている画面）</strong>を開きます。</li>
+        <li>AutoMeta のメニューで <strong>「▶ 自動セラピー」</strong> を押します。</li>
+        <li>繰り返す回数を指定して開始すると、指定回数だけ自動でセラピーを繰り返します。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 6: お知らせ機能（LINE・メール）【Pro】                         -->
+  <!-- ===================================================================== -->
+  <section id="notify" class="section-card">
+    <h2>📩 5. お知らせ機能（LINE・メール通知）の完全ガイド <span class="badge badge-pro">プロプラン</span></h2>
+    <p>プロプランでは、ご自身の <strong>LINE 公式アカウント</strong> または <strong>Gmail</strong> から、顧客への「セラピー完了のお知らせ」と、ご自身への「異常発生時のお知らせ」を自動送信できます。</p>
+
+    <div class="box box-pro">
+      <span class="box-title">🔒 安心・安全の仕組み</span>
+      <ul>
+        <li><strong>差出人はご自身の公式アカウント／Gmail</strong>：当方（開発側）のサーバーを経由せず、お使いの PC から直接送信します。</li>
+        <li><strong>個人情報は PC の中だけに暗号化保管</strong>：顧客の氏名やメールアドレス、パスワード・トークンは外部へ送信されず、お使いの PC 内で暗号化されます。</li>
+        <li><strong>薬機法・医師法に配慮した初期文面</strong>：効果・効能をうたわず、「本日のセラピーが完了いたしました」と事実のみをお伝えする文面が最初から入っています。</li>
+      </ul>
+    </div>
+
+    <h3>全体の準備の流れ（最初に 1 回だけ）</h3>
+    <p>メニューの <strong>「⚙ 設定」</strong> を開き、<strong>「お知らせ【Pro】」</strong> の 4 つのボタンから準備します（LINE とメールは、使う方だけの設定で構いません）。</p>
+
+    <div class="win-mock" style="max-width:560px;">
+      <div class="win-body">
+        <div class="win-section-label">お知らせ　【Pro】</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="win-btn">通知：オン</div>
+          <div class="win-btn">メール：設定済み</div>
+          <div class="win-btn">LINE：設定済み</div>
+          <div class="win-btn">登録用 QR：使えます</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5-1: メール設定 -->
+    <h3>手順 5-1：メール（Gmail）を使う場合の設定（「⚙ 設定」→「メール」）</h3>
+    <p>Gmail から送信するには、普段のログインパスワードではなく、Google が発行する<strong>16 桁の「アプリパスワード」</strong>を使います。画面内のボタンから直接 Google の設定ページを開けます。</p>
+
+    <div class="step-box">
+      <h4><span class="num-circle">1</span> Google の 2 段階認証をオンにする</h4>
+      <p>AutoMeta の「メールの設定」画面にある <strong>「① 設定ページを開く」</strong> を押し、Google アカウントの 2 段階認証をオンにします（すでにオンの方はそのまま②へ進みます）。</p>
+    </div>
+    <div class="step-box">
+      <h4><span class="num-circle">2</span> アプリパスワード（16 桁）を発行する</h4>
+      <p><strong>「② 発行ページを開く」</strong> を押します。<br>
+      アプリ名に <code>AutoMeta</code> と入力して［作成］を押すと、黄色い枠に <strong>16 桁の英字</strong>（4 桁×4 組）が表示されますのでコピーします。</p>
+    </div>
+    <div class="step-box">
+      <h4><span class="num-circle">3</span> AutoMeta に貼り付けて「テスト送信」を押す</h4>
+      <ul>
+        <li><strong>差出人（Gmail のアドレス）</strong>：ご自身の <code>○○@gmail.com</code> を入力します。</li>
+        <li><strong>アプリパスワード</strong>：コピーした 16 桁を貼り付けます（空白はそのままで構いません。自動で取り除かれます）。</li>
+        <li><strong>異常の知らせ先</strong>：空欄のままで差出人と同じアドレスへ届きます。</li>
+      </ul>
+      <p><strong>「テスト送信（自分宛に 1 通）」</strong> を押し、ご自身のメールに届けば完了です。<strong>「保存」</strong> を押して閉じます。</p>
+    </div>
+
+    <!-- STEP 5-2: LINE設定 -->
+    <h3>手順 5-2：LINE 公式アカウントを使う場合の設定（「⚙ 設定」→「LINE」）</h3>
+    <p>ご自身の屋号などの「LINE 公式アカウント（無料プランで月 200 通まで送信可能）」から LINE を送る設定です。画面の ①〜⑤ のボタンに沿って順番に進めます。</p>
+
+    <div class="step-box">
+      <h4><span class="num-circle">1</span> LINE 公式アカウントを作る（すでにお持ちの方は不要）</h4>
+      <p><strong>「① 申し込みページを開く」</strong> を押し、普段の LINE アカウントでログインして公式アカウントを作成します（アカウント名にはご自身の屋号などを入れます）。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">2</span> Messaging API を有効にする</h4>
+      <p><strong>「② 管理画面を開く」</strong>（LINE Official Account Manager）を押します。<br>
+      画面右上の<strong>［設定］</strong> → 左メニューの<strong>［Messaging API］</strong> → <strong>［Messaging API を利用する］</strong> を押し、「プロバイダー名」にご自身の屋号などを入れて登録します。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">3</span> 開発者ページで「トークン」と「あなたのユーザー ID」を控える</h4>
+      <p><strong>「③ 開発者ページを直接開く」</strong>（LINE Developers）を押し、②で作ったプロバイダー → 公式アカウントのチャネルを選びます。<br>
+      <strong>★次の 2 つは別々のタブにありますのでご注意ください：</strong></p>
+      <ul>
+        <li><strong>チャネルアクセストークン（長期）</strong>：上の<strong>［Messaging API 設定］タブ</strong>を開き、一番下までスクロールして［発行］を押します。出た長い文字列をコピーして AutoMeta の「チャネルアクセストークン」欄に貼り付けます。</li>
+        <li><strong>あなたのユーザー ID</strong>：上の<strong>［チャネル基本設定］タブ</strong>に切り替え、下の方にある「あなたのユーザー ID」（<strong><code>U</code> で始まる 33 文字</strong>）をコピーして AutoMeta の「あなたのユーザー ID」欄に貼り付けます。</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">4</span> ご自身のスマホで公式アカウントを友だち追加してテスト送信</h4>
+      <p>［Messaging API 設定］タブにある QR コードをご自身のスマホの LINE で読み取り、<strong>必ず友だち追加してください</strong>（友だち追加していないとテスト送信が届きません）。<br>
+      その後、AutoMeta の <strong>「テスト送信（自分の LINE へ 1 通）」</strong> を押し、ご自身の LINE にテストメッセージが届けば成功です。<strong>「保存」</strong> を押します。</p>
+    </div>
+
+    <!-- STEP 5-3: 登録用QR（LIFF）の設定 -->
+    <h3>手順 5-3：顧客が「QR を 1 回読むだけ」で LINE 登録できるようにする（「⚙ 設定」→「登録用 QR」）</h3>
+    <p>この設定を最初に 1 回だけ済ませておくと、顧客は<strong>スマホで QR コード（またはリンク）を開いて「追加」を押すだけ</strong>で、AutoMeta に宛先が届くようになります。</p>
+
+    <div class="step-box">
+      <h4><span class="num-circle">1</span> AutoMeta の画面で「登録する URL」をコピーする</h4>
+      <p>「⚙ 設定」→「登録用 QR」を開き、下にある「登録する URL」（<code>https://therapyreport.jp/</code>）の右の <strong>「コピー」</strong> ボタンを押します。</p>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">2</span> LINE Developers で「LINE ログイン」チャネルを作る</h4>
+      <ol>
+        <li>LINE Developers を開き、<strong>手順 5-2 で使ったものと同じプロバイダー</strong>を選びます（※別のプロバイダーに作ると ID が変わってしまい届きません）。</li>
+        <li><strong>［新規チャネル作成］→［LINE ログイン］</strong>を選びます。</li>
+        <li>チャネル名（屋号など）を入れ、アプリタイプは <strong>［ウェブアプリ］</strong> にチェックを入れて作成します。</li>
+      </ol>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">3</span> 公式アカウントをリンクし、LIFF アプリを追加する</h4>
+      <ol>
+        <li>作った LINE ログインチャネルの<strong>［チャネル基本設定］タブ</strong>を開き、一番下の「リンクされた LINE 公式アカウント」でご自身の公式アカウントを選んで［更新］を押します。</li>
+        <li>上の<strong>［LIFF］タブ →［追加］</strong>を押し、以下のとおりに設定します：</li>
+      </ol>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th>サイズ</th><td><strong><code>Compact</code></strong></td></tr>
+            <tr><th>エンドポイント URL</th><td>手順 1 でコピーした URL（<code>https://therapyreport.jp/</code>）をそのまま貼り付け（※末尾に何も足さないでください）</td></tr>
+            <tr><th>スコープ</th><td><strong><code>profile</code> と <code>openid</code> の両方にチェック</strong>（※<code>openid</code> が抜けると本人確認エラーになります）</td></tr>
+            <tr><th>友だち追加オプション</th><td><strong><code>On (aggressive)</code></strong>（※<code>On (normal)</code> ではなく必ず <code>aggressive</code> にしてください）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">4</span> チャネルを【公開済み】にして、LIFF ID を AutoMeta に貼る</h4>
+      <ol>
+        <li>チャネル名のすぐ右にある <strong>［開発中］</strong> というボタンを押して、<strong>【公開済み】</strong> に切り替えます。<br>
+          <span style="color:var(--ng);font-weight:700;">★重要：［開発中］のままだと、ご自身以外の顧客が QR を読み取ったときにエラーになります。</span></li>
+        <li>［LIFF］タブに表示された <strong>LIFF ID</strong>（<code>1234567890-abcdEFGH</code> のような文字列）をコピーし、AutoMeta の「登録用 QR」画面の <strong>「LIFF ID」</strong> 欄に貼り付けます。</li>
+        <li><strong>「お名前・屋号」</strong>と<strong>「公式アカウント ID（<code>@</code> から始まる ID）」</strong>を入力して <strong>「保存」</strong> を押せば準備完了です。</li>
+      </ol>
+    </div>
+
+    <!-- STEP 5-4: LINE公式アカウント側の推奨設定 -->
+    <h3>手順 5-4：【推奨】LINE 公式アカウント側のチャット・あいさつ設定</h3>
+    <p>LINE Official Account Manager（管理画面）で以下の設定をしておくと、顧客とのやり取りがスムーズになります（下の「コピー」ボタンで文面をそのまま貼り付けられます）。</p>
+
+    <ol>
+      <li><strong>チャットをオンにする</strong>：管理画面の「設定 → 応答設定」で <strong>「チャット：オン」</strong> にします（スマホにも「LINE 公式アカウント」アプリを入れておくと、顧客からの返信にすぐ気づけます）。</li>
+      <li><strong>あいさつメッセージ（友だち追加時に自動送信）</strong>：LINE の表示名だけでは誰か分からない場合に備えて、フルネームを送ってもらう案内を入れておくと確実です。</li>
+    </ol>
+
+    <div class="copy-wrap">
+      <button class="copy-btn" onclick="copyText('tpl-greet', this)">文面をコピー</button>
+      <pre id="tpl-greet" class="tpl">友だち追加ありがとうございます。
+セラピーが完了したときのお知らせを、こちらのトークにお送りします。
+
+はじめに、このトークへお名前（フルネーム）をお送りください。
+例）山田 太郎
+LINE のお名前だけでは、どなたかわからないことがあるためです。
+
+お名前のほかに、ご入力いただくものはありません。
+お知らせが不要になったときは、いつでもこのトークにお知らせください。</pre>
+    </div>
+
+    <ol start="3">
+      <li><strong>応答メッセージ（顧客がメッセージを送ったときの自動返信）</strong>：</li>
+    </ol>
+    <div class="copy-wrap">
+      <button class="copy-btn" onclick="copyText('tpl-reply', this)">文面をコピー</button>
+      <pre id="tpl-reply" class="tpl">メッセージを受け取りました。
+ありがとうございます。
+
+内容は担当者が確認いたします。
+セラピーが完了しましたら、こちらのトークにお知らせをお送りします。</pre>
+    </div>
+
+    <!-- STEP 5-5: 通知の設定（時間帯・宛名・文面） -->
+    <h3>手順 5-5：通知をオンにして、時間帯・宛名・文面を決める（「⚙ 設定」→「通知：オン／オフ」）</h3>
+
+    <!-- Visual Replica of ModeNotify -->
+    <div class="win-mock">
+      <div class="win-titlebar">
+        <span>AutoMeta - 通知の設定 (v3.10.34)</span>
+        <span class="win-close">×</span>
+      </div>
+      <div class="win-body">
+        <div style="font-weight:700;">セラピーの終了を、顧客に通知します</div>
+        <div class="win-row">
+          <label><input type="checkbox" checked disabled> <strong>① 通知を使う（オフの間は送信しません）</strong></label>
+        </div>
+        <div class="win-row">
+          <label><input type="checkbox" disabled> 完了時も管理者に通知する（動作確認用。通常はオフ）</label>
+        </div>
+        <div class="win-row">
+          <span><strong>② 宛名</strong></span>
+          <span class="win-input">姓のみ（例: 山田） ▼</span>
+        </div>
+        <div style="font-weight:700;margin-top:8px;">③ 送る時刻</div>
+        <div class="win-row">
+          <span>送信しない時間帯</span>
+          <span class="win-input" style="min-width:60px;">21:00</span> 〜 <span class="win-input" style="min-width:60px;">08:00</span>
+          <span style="color:#555;font-size:12px;">（この間の終了分は 08:00 に送ります）</span>
+        </div>
+        <div style="font-weight:700;margin-top:8px;">④ 文面</div>
+        <div style="color:#666;font-size:11.5px;">使用できる差し込みは {宛名} {日付} {開始} {終了} {回数} {項目数} の 6 つです。</div>
+        <div class="win-row" style="margin-top:8px;">
+          <span class="win-btn">プレビュー</span>
+          <span class="win-btn">テスト送信</span>
+          <span class="win-btn">文面をデフォルトに戻す</span>
+          <span class="win-btn">異常通知をテスト送信</span>
+        </div>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>① 通知を使う</strong>：必ずチェックを入れて「保存」を押してください（オフの間は送信されません）。</li>
+      <li><strong>② 宛名</strong>：万が一別の方に届いた際にもフルネームが出ないよう、既定は<strong>「姓のみ（例: 山田）」</strong>になっています（「なし」「姓と名」にも変更できます）。</li>
+      <li><strong>③ 送信しない時間帯（夜間保留）</strong>：既定では <code>21:00</code> 〜 <code>08:00</code> に終わったセラピーの通知は夜中に鳴らさず保留し、<strong>翌朝 <code>08:00</code> に自動で送信</strong>します。</li>
+      <li><strong>④ 文面とテスト送信</strong>：<strong>「プレビュー」</strong>で差し込み後の文面を確認でき、<strong>「テスト送信」</strong>を押すとご自身の LINE に見本を 1 通送って実際の見え方を確かめられます。</li>
+    </ul>
+
+    <!-- STEP 5-6: 顧客ごとにQRを発行して紐づける流れ -->
+    <h3>手順 5-6：顧客ごとに届け先（LINE・メール）を登録する流れ</h3>
+
+    <div class="step-box">
+      <h4><span class="num-circle">1</span> 予定の編集画面で「お知らせの届け先」を押す</h4>
+      <p>「⏰ スケジュール」→ 顧客を選んで「編集」→ 氏名の下にある <strong>「お知らせの届け先」</strong> ボタンを押します。</p>
+      <div class="win-mock" style="max-width:540px;">
+        <div class="win-titlebar">
+          <span>AutoMeta - お知らせの届け先</span>
+          <span class="win-close">×</span>
+        </div>
+        <div class="win-body">
+          <div style="font-weight:700;">山田 花子 さんの届け先</div>
+          <div class="win-row"><label><input type="checkbox" checked disabled> セラピーが終わったら、お知らせを送る</label></div>
+          <div class="win-row">
+            <span style="width:90px;">LINE の ID</span>
+            <span class="win-input" style="flex:1;">（QR を読み取ると自動で入ります）</span>
+            <span class="win-btn win-btn-primary">登録用の QR</span>
+          </div>
+          <div class="win-row">
+            <span style="width:90px;">メール</span>
+            <span class="win-input" style="flex:1;">example@gmail.com</span>
+            <span class="win-btn">テスト送信</span>
+          </div>
+          <div class="win-row">
+            <span style="width:90px;">文面</span>
+            <span style="flex:1;color:#555;">共通の文面</span>
+            <span class="win-btn">文面を編集</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">2</span> 「登録用の QR」を押して、顧客に読み取ってもらう（またはリンクを送る）</h4>
+      <p><strong>「登録用の QR」</strong> ボタンを押すと、ブラウザで QR コード付きの案内ページが開き、同時に<strong>登録用リンクが自動でコピー（クリップボードに保存）</strong>されます。</p>
+      <ul>
+        <li><strong>顧客が目の前にいるとき</strong>：ブラウザで開いた QR コードをスマホで読み取ってもらうか、印刷してお渡しします。</li>
+        <li><strong>顧客が遠くにいるとき</strong>：すでにリンクがコピーされていますので、普段やり取りしている LINE やメールにそのまま貼り付けてお送りください（※QR とリンクの有効期限は 14 日間です）。</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <h4><span class="num-circle">3</span> PC に出る「LINE の登録がありました」画面で承認する</h4>
+      <p>顧客が QR（またはリンク）を開いて「追加」を押すと、お使いの PC 画面に <strong>「LINE の登録がありました」</strong> という画面が自動で開きます（予定の編集画面を開いているとき、またはスケジュール運転中に自動で受け取ります）。</p>
+      <div class="win-mock" style="max-width:580px;">
+        <div class="win-titlebar">
+          <span>AutoMeta - LINE の登録がありました</span>
+          <span class="win-close">×</span>
+        </div>
+        <div class="win-body">
+          <div style="font-weight:700;">LINE の登録がありました（1 件）</div>
+          <div style="color:#666;font-size:12px;">表示名を確かめて、知らない方はチェックを外してください。</div>
+          <table class="win-table">
+            <thead>
+              <tr><th>顧客（予定）</th><th>LINE の表示名</th><th>状態</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>☑ 山田 花子</td><td>はなこ</td><td style="color:#137333;">確認できました</td></tr>
+            </tbody>
+          </table>
+          <div class="win-row">
+            <span class="win-btn win-btn-primary">チェックした方を紐づける</span>
+            <span class="win-btn">チェックした方を登録しない</span>
+            <span class="win-btn">あとで確認</span>
+          </div>
+        </div>
+      </div>
+      <p>LINE の表示名を確認し、<strong>「チェックした方を紐づける」</strong> を押すと、顧客の LINE に「登録が完了しました」と 1 通届き、紐づけが完了します！</p>
+    </div>
+
+    <div class="box box-info">
+      <span class="box-title">💡 特定の顧客だけお知らせの文面を変えたいときは</span>
+      「お知らせの届け先」画面の <strong>「文面を編集」</strong> ボタンを押すと、その顧客にだけ送る個別メッセージを作成できます。<br>
+      誰に個別文面を設定しているかは、「⚙ 設定」→「通知：オン／オフ」→<strong>「顧客ごとの文面」</strong>ボタンから一覧で確認・編集・共通文面へのリセットができます。
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 7: 設定画面でできること・版の更新                              -->
+  <!-- ===================================================================== -->
+  <section id="settings" class="section-card">
+    <h2>⚙ 6. 設定画面でできること・最新版への更新</h2>
+    <p>メニューの <strong>「⚙ 設定」</strong> で使える便利機能です。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>見出し</th>
+            <th>ボタン名</th>
+            <th>できること</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>この PC</strong></td>
+            <td><strong>測定値を設定し直す →</strong></td>
+            <td>・対象ソフトの選択、一覧の 1・2 行目、調査タイプ／マニュアル選択の位置、調査履歴の件数の位置を個別にやり直せます。<br>
+              ・<strong>「スキームの名前を変更（マニュアル選択の 1〜5 番目）」</strong>：対象ソフト側で独自のスキーム名を使っている場合、AutoMeta の選択肢の表示名を同じ名前に変えられます。</td>
+          </tr>
+          <tr>
+            <td><strong>この PC</strong></td>
+            <td><strong>ショートカットを作成</strong></td>
+            <td>デスクトップに AutoMeta の起動アイコンを作成します。</td>
+          </tr>
+          <tr>
+            <td><strong>この PC</strong></td>
+            <td><strong>PC 起動時の自動起動</strong></td>
+            <td>オンにすると、Windows を起動したときに自動でスケジュール運転を開始します。</td>
+          </tr>
+          <tr>
+            <td><strong>この PC</strong></td>
+            <td><strong>異常終了時の自動再起動</strong></td>
+            <td>オンにすると、万が一停止したときに 1 分以内に自動で再起動します。<br>
+              また V3 では、運転中に対象ソフト（メタアナライザー）が異常終了しても、自動で立ち上げ直して<strong>終わったセラピー回数の続きから自動で再開</strong>します。</td>
+          </tr>
+          <tr>
+            <td><strong>ご利用</strong></td>
+            <td><strong>利用者コード</strong></td>
+            <td>利用者コード（<code>AM-XXXX-XXXX</code>）の登録・確認を行います。</td>
+          </tr>
+          <tr>
+            <td><strong>ご利用</strong></td>
+            <td><strong>新しい版を確認して更新</strong></td>
+            <td>インターネット経由で最新のバージョンがあるかを調べ、<strong>ワンクリックで最新版へ更新</strong>します（設定や予定はすべてそのまま引き継がれます）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 8: よくある質問・困ったときは（Q&A）                           -->
+  <!-- ===================================================================== -->
+  <section id="faq" class="section-card">
+    <h2>❓ 7. よくある質問・困ったときは（Q&A）</h2>
+    <p>質問をクリックすると回答が開きます。</p>
+
+    <details class="faq" open>
+      <summary>Q1. 登録したはずの顧客が、予定の一覧から消えてしまいました</summary>
+      <div class="faq-body">
+        予定一覧の上部にある <strong>「終わった予定を隠す」</strong> にチェックが入っていると、上限回数（3 回など）や終了日に達した予定は自動で隠れます。<br>
+        「終わった予定を隠す」のチェックを外すと、完了した予定もすべて表示されます。
+      </div>
+    </details>
+
+    <details class="faq" open>
+      <summary>Q2. 「3 回で終了」して完了になった顧客を、もう一度 1 回目から回したいです</summary>
+      <div class="faq-body">
+        <ol>
+          <li>予定一覧で「終わった予定を隠す」のチェックを外し、その顧客をダブルクリックして編集画面を開きます。</li>
+          <li>画面左下の <strong>「この顧客の実行履歴を削除」</strong> ボタンを押すと、これまでの実行回数が 0 回に戻り、再び実行されるようになります。</li>
+          <li>もし回数制限なしで毎日ずっと続けたい場合は、同じ画面の「上限」を <strong>「無制限」</strong> に変更して「OK」を押してください。</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q3. 過去に終わったはずの顧客が、また待機中（予約待ち）になっています</summary>
+      <div class="faq-body">
+        以前の版（3.10.30〜3.10.31）で新規追加された予定の履歴引き継ぎに関する不具合がありましたが、<strong>3.10.32 以降で自動修復</strong>されています。<br>
+        メニューの「⚙ 設定」→「新しい版を確認して更新」から最新版（3.10.34 以降）へ更新してください。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q4. 夜中の 2 時に設定している予定が、昼間に「運転を開始」したときに動き出しました</summary>
+      <div class="faq-body">
+        3.10.33 以前では、実行方法を「以降、空いたら順番に」にしていると、昼間に運転を開始した際にも未実行分として始まることがありました。<br>
+        <strong>3.10.34 以降</strong>では、「遅れて起動したとき ○○ 以内なら実行する（既定 120 分）」を超えている場合は見送るように修正されています。「⚙ 設定」→「新しい版を確認して更新」から最新版へ更新してください。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q5. 予定を保存したのに、指定時刻になっても動きません</summary>
+      <div class="faq-body">
+        予定一覧の右上が <strong>「● 運転は停止中です」</strong>（赤色）になっていないかご確認ください。<br>
+        画面下の <strong>「▶ この予定で運転を開始」</strong> ボタンを押すと、スケジュール運転が始まります。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q6. 運転パネルに「／あとで送る ○ 件」と出ています。エラーですか？</summary>
+      <div class="faq-body">
+        エラーではありません。夜間の「送信しない時間帯（既定では 21:00〜08:00）」に完了したセラピーのお知らせを、夜中に顧客のスマホを鳴らさないよう<strong>翌朝 08:00 まで自動で保留している件数</strong>です。朝 08:00 になると自動で送信されます。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q7. 運転パネルに「／未送信 ○ 件」が残っています</summary>
+      <div class="faq-body">
+        LINE 公式アカウントの月間無料メッセージ通数（無料プランは月 200 通）の上限に達した場合や、一時的な通信エラーのときに表示されます。<br>
+        3.10.33 以降では、LINE の月間上限に達した古い通知が翌月に遅れて届かないよう自動で破棄され、パネルの表示も自動で消えるようになっています。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q8. 顧客が「登録用の QR」をスマホで読み取ったのにエラー画面になります</summary>
+      <div class="faq-body">
+        LINE Developers の「LINE ログイン」チャネルが <strong>［開発中］</strong> のままになっていないかご確認ください。<br>
+        ［開発中］の間はご自身しか開けません。チャネル名の横のボタンを押して <strong>【公開済み】</strong> に切り替えると、すべての顧客が読み取れるようになります。
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Q9. 6 人目の予定を追加しようとすると追加できません</summary>
+      <div class="faq-body">
+        スタンダードプランで登録できる顧客は <strong>5 人まで</strong> です（チェックを外して無効にしている予定も人数に含まれます）。<br>
+        使わない予定を選んで「削除」するか、人数無制限・お知らせ機能付きのプロプランをご検討ください。
+      </div>
+    </details>
+
+    <h3>解決しないときのお問い合わせ方法</h3>
+    <div class="box box-ok">
+      <span class="box-title">📩 メニューの「お問い合わせ」からすぐにご連絡いただけます</span>
+      <ol>
+        <li>AutoMeta のメニュー画面で <strong>「お問い合わせ」</strong>（または「⚙ 設定」→「お問い合わせ・診断 →」）を開きます。</li>
+        <li><strong>「LINE で問い合わせる」</strong> または <strong>「メールで問い合わせる」</strong> を押します（メールの場合は、お使いのバージョンや利用者コードが最初から入った状態で Gmail の作成画面が開きます）。</li>
+        <li>動作がうまくいかないときは、同じ画面の <strong>「診断結果を作成」</strong> を押すと、原因調査用のファイルが作られますので、そちらを添えてお送りください。</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  AutoMeta V3 ご利用ガイド（版 3.10.34 対応）
+</footer>
+
+<script>
+function copyText(id, btn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var old = btn.textContent;
+    btn.textContent = "✓ コピーしました";
+    setTimeout(function() { btn.textContent = old; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
