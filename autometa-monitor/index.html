@@ -29,6 +29,8 @@ section{padding:72px 0}
 section.alt{background:var(--surface)}
 .eyebrow{font-size:13px;font-weight:500;letter-spacing:.14em;color:var(--gold-deep);margin:0 0 10px}
 h2{font-size:clamp(23px,4.6vw,31px);margin-bottom:24px}
+h2,h3,.inquiry b{word-break:keep-all;overflow-wrap:anywhere}
+.card li,.inquiry li,.steps p,.safety p{word-break:auto-phrase}
 .lead{font-size:17px;color:var(--sub)}
 
 /* FV */
@@ -41,6 +43,8 @@ h2{font-size:clamp(23px,4.6vw,31px);margin-bottom:24px}
 .btn-main{background:var(--gold);color:#17281E}
 .btn-main:hover{background:var(--gold-light)}
 .btn-sub{border:1px solid var(--gold);color:var(--gold-light)}
+.offer{border-left:3px solid var(--gold);padding:2px 0 2px 14px;margin:22px 0 0;color:#F6F1E8!important}
+.offer b{display:block;color:var(--gold-light);font-size:17px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
 /* problem */
@@ -49,11 +53,22 @@ h2{font-size:clamp(23px,4.6vw,31px);margin-bottom:24px}
 .card h3{font-size:18px;margin-bottom:12px}
 .card ul{margin:0;padding-left:1.2em}
 .card li{margin-bottom:6px}
+.change{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin-top:26px}
+.change>div{border-radius:8px;padding:18px 20px;background:var(--surface)}
+.change>div.after{background:var(--forest);color:#F6F1E8}
+.change b{display:block;font-size:13px;letter-spacing:.1em;margin-bottom:4px}
+.change p{margin:0;font-size:15px}
+.change .arrow{align-self:center;color:var(--gold-deep);font-size:22px}
 .quiet{border-left:3px solid var(--gold);padding:4px 0 4px 18px;margin:30px 0 0;font-family:"Noto Serif JP",serif;font-size:18px}
 
 /* flow */
 .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .flow li{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:22px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:14px 0 14px 46px;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:15px;width:30px;height:30px;border-radius:50%;background:var(--forest);color:#F6F1E8;text-align:center;line-height:30px;font-size:14px;font-weight:700}
+.steps h3{font-size:17px;margin:0 0 2px}
+.steps p{margin:0;font-size:15px}
 .flow .when{font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.1em}
 .flow h3{font-size:18px;margin:4px 0 8px}
 .flow p{margin:0;font-size:15px}
@@ -70,10 +85,12 @@ h2{font-size:clamp(23px,4.6vw,31px);margin-bottom:24px}
 .screen-table{width:100%;border-collapse:collapse;background:#fff}
 .screen-table th,.screen-table td{border:1px solid #ccc;padding:5px 7px;text-align:left}
 .screen-table th{background:#f6f6f6;font-weight:500}
+.screen-table td:nth-child(2),.screen-table td:last-child{white-space:nowrap}
+.screen-table td:nth-child(3){word-break:keep-all}
 .screen .go{margin-top:10px;background:#1d63dc;color:#fff;text-align:center;border-radius:3px;padding:8px;font-weight:700}
 .caption{font-size:13px;color:var(--muted)}
 
-.shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.shots{max-width:420px;margin-top:14px}
 .shots figure{margin:0}
 .shots img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
 .shots figcaption{font-size:13px;color:var(--muted);margin-top:6px}
@@ -97,19 +114,19 @@ table.compare tbody th{background:var(--surface);font-weight:500;width:27%}
 .seat{background:var(--forest);color:#F6F1E8;border-radius:8px;padding:24px}
 .seat .num{font-family:"Noto Serif JP",serif;font-size:32px;color:var(--gold-light);display:block;line-height:1.4}
 .seat p{margin:6px 0 0;font-size:15px;color:#DDE3DA}
-.check{list-style:none;margin:0;padding:0}
+.check,.card ul.check{list-style:none;margin:0;padding:0}
 .check li{padding-left:1.7em;position:relative;margin-bottom:9px}
 .check li::before{content:"✓";position:absolute;left:0;color:var(--gold-deep);font-weight:700}
 
 /* FAQ */
 details{border-bottom:1px solid var(--line);padding:15px 0}
-summary{cursor:pointer;font-weight:500;list-style-position:outside}
+summary{cursor:pointer;font-weight:500;list-style-position:inside}
 details p{margin:10px 0 0;font-size:15px;color:#2b3b32}
 
 /* final */
 .final{background:var(--forest);color:#F6F1E8;text-align:center}
 .final h2{color:#F6F1E8}
-.final p{color:#DDE3DA}
+.final p{color:#DDE3DA;word-break:keep-all;overflow-wrap:anywhere}
 .final .hero-cta{justify-content:center}
 .inquiry{background:rgba(255,255,255,.07);border-radius:8px;padding:18px 22px;max-width:560px;margin:26px auto 0;text-align:left;font-size:15px}
 .inquiry ol{margin:6px 0 0;padding-left:1.4em}
@@ -119,13 +136,27 @@ footer p{margin:0 0 6px}
 /* sticky */
 .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(23,56,42,.97);padding:9px 14px;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}
 .sticky.show{opacity:1;pointer-events:auto}
-.sticky a{display:block;max-width:420px;margin:0 auto;background:var(--gold);color:#17281E;border-radius:50px;text-decoration:none;padding:7px 12px;line-height:1.35}
-.sticky small{display:block;font-size:11.5px}
+.sticky a{display:block;max-width:420px;margin:0 auto;background:var(--gold);color:#17281E;border-radius:50px;text-decoration:none;padding:9px 12px;line-height:1.35}
 .sticky b{font-size:15px}
 
+table.events tbody th{width:38%}
+@media (min-width:641px){
+  .sticky{left:auto;right:24px;bottom:24px;background:none;padding:0}
+  .sticky a{padding:12px 32px;box-shadow:0 4px 14px rgba(23,56,42,.3)}
+}
 @media (max-width:640px){
   section{padding:54px 0}
-  .columns,.flow,.seats,.figures,.shots{grid-template-columns:1fr}
+  .columns,.flow,.seats,.change{grid-template-columns:1fr}
+  .change .arrow{justify-self:center;transform:rotate(90deg);line-height:1}
+  .shots{max-width:none}
+  table.compare{min-width:0;display:block;background:none}
+  table.compare thead{display:none}
+  table.compare tbody,table.compare tr{display:block}
+  table.compare tr{margin-bottom:12px;background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  table.compare th,table.compare td,table.compare tbody th{display:block;width:100%;border:0}
+  table.compare tbody th{padding:9px 14px}
+  table.compare td{padding:10px 14px;border-top:1px solid var(--line)}
+  table.compare td[data-plan]::before{content:attr(data-plan);display:block;font-size:13px;font-weight:700;color:var(--gold-deep)}
   .hero{padding:46px 0 54px}
   .btn{width:100%}
   .screen-table .opt{display:none}
@@ -139,11 +170,12 @@ footer p{margin:0 0 6px}
     <span class="tag">NLS機器をお持ちの方へ　モニター募集</span>
     <h1>寝ている間に、<br>自動でセラピーが<br>実施される。</h1>
     <p>AutoMeta（オートメタ）は、NLS機器の調査とセラピーの操作を、予定どおりに自動で行うWindows用のソフトです。予定を登録しておくと、夜間に順次実行されます。画面の前に座っている必要はありません。</p>
+    <p class="offer"><b>モニター価格：初期費用49,800円<br>（セットアップ込み）</b>先着5名＋5事業者</p>
     <div class="hero-cta">
       <a class="btn btn-main" href="https://lin.ee/zxr0ojt" target="_blank" rel="noopener">LINEで相談</a>
       <a class="btn btn-sub" href="#monitor">モニターの条件</a>
     </div>
-    <p class="note">ご相談の段階では、お申込みやお支払いは発生しません。お手持ちの機器に対応しているかどうかは、お問い合わせください。お支払いは、セットアップが終わり、ソフトをお渡しするときです。</p>
+    <p class="note">ご相談の段階では、お申込みやお支払いは発生しません。お支払いは、セットアップが終わり、ソフトをお渡しするときです。</p>
   </div>
 </header>
 
@@ -171,13 +203,18 @@ footer p{margin:0 0 6px}
       </div>
     </div>
     <p class="quiet">AutoMetaが引き受けるのは、その「操作」と「待ち時間」です。</p>
+    <div class="change" role="img" aria-label="これまでは画面の前で操作して終わるのを待っていたものが、AutoMetaでは予定を登録するだけで寝ている間に実行され、翌朝に確認できる">
+      <div><b>これまで</b><p>画面の前で操作し、<br>終わるのを待つ</p></div>
+      <span class="arrow">→</span>
+      <div class="after"><b>AutoMeta</b><p>予定を登録すれば、寝ている間に実行。<br>翌朝に確認</p></div>
+    </div>
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
     <p class="eyebrow">AutoMetaの使い方</p>
-    <h2>予定を登録し、運転を開始するだけです。</h2>
+    <h2>予定を登録し、<wbr>自動実行（運転）を<wbr>開始するだけです。</h2>
     <ol class="flow">
       <li><span class="when">STEP 1</span><h3>予定の登録</h3><p>お名前、実行する内容、日時を登録します。毎日・曜日ごとなどの繰り返しも選択できます。</p></li>
       <li><span class="when">STEP 2</span><h3>自動で実行</h3><p>予定の時刻になると、調査とセラピーの操作を順に実行します。</p></li>
@@ -188,26 +225,20 @@ footer p{margin:0 0 6px}
       <div class="screen-body">
         <div class="state">● 運転中</div>
         <table class="screen-table">
-          <thead><tr><th>順</th><th>顧客</th><th>実行内容</th><th class="opt">繰り返し</th><th>次に実行される</th></tr></thead>
+          <thead><tr><th>順</th><th>顧客</th><th>実行内容</th><th class="opt">繰り返し</th><th>次回の実行</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>山田 花子</td><td>調査＋セラピー2回</td><td class="opt">毎日 01:00 以降</td><td>今日 01:00 以降</td></tr>
-            <tr><td>2</td><td>佐藤 太郎</td><td>調査＋セラピー2回</td><td class="opt">毎日 01:00 以降</td><td>今日 01:00 以降</td></tr>
+            <tr><td>1</td><td>山田 花子</td><td>調査＋<wbr>セラピー2回</td><td class="opt">毎日 01:00 以降</td><td>今日 01:00 以降</td></tr>
+            <tr><td>2</td><td>佐藤 太郎</td><td>調査＋<wbr>セラピー2回</td><td class="opt">毎日 01:00 以降</td><td>今日 01:00 以降</td></tr>
           </tbody>
         </table>
         <div class="go">▶ この予定で運転を開始</div>
       </div>
     </div>
     <p class="caption">画面イメージです。表示されているお名前は見本です。</p>
-    <div class="figures">
-      <div class="figure"><b>3分30秒〜5分14秒</b><span>調査1回の実測（29〜38項目の場合）</span></div>
-      <div class="figure"><b>6〜30分</b><span>セラピー1回の実測</span></div>
-    </div>
-    <p class="caption" style="margin-top:14px">開発時の実測値であり、設定や項目数によって変動します。</p>
-    <h3 style="font-size:19px;margin:36px 0 6px">この画面の操作を、AutoMetaが行います</h3>
+    <h3 style="font-size:19px;margin:36px 0 6px">この画面の操作を、<wbr>AutoMetaが行います</h3>
     <p style="font-size:15px">普段は手作業で行っている調査とセラピーを、自動で進めます。</p>
     <div class="shots">
       <figure><img src="screen_scan.jpg" width="1000" height="653" loading="lazy" alt="NLS機器のソフトの調査中の画面"><figcaption>調査中の画面</figcaption></figure>
-      <figure><img src="screen_therapy.jpg" width="1000" height="631" loading="lazy" alt="NLS機器のソフトのセラピー中の画面"><figcaption>セラピー中の画面</figcaption></figure>
     </div>
     <p class="caption">開発時に記録したNLS機器のソフトの画面です。AutoMetaの説明のために掲載しており、診断や効果を示すものではありません。</p>
   </div>
@@ -216,10 +247,10 @@ footer p{margin:0 0 6px}
 <section>
   <div class="wrap">
     <p class="eyebrow">無人で運転するための仕組み</p>
-    <h2>無人の時間帯でも誤りを検知できるよう、確認の工程を設けています。</h2>
+    <h2>人が見ていなくても、<wbr>誤りに気づける<wbr>仕組みです。</h2>
     <div class="safety">
       <div><h3>お名前の照合</h3><p>実行の前に、画面に表示されたお名前と予定のお名前が一致するかを確認します。一致しない場合は実行しません。</p></div>
-      <div><h3>実行結果の確認</h3><p>設定しておくと、実行後に履歴の件数が増えたかを確認します。増えていなければ「完了」として扱いません。</p></div>
+      <div><h3>実行結果の確認</h3><p>実行後に履歴を確認し、増えていなければ「完了」として扱いません（要設定）。</p></div>
       <div><h3>確認待ちに残す</h3><p>途中で停止した予定や確認が必要な予定は、「確認待ち」の画面に残ります。</p></div>
     </div>
   </div>
@@ -228,20 +259,20 @@ footer p{margin:0 0 6px}
 <section class="alt">
   <div class="wrap">
     <p class="eyebrow">プランと料金（税込）</p>
-    <h2>利用目的によって、プランが決まります。</h2>
+    <h2>利用目的によって、<wbr>プランが決まります。</h2>
     <p>対価を得てお客様に提供する場合は、人数にかかわらずプロプランをお選びください。</p>
     <div class="table-wrap">
     <table class="compare">
       <thead><tr><th></th><th>スタンダードプラン</th><th>プロプラン</th></tr></thead>
       <tbody>
-        <tr><th>利用目的</th><td>ご本人・ご家族のため</td><td>お客様への提供（商用利用）</td></tr>
-        <tr><th>初期費用<br><span class="small">最初のセットアップを含む</span></th><td><span class="price">49,800円</span></td><td><span class="price">49,800円</span></td></tr>
-        <tr><th>月額</th><td><span class="price">なし</span>（買い切り）</td><td><span class="price">月4,980円</span><br><span class="small">年払いは49,800円</span></td></tr>
-        <tr><th>登録できる人数</th><td>パソコン1台につき5人まで<br><span class="small">無効にした予定の方も人数に含みます</span></td><td>上限なし</td></tr>
-        <tr><th>お客様へのお知らせ</th><td>なし</td><td>完了をLINE・メールで自動送信</td></tr>
-        <tr><th>ご自身への通知</th><td>画面の表示のみ</td><td>画面の表示 ＋ LINE・メール</td></tr>
-        <tr><th>サポート</th><td>チャット（LINE）</td><td>チャットを優先して対応<br>電話・Zoomは月2回（各30分まで）</td></tr>
-        <tr><th>2台目以降のパソコン<br><span class="small">ライセンス・セットアップを含む</span></th><td>1台につき33,200円</td><td>1台につき33,200円 ＋ 月2,490円</td></tr>
+        <tr><th>利用目的</th><td data-plan="スタンダードプラン">ご本人・ご家族のため</td><td data-plan="プロプラン">お客様への提供（商用利用）</td></tr>
+        <tr><th>初期費用<br><span class="small">モニター価格・最初のセットアップを含む</span></th><td data-plan="スタンダードプラン"><span class="price">49,800円</span></td><td data-plan="プロプラン"><span class="price">49,800円</span></td></tr>
+        <tr><th>月額</th><td data-plan="スタンダードプラン"><span class="price">なし</span>（買い切り）</td><td data-plan="プロプラン"><span class="price">月4,980円</span><br><span class="small">年払いは49,800円</span></td></tr>
+        <tr><th>登録できる人数</th><td data-plan="スタンダードプラン">パソコン1台につき5人まで<br><span class="small">無効にした予定の方も人数に含みます</span></td><td data-plan="プロプラン">上限なし</td></tr>
+        <tr><th>お客様へのお知らせ</th><td data-plan="スタンダードプラン">なし</td><td data-plan="プロプラン">完了をLINE・メールで自動送信</td></tr>
+        <tr><th>ご自身への通知</th><td data-plan="スタンダードプラン">画面の表示のみ</td><td data-plan="プロプラン">画面の表示 ＋ LINE・メール</td></tr>
+        <tr><th>サポート</th><td data-plan="スタンダードプラン">チャット（LINE）</td><td data-plan="プロプラン">チャットを優先して対応<br>電話・Zoomは月2回（各30分まで）</td></tr>
+        <tr><th>2台目以降のパソコン<br><span class="small">ライセンス・セットアップを含む</span></th><td data-plan="スタンダードプラン">1台につき33,200円</td><td data-plan="プロプラン">1台につき33,200円 ＋ 月2,490円</td></tr>
       </tbody>
     </table>
     </div>
@@ -253,7 +284,7 @@ footer p{margin:0 0 6px}
 <section id="monitor">
   <div class="wrap">
     <p class="eyebrow">モニター募集</p>
-    <h2>最初の利用者となる方を募集します。</h2>
+    <h2>先着5名＋5事業者を<wbr>募集します。</h2>
     <div class="seats">
       <div class="seat"><span class="num">5名</span>スタンダードプラン<p>ご本人・ご家族のために使う方</p></div>
       <div class="seat"><span class="num">5事業者</span>プロプラン<p>お客様に提供している方</p></div>
@@ -264,11 +295,9 @@ footer p{margin:0 0 6px}
       <div class="card">
         <h3>モニターの条件</h3>
         <ul class="check">
-          <li>初期費用は通常と同じ49,800円です</li>
-          <li>プロプランの月額は、4,980円のまま据え置きます</li>
-          <li>最初のセットアップは、担当がリモートで行います（約1時間）</li>
+          <li>初期費用は、モニター価格の49,800円です</li>
+          <li>プロプランの月額は4,980円です。募集の終了後は、9,800円への変更を想定しています（時期は未定）。モニターの方は、ご契約の継続中は4,980円のままです</li>
         </ul>
-        <p class="small" style="margin:12px 0 0">プロプランの月額は、モニター募集の終了後、9,800円への変更を想定しています。時期と金額は未定です。モニターの方の月額は、ご契約の継続中は4,980円です。</p>
       </div>
       <div class="card">
         <h3>お願いすること</h3>
@@ -281,42 +310,43 @@ footer p{margin:0 0 6px}
       </div>
     </div>
 
-    <h3 style="font-size:20px;margin:40px 0 14px">お使いいただく前に、ご確認ください</h3>
+    <h3 style="font-size:20px;margin:40px 0 14px">お使いいただく前に、<wbr>ご確認ください</h3>
     <ul class="check">
       <li>NLS機器のソフトをインストールしたWindowsのパソコンが必要です（基準：Windows 11、画面1920×1080、拡大125%）</li>
-      <li>運転中は、パソコンとNLS機器のソフトを起動しておく必要があります</li>
+      <li>運転中は、パソコンとNLS機器のソフトを起動しておく必要があります。ノートパソコンは、閉じると基本的に停止するため、運転中は閉じないでください</li>
       <li>お手持ちの機器に対応しているかどうかは、お問い合わせください</li>
       <li>AutoMetaは操作を自動で行うソフトです。診断や治療を行うものではなく、効果を保証するものでもありません</li>
     </ul>
+    <div class="hero-cta"><a class="btn btn-main" href="https://lin.ee/zxr0ojt" target="_blank" rel="noopener">LINEで相談</a></div>
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
     <p class="eyebrow">ご利用までの流れ</p>
-    <h2>お支払いは、セットアップが終わってからです。</h2>
-    <ol class="flow">
-      <li><span class="when">1</span><h3>ご相談</h3><p>LINEかメールで、お使いの機器と目的をお知らせください。</p></li>
-      <li><span class="when">2</span><h3>対応の確認</h3><p>対応の可否をご回答します。</p></li>
-      <li><span class="when">3</span><h3>お申込み</h3><p>規約をご確認いただき、お手続きをご案内します。</p></li>
-      <li><span class="when">4</span><h3>最初のセットアップ</h3><p>担当がリモートでセットアップし、動作を確認します（約1時間）。</p></li>
-      <li><span class="when">5</span><h3>お支払い・ご利用開始</h3><p>セットアップの完了後にお支払いいただきます。ご入金の確認後、利用者コードの控えと配布物をお渡しし、ご利用開始となります。</p></li>
+    <h2>お支払いは、<wbr>セットアップが<wbr>終わってからです。</h2>
+    <ol class="steps">
+      <li><h3>ご相談</h3><p>LINEかメールで、お使いの機器と目的をお知らせください。</p></li>
+      <li><h3>対応の確認</h3><p>対応の可否をご回答します。</p></li>
+      <li><h3>お申込み</h3><p>規約をご確認いただき、お手続きをご案内します。</p></li>
+      <li><h3>最初のセットアップ</h3><p>担当がリモートでセットアップし、動作を確認します（約1時間）。</p></li>
+      <li><h3>お支払い・ご利用開始</h3><p>セットアップの完了後にお支払いいただき、ご入金の確認後にご利用開始となります。</p></li>
     </ol>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="eyebrow">できること・お約束できないこと</p>
-    <h2>あらかじめ、お伝えしておきます。</h2>
-    <p>AutoMetaはNLS機器のソフトの画面を操作して動作します。そのため、ソフトの画面が変わると動作しなくなる場合があります。</p>
+    <p class="eyebrow">画面の変更や不具合が起きたとき</p>
+    <h2>画面が変わると、<wbr>動かなくなることが<wbr>あります。</h2>
+    <p>AutoMetaは、NLS機器のソフトの画面を操作して動作するためです。</p>
     <div class="table-wrap">
-    <table class="compare">
-      <thead><tr><th>発生した事象</th><th colspan="2">対応</th></tr></thead>
+    <table class="compare events">
+      <thead><tr><th>発生した事象</th><th>対応</th></tr></thead>
       <tbody>
-        <tr><th>NLS機器のソフトのバージョンアップ等により画面が変更になり、動作しなくなった場合</th><td colspan="2">対応版を作成した場合は、無償でお渡しします。ただし、対応版の提供を保証するものではありません。</td></tr>
-        <tr><th>AutoMetaの不具合</th><td colspan="2">無償で修正します。</td></tr>
-        <tr><th>お使いの環境に固有の問題</th><td colspan="2">まずチャットでご相談ください。通話や画面共有が必要な場合は、プランに応じてご案内します。</td></tr>
+        <tr><th>NLS機器のソフトのバージョンアップ等により画面が変更になり、動作しなくなった場合</th><td>対応版を作成した場合は、無償でお渡しします。ただし、対応版の提供を保証するものではありません。</td></tr>
+        <tr><th>AutoMetaの不具合</th><td>無償で修正します。</td></tr>
+        <tr><th>お使いの環境に固有の問題</th><td>まずチャットでご相談ください。通話や画面共有が必要な場合は、プランに応じてご案内します。</td></tr>
       </tbody>
     </table>
     </div>
@@ -327,27 +357,22 @@ footer p{margin:0 0 6px}
   <div class="wrap">
     <h2>よくあるご質問</h2>
     <details><summary>パソコンに詳しくなくても使えますか。</summary><p>最初のセットアップは初期費用に含まれており、担当がリモートで行います。日々の操作は、予定の登録と運転の開始が中心です。</p></details>
-    <details><summary>夜の間も、パソコンの電源は入れたままにしておくのですか。</summary><p>はい。運転中は、パソコンとNLS機器のソフトを起動しておく必要があります。ノートパソコンは、閉じると基本的に停止するため、運転中は閉じないでください。</p></details>
-    <details><summary>別の方のセラピーが誤って実行されることはありませんか。</summary><p>実行の前に、画面のお名前と予定のお名前を照合し、一致しない場合は実行しません。</p></details>
-    <details><summary>途中で止まったら、どうなりますか。</summary><p>「確認待ち」の画面に残ります。プロプランでは、LINEやメールで通知を受け取ることもできます。</p></details>
-    <details><summary>どちらのプランを選べばよいですか。</summary><p>ご本人・ご家族のためにご利用の場合はスタンダードプラン、対価を得てお客様に提供する場合はプロプランです。迷われる場合は、ご相談ください。</p></details>
-    <details><summary>6人以上を登録したいときは。</summary><p>プロプランをお選びください。スタンダードプランはパソコン1台につき5人までです。</p></details>
     <details><summary>お客様に、何が届きますか。</summary><p>プロプランでは、実施完了のお知らせをLINEまたはメールで送信できます。文面には、効果や効能に関する内容を含めていません。</p></details>
-    <details><summary>どの機器でも使えますか。</summary><p>機器によって異なります。お手持ちの機器に対応しているかどうかは、お問い合わせください。対応している機器は、担当がリモートでセットアップします。</p></details>
-    <details><summary>返金はできますか。</summary><p>お支払いは、セットアップが終わり、ソフトをお渡しするときです。動作を確認したあとにお支払いいただくため、お支払い後の返品・返金はできません。</p></details>
+    <details><summary>返金はできますか。</summary><p>動作を確認したあとにお支払いいただくため、お支払い後の返品・返金はできません。</p></details>
   </div>
 </section>
 
 <section class="final" id="contact">
   <div class="wrap">
-    <h2>お手持ちの機器に<br>対応しているかどうかは、<br>お問い合わせください。</h2>
-    <p>ご相談だけでも構いません。</p>
+    <h2>モニターのご相談は、<br>LINEかメールで</h2>
+    <p>先着順で、定員になり次第終了します。</p>
+    <p>お手持ちの機器に対応しているかどうかも、<wbr>こちらからお問い合わせください。<br>ご相談だけでも構いません。</p>
     <div class="hero-cta">
       <a class="btn btn-main" href="https://lin.ee/zxr0ojt" target="_blank" rel="noopener">LINE「AutoMetaサポート」で相談</a>
       <a class="btn btn-sub" href="mailto:support@therapyreport.jp?subject=AutoMeta%20%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談</a>
     </div>
     <div class="inquiry">
-      <b>ご相談の際は、次の3点をお知らせください</b>
+      <b>ご相談の際は、次の3点を<wbr>お知らせください</b>
       <ol>
         <li>お名前</li>
         <li>お使いの機器とパソコン（ノート／デスクトップ）</li>
@@ -365,7 +390,7 @@ footer p{margin:0 0 6px}
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a href="https://lin.ee/zxr0ojt" target="_blank" rel="noopener"><small>AutoMetaモニター募集</small><b>LINEで相談</b></a></div>
+<div class="sticky" id="sticky"><a href="https://lin.ee/zxr0ojt" target="_blank" rel="noopener"><b>LINEで相談</b></a></div>
 
 <script>
 (function(){
