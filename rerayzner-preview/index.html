@@ -7,11 +7,11 @@
 <meta name="referrer" content="no-referrer">
 <meta name="description" content="Re.rayznerメンバー会員専用。月間カレンダー、出欠確認、会員概要と規約のご案内。">
 <title>Re.rayzner｜月間カレンダー＆出欠確認</title>
-<link rel="stylesheet" href="style.css?v=20261106-popup">
+<link rel="stylesheet" href="style.css?v=20261106-receipt">
 <script src="events.js?v=20261106-december" defer></script>
 <script src="calendar.js?v=20261106-attendance" defer></script>
 <script src="sync.js?v=20261106-sync" defer></script>
-<script src="attendance.js?v=20261106-popup" defer></script>
+<script src="attendance.js?v=20261106-receipt" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#calendar">カレンダーへ移動</a>
@@ -33,12 +33,26 @@
 </div>
 <dialog class="attendance-modal" id="attendance" aria-labelledby="attendance-title">
 <header class="attendance-modal-header"><h2 id="attendance-title">出欠連絡</h2><button type="button" class="attendance-close" aria-label="出欠一覧を閉じる">×</button></header>
+<section id="attendance-complete" class="attendance-complete" hidden>
+<div id="attendance-receipt" class="attendance-receipt">
+<span class="attendance-success-icon" aria-hidden="true">✓</span>
+<h3 id="attendance-receipt-title" tabindex="-1">回答を保存しました</h3>
+<p id="attendance-receipt-count" role="status"></p>
+<button class="primary" id="attendance-done" type="button">閉じる</button>
+<button class="attendance-secondary" id="attendance-review" type="button">保存した予定を確認</button>
+</div>
+<div id="attendance-saved-review" class="attendance-saved-review" hidden>
+<h3 id="attendance-review-title" tabindex="-1">保存した予定</h3>
+<div id="attendance-saved-events"></div>
+<div class="attendance-review-actions"><button class="attendance-secondary" id="attendance-review-back" type="button">完了画面に戻る</button><button class="primary" id="attendance-review-close" type="button">閉じる</button></div>
+</div>
+</section>
 <div class="attendance-scroll"><div class="callout-inner attendance-inner">
 <p>シェア会・実践会の参加費<br>【月額会員様】無料<br>【年会費会員様】11,000円</p>
 <p id="attendance-status" class="attendance-status" role="status" aria-live="polite">出欠の一覧を確認しています…</p>
 <form id="attendance-form" hidden>
 <label class="attendance-name-label" for="attendance-name">お名前</label><input id="attendance-name" name="name" type="text" maxlength="80" autocomplete="name" required>
-<div class="attendance-save-bar"><button class="primary" id="attendance-save" type="submit" disabled>まとめて保存</button></div>
+<div class="attendance-save-bar"><button class="primary" id="attendance-save" type="submit" disabled>まとめて保存</button><p id="attendance-save-feedback" class="attendance-save-feedback" role="alert" hidden></p></div>
 <div id="attendance-events"></div>
 </form>
 <button class="attendance-text-button" id="attendance-reload" type="button">最新の回答を再読込</button>

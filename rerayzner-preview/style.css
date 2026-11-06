@@ -140,3 +140,27 @@ html:has(dialog[open]){overflow:hidden}
  .attendance-choices{gap:5px}
  .attendance-choice{font-size:13px;gap:4px}
 }
+
+/* 保存結果は入力画面から切り替え、操作が完了したことを明示する。 */
+.attendance-complete{min-height:0;overflow-y:auto;flex:1;padding:28px 24px}
+.attendance-receipt{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.attendance-success-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#e6f5ec;color:#278053;font-size:42px;font-weight:700}
+.attendance-receipt h3{font-size:24px;color:#23734b;line-height:1.5;margin:0;outline:none}
+.attendance-receipt p{margin:0 0 14px;color:#587178}
+.attendance-receipt .primary,.attendance-secondary{font:inherit;min-height:48px;width:100%;max-width:320px;padding:12px 16px;cursor:pointer}
+.attendance-receipt .primary,.attendance-review-actions .primary{border:0}
+.attendance-secondary{display:block;border:1px solid #a9cbd0;background:white;color:#187f8d;text-align:center}
+.attendance-saved-review h3{font-size:22px;color:#188da0;margin:0 0 20px;outline:none}
+.attendance-saved-row{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid #d8e3e8;padding:16px 0}
+.attendance-saved-detail{min-width:0;overflow-wrap:anywhere}
+.attendance-saved-date,.attendance-saved-time{font-size:13px;color:#587178}
+.attendance-saved-name{font-size:16px;font-weight:700}
+.attendance-saved-answer{flex:none;background:#f1fbfc;border:1px solid #b8e4e8;padding:8px 12px;font-weight:700}
+.attendance-review-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;justify-content:center}
+.attendance-review-actions>*{flex:1;min-width:120px;max-width:320px;font:inherit;min-height:48px}
+.attendance-save-bar .attendance-save-feedback{margin:10px 0 0;padding:12px;border:1px solid #dfb9ac;background:#fff4ef;color:#8b3c25;text-align:left;font-size:13px;line-height:1.7}
+.attendance-save-bar .primary[aria-busy=true]{opacity:1;background:#6b949c;cursor:wait}
+.attendance-save-bar .primary[aria-busy=true]::before{content:"";display:inline-block;vertical-align:-2px;width:14px;height:14px;margin-right:10px;border:2px solid #ffffff70;border-top-color:white;border-radius:50%;animation:attendance-spin .8s linear infinite}
+@keyframes attendance-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.attendance-save-bar .primary[aria-busy=true]::before{animation:none}}
+@media(max-width:480px){.attendance-complete{padding:24px 16px}.attendance-receipt h3{font-size:22px}}

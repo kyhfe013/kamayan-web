@@ -8,6 +8,35 @@ let attendanceStarted = false;
 const attendanceForm = document.getElementById('attendance-form');
 const attendanceStatus = document.getElementById('attendance-status');
 const attendanceSave = document.getElementById('attendance-save');
+const attendanceFeedback = document.getElementById('attendance-save-feedback');
+
+function setAttendanceSaving(saving) {
+  attendanceSave.disabled = saving;
+  attendanceSave.textContent = saving ? '保存中…' : 'まとめて保存';
+  attendanceSave.setAttribute('aria-busy', String(saving));
+  attendanceForm.setAttribute('aria-busy', String(saving));
+}
+
+function showAttendanceReceipt(data) {
+  const saved = data.events.filter(event => ['参加', '未定', '不参加'].includes(data.answers[event.id]));
+  const list = document.getElementById('attendance-saved-events');
+  list.replaceChildren();
+  saved.forEach(event => {
+    const row = element('article', 'attendance-saved-row');
+    const detail = element('div', 'attendance-saved-detail');
+    const [year, month, day] = event.date.split('-').map(Number);
+    detail.append(element('p', 'attendance-saved-date', `${year}/${month}/${day}（${weekdays[new Date(year, month - 1, day).getDay()]}）`),
+      element('p', 'attendance-saved-name', event.name), element('p', 'attendance-saved-time', event.time));
+    row.append(detail, element('span', 'attendance-saved-answer', data.answers[event.id]));
+    list.append(row);
+  });
+  document.getElementById('attendance-receipt-count').textContent = `${saved.length}件の出欠を保存しました。`;
+  document.querySelector('.attendance-scroll').hidden = true;
+  document.getElementById('attendance-complete').hidden = false;
+  document.getElementById('attendance-receipt').hidden = false;
+  document.getElementById('attendance-saved-review').hidden = true;
+  document.getElementById('attendance-receipt-title').focus();
+}
 
 function newAttendanceToken() {
   return Array.from(crypto.getRandomValues(new Uint8Array(32)), byte => byte.toString(16).padStart(2, '0')).join('');
@@ -127,6 +156,8 @@ attendanceForm.addEventListener('submit', async event => {
   });
   if (!name || !answers.length) {
     attendanceStatus.textContent = !name ? 'お名前を入力してください。' : '出欠を1件以上選択してください。';
+    attendanceFeedback.textContent = attendanceStatus.textContent;
+    attendanceFeedback.hidden = false;
     if (!name) document.getElementById('attendance-name').focus();
     return;
   }
@@ -136,16 +167,27 @@ attendanceForm.addEventListener('submit', async event => {
   // 応答が失われても、次回は同じ本人の回答を取得できるよう先に端末へ保持。
   try { localStorage.setItem(ATTENDANCE_STORAGE_KEY, attendanceToken); } catch (error) { /* 変更用リンクでも再編集できる */ }
   attendanceBusy = true; attendanceForm.inert = true; attendanceSave.disabled = true;
+  setAttendanceSaving(true);
+  attendanceFeedback.hidden = true;
   document.getElementById('attendance-reload').disabled = true;
   attendanceStatus.textContent = '回答を保存しています…';
   try {
     const result = await attendanceRequest({ ...input, requestId: attendancePending.requestId });
+    if (result.revision <= input.revision || result.name !== name || answers.some(answer => result.answers[answer.id] !== answer.status)) {
+      throw new Error('保存結果を確認できませんでした。入力を残したまま、もう一度保存してください。');
+    }
     attendanceData = result; attendancePending = null;
     renderAttendance(result);
     attendanceStatus.textContent = '回答を保存しました。変更する場合は、出欠を選び直して再度保存してください。';
-  } catch (error) { attendanceStatus.textContent = error.message; }
+    showAttendanceReceipt(result);
+  } catch (error) {
+    attendanceStatus.textContent = error.message;
+    attendanceFeedback.textContent = error.message;
+    attendanceFeedback.hidden = false;
+  }
   finally {
     attendanceBusy = false; attendanceForm.inert = false; attendanceSave.disabled = false;
+    setAttendanceSaving(false);
     document.getElementById('attendance-reload').disabled = false;
   }
 });
@@ -172,13 +214,29 @@ const attendanceDialog = document.getElementById('attendance');
 function openAttendance() {
   const details = document.getElementById('details');
   if (details.open) details.close();
-  if (!attendanceDialog.open) attendanceDialog.showModal();
+  if (!attendanceDialog.open) {
+    document.getElementById('attendance-complete').hidden = true;
+    document.querySelector('.attendance-scroll').hidden = false;
+    attendanceDialog.showModal();
+  }
   startAttendance();
 }
 document.querySelectorAll('a[href="#attendance"]').forEach(link => {
   link.addEventListener('click', event => { event.preventDefault(); openAttendance(); });
 });
 document.querySelector('.attendance-close').addEventListener('click', () => attendanceDialog.close());
+document.getElementById('attendance-done').addEventListener('click', () => attendanceDialog.close());
+document.getElementById('attendance-review-close').addEventListener('click', () => attendanceDialog.close());
+document.getElementById('attendance-review').addEventListener('click', () => {
+  document.getElementById('attendance-receipt').hidden = true;
+  document.getElementById('attendance-saved-review').hidden = false;
+  document.getElementById('attendance-review-title').focus();
+});
+document.getElementById('attendance-review-back').addEventListener('click', () => {
+  document.getElementById('attendance-saved-review').hidden = true;
+  document.getElementById('attendance-receipt').hidden = false;
+  document.getElementById('attendance-receipt-title').focus();
+});
 attendanceDialog.addEventListener('click', event => {
   const bounds = attendanceDialog.getBoundingClientRect();
   if (event.target === attendanceDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) attendanceDialog.close();
