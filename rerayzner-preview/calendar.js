@@ -52,7 +52,9 @@ function openDetails(event) {
   document.getElementById('detail-date').textContent = `${event.year}年${event.month + 1}月${event.day}日（${weekdays[new Date(event.year, event.month, event.day).getDay()]}）`;
   document.getElementById('detail-time').textContent = event.time;
   document.getElementById('detail-participation').hidden = !['share', 'practice', 'advance'].includes(event.type);
-  document.querySelector('#details .primary').hidden = !['share', 'practice', 'advance'].includes(event.type);
+  const attendanceButton = document.querySelector('#details .primary');
+  const monthDistance = (event.year - today.year) * 12 + event.month - today.month;
+  attendanceButton.hidden = monthDistance < 0 || monthDistance > 2 || event.date < `${today.year}-${String(today.month + 1).padStart(2, '0')}-${String(today.day).padStart(2, '0')}`;
   document.getElementById('details').showModal();
 }
 

@@ -101,3 +101,35 @@
  .schedule-table th:nth-child(3){width:27%}
  .schedule-table th:nth-child(4){width:27%}
 }
+
+/* 出欠の一括回答。予定の確認と3択を同じ行で行う。 */
+.attendance-inner{padding:32px 24px;text-align:left}
+.attendance-inner h2,.attendance-inner>p{text-align:center}
+.attendance-inner .attendance-status{font-size:14px;text-align:left;margin:20px 0;padding:14px;background:#f1fbfc;overflow-wrap:anywhere}
+.attendance-name-label{display:block;font-weight:700;margin-bottom:6px}
+#attendance-name{display:block;width:100%;max-width:360px;font:inherit;font-size:16px;padding:12px;border:1px solid #a9cbd0;border-radius:0}
+.attendance-month{margin:28px 0 10px;font-size:19px;color:#188da0}
+.attendance-row{border:1px solid #d8e3e8;padding:14px;margin:0 0 10px;min-width:0}
+.attendance-event{padding:0 6px;font-size:14px;max-width:100%;overflow-wrap:anywhere}
+.attendance-date{font-weight:700;margin-right:12px}
+.attendance-event-name{font-weight:700}
+.attendance-time{display:block;color:#587178;font-size:13px}
+.attendance-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:4px}
+.attendance-choice{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 4px;border:1px solid #d8e3e8;cursor:pointer;font-size:14px}
+.attendance-choice:has(input:checked){background:#e6f8fa;border-color:#28aabd;color:#156f7d;font-weight:700}
+.attendance-choice input{width:18px;height:18px;margin:0;accent-color:#188da0;flex:none}
+.attendance-save-bar{position:sticky;top:0;z-index:2;background:white;padding:12px 0;text-align:center;border-bottom:1px solid #d8e3e8}
+.attendance-save-bar .primary{border:0;width:100%;max-width:320px;font:inherit;font-size:16px}
+.attendance-save-bar .primary:disabled{opacity:.5;cursor:wait}
+.attendance-text-button{background:transparent;border:0;padding:10px 0;color:#187f8d;text-decoration:underline;text-underline-offset:3px;text-align:left;min-height:44px}
+.attendance-inner .attendance-note{font-size:12px;margin:12px 0 0;text-align:left;color:#587178}
+.attendance-edit-link{width:100%;font:inherit;padding:8px;border:1px solid #a9cbd0}
+[hidden]{display:none!important}
+@media(max-width:480px){
+ #attendance{padding-inline:12px}
+ #attendance .stripe-frame{padding:10px}
+ .attendance-inner{padding:24px 12px}
+ .attendance-row{padding:12px 8px}
+ .attendance-choices{gap:5px}
+ .attendance-choice{font-size:13px;gap:4px}
+}
