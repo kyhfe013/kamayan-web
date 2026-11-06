@@ -7,11 +7,11 @@
 <meta name="referrer" content="no-referrer">
 <meta name="description" content="Re.rayznerメンバー会員専用。月間カレンダー、出欠確認、会員概要と規約のご案内。">
 <title>Re.rayzner｜月間カレンダー＆出欠確認</title>
-<link rel="stylesheet" href="style.css?v=20261106-attendance">
+<link rel="stylesheet" href="style.css?v=20261106-popup">
 <script src="events.js?v=20261106-december" defer></script>
 <script src="calendar.js?v=20261106-attendance" defer></script>
 <script src="sync.js?v=20261106-sync" defer></script>
-<script src="attendance.js?v=20261106-attendance" defer></script>
+<script src="attendance.js?v=20261106-popup" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#calendar">カレンダーへ移動</a>
@@ -31,8 +31,10 @@
 
 </section>
 </div>
-<section class="callout-section" id="attendance"><div class="stripe-frame"><div class="callout-inner attendance-inner">
-<h2>出欠連絡</h2><p>シェア会・実践会の参加費<br>【月額会員様】無料<br>【年会費会員様】11,000円</p>
+<dialog class="attendance-modal" id="attendance" aria-labelledby="attendance-title">
+<header class="attendance-modal-header"><h2 id="attendance-title">出欠連絡</h2><button type="button" class="attendance-close" aria-label="出欠一覧を閉じる">×</button></header>
+<div class="attendance-scroll"><div class="callout-inner attendance-inner">
+<p>シェア会・実践会の参加費<br>【月額会員様】無料<br>【年会費会員様】11,000円</p>
 <p id="attendance-status" class="attendance-status" role="status" aria-live="polite">出欠の一覧を確認しています…</p>
 <form id="attendance-form" hidden>
 <label class="attendance-name-label" for="attendance-name">お名前</label><input id="attendance-name" name="name" type="text" maxlength="80" autocomplete="name" required>
@@ -41,7 +43,7 @@
 </form>
 <button class="attendance-text-button" id="attendance-reload" type="button">最新の回答を再読込</button>
 <div id="attendance-tools" hidden><p class="attendance-note">この端末で回答を変更できます。別の端末では回答変更用リンクをご利用ください。</p><button class="attendance-text-button" id="attendance-copy-link" type="button">回答変更用リンクをコピー</button><input id="attendance-edit-link" class="attendance-edit-link" type="text" aria-label="ご本人用の回答変更用リンク" readonly hidden></div>
-</div></div></section>
+</div></div></dialog>
 <section class="callout-section"><div class="stripe-frame"><div class="callout-inner"><h2>参加リンクは直前に配信！</h2><p><strong>参加用のzoomリンクは</strong><br>Re.rayznerメンバー限定の<br><strong>ライン公式より 直前配信されます！</strong><br><strong>スケジュールを空けてお待ちください！</strong></p></div></div></section>
 <section class="heading-band arrow-band" id="membership"><h2>会員概要と規約について</h2></section>
 <section class="documents content" aria-label="会員概要と規約">

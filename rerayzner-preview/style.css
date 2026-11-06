@@ -103,6 +103,14 @@
 }
 
 /* 出欠の一括回答。予定の確認と3択を同じ行で行う。 */
+.attendance-modal{width:min(760px,calc(100% - 24px));height:min(850px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);max-width:none;padding:0;border:1px solid #a9dce2;color:var(--ink);overflow:hidden}
+.attendance-modal[open]{display:flex;flex-direction:column}
+.attendance-modal::backdrop{background:rgba(5,22,26,.5)}
+.attendance-modal-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:#f1fbfc;border-bottom:1px solid #b8e4e8;flex:none}
+.attendance-modal-header h2{font-size:22px;color:#188da0;margin:0}
+.attendance-close{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #b8e4e8;background:white;font-size:28px;line-height:1}
+.attendance-scroll{overflow-y:auto;overscroll-behavior:contain;min-height:0;flex:1}
+html:has(dialog[open]){overflow:hidden}
 .attendance-inner{padding:32px 24px;text-align:left}
 .attendance-inner h2,.attendance-inner>p{text-align:center}
 .attendance-inner .attendance-status{font-size:14px;text-align:left;margin:20px 0;padding:14px;background:#f1fbfc;overflow-wrap:anywhere}
@@ -126,8 +134,7 @@
 .attendance-edit-link{width:100%;font:inherit;padding:8px;border:1px solid #a9cbd0}
 [hidden]{display:none!important}
 @media(max-width:480px){
- #attendance{padding-inline:12px}
- #attendance .stripe-frame{padding:10px}
+ .attendance-modal-header{padding:10px 12px}
  .attendance-inner{padding:24px 12px}
  .attendance-row{padding:12px 8px}
  .attendance-choices{gap:5px}
