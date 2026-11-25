@@ -263,7 +263,7 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
 <header class="site-header">
   <div class="bar">
     <a class="brand" href="#top"><img src="img/logo-square.webp" alt="ニーズマッチ交流会 RAISEUP支部のロゴ" width="34" height="34"><span class="brand-text"><small>ニーズマッチ交流会</small> RAISEUP支部</span></a>
-    <a class="btn-sm" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">ゲスト参加を申し込む</a>
+    <a class="btn-sm" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">参加申し込み</a>
   </div>
 </header>
 
@@ -278,9 +278,9 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
     <p class="hero-lead">経営者・個人事業主が、4〜6名の少人数テーブルで、<br class="pc">お互いの仕事を紹介し合うオンライン交流会です。</p>
     <p class="hero-meta">ニーズマッチ交流会 RAISEUP支部</p>
     <span class="pill"><span class="nw">毎月 第4月曜 13:00〜15:00</span>｜<span class="nw">オンライン（Zoom）</span></span>
-    <p class="hero-next">次回 <strong>11月23日（月）</strong></p>
+    <p class="hero-next">次回 <strong data-next-date>日程を確認中</strong></p>
     <div class="cta" id="cta-fv">
-      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">ゲスト参加を申し込む ➔</a>
+      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">参加申し込み ➔</a>
       <p class="micro">※ゲスト参加費 3,000円（税込・事前決済）<br>ゲスト参加は、ニーズマッチ交流会全体で<br>直近1年間に2回まで</p>
     </div>
   </div>
@@ -371,7 +371,7 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
   </div>
   <div class="wrap">
     <div class="cta" id="cta-mid">
-      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">ゲスト参加を申し込む ➔</a>
+      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">参加申し込み ➔</a>
       <p class="micro">※ゲスト参加費 3,000円（税込・事前決済）<br>ゲスト参加は、ニーズマッチ交流会全体で<br>直近1年間に2回まで</p>
     </div>
   </div>
@@ -429,7 +429,7 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
     <h2><span class="label">FOR YOU</span>あなたを応援したい人は、<br>まだあなたを知らないだけ</h2>
     <p>あなたのお仕事を必要としている人や、あなたを応援したいと思う人は、<br class="pc">まだあなたに出会っていないだけかもしれません。</p>
     <p class="impact-heading">その出会いを、<br>運に任せずにつくるのが<br>RAISEUP支部です。</p>
-    <p class="next-date">次回は<strong>11月23日（月）</strong>。<br>1on1シートは<strong>11月20日（金）</strong>までにご提出ください。<br>そのシートをもとに、テーブルを組みます。</p>
+    <p class="next-date" data-schedule-intro>次回の日程は参加申込フォームをご確認ください。</p>
   </div>
 </section>
 
@@ -485,8 +485,10 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
       <tr><th>日時</th><td>毎月 第4月曜 13:00〜15:00</td></tr>
       <tr><th>場所</th><td>オンライン（Zoom）</td></tr>
       <tr><th>参加費</th><td><ul><li>ゲスト 3,000円（税込・お申し込み時に事前決済）</li><li>会員・幹事候補 3,000円</li><li>役員・準役員 1,000円</li></ul></td></tr>
-      <tr><th>次回</th><td>第6回 2026年11月23日（月）<br>第7回 2026年12月28日（月）<br>第8回 2027年1月25日（月）</td></tr>
+      <tr><th>次回</th><td data-schedule-list>参加申込フォームをご確認ください。</td></tr>
     </table>
+    <p id="schedule-status" class="small" role="status" style="margin-top:.6em"></p>
+    <noscript><p class="small">最新の日程は参加申込フォームをご確認ください。</p></noscript>
     <p class="small" style="margin-top:.6em">※ゲスト参加は、ニーズマッチ交流会全体で直近1年間に2回までです。</p>
 
     <div class="k-block">
@@ -504,7 +506,7 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
     <div class="k-block">
       <h3>よくあるご質問</h3>
       <div class="faq">
-        <details><summary>事前に準備するものは？</summary><p>1on1シート（自己紹介シート）です。記入は15〜30分ほど。開催3日前までにご提出ください（次回は11月20日（金）まで）。</p></details>
+        <details><summary>事前に準備するものは？</summary><p data-schedule-faq>1on1シート（自己紹介シート）です。記入は15〜30分ほど。開催3日前までにご提出ください。</p></details>
         <details><summary>1テーブルは何人ですか？</summary><p>4〜6名です。</p></details>
         <details><summary>連絡はどのように届きますか？</summary><p>開催の前に、参加者のグループ（Messenger）へご招待します。前日には、テーブルごとのグループで、同じテーブルの方の1on1シートをお届けします。</p></details>
         <details><summary>カメラはオンにしますか？</summary><p>はい。ニーズマッチ交流会では、お顔の見える状態でのご参加をお願いしています。</p></details>
@@ -524,7 +526,7 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
     </div>
 
     <div class="cta" id="cta-final">
-      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">ゲスト参加を申し込む ➔</a>
+      <a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">参加申し込み ➔</a>
       <p class="micro">※ゲスト参加費 3,000円（税込・事前決済）<br>ゲスト参加は、ニーズマッチ交流会全体で<br>直近1年間に2回まで</p>
     </div>
     <p class="closing">あなたのお仕事を、<br>応援させてください。</p>
@@ -536,8 +538,10 @@ footer{border-top:1px solid var(--border-color);padding:28px 20px 96px;text-alig
 
 <footer>ニーズマッチ交流会 RAISEUP支部<br>© 2026 RAISEUP支部</footer>
 
-<div class="sticky-cta" id="sticky"><a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">ゲスト参加を申し込む ➔</a></div>
+<div class="sticky-cta" id="sticky"><a class="btn" href="https://forms.gle/qS5giaDNMXGG92d18" target="_blank" rel="noopener">参加申し込み ➔</a></div>
 
+<script id="schedule-source" type="application/json" data-endpoint="https://script.google.com/macros/s/AKfycbw5HkRv_stZ2eDpZqexx-vg2KZPlADhIOQspbl-5pzOBB5dN98N50ZKsrgqJbtHP_YsFA/exec">{"ok":true,"fetchedAt":"2026-11-25T02:27:00.146Z","events":[{"date":"2026-12-28","startsAt":"2026-12-28T04:00:00.000Z","endsAt":"2026-12-28T06:00:00.000Z","round":"第7回","status":"受付中","submissionDeadline":"2026-12-25"},{"date":"2027-01-25","startsAt":"2027-01-25T04:00:00.000Z","endsAt":"2027-01-25T06:00:00.000Z","round":"第8回","status":"受付中","submissionDeadline":"2027-01-22"},{"date":"2027-02-22","startsAt":"2027-02-22T04:00:00.000Z","endsAt":"2027-02-22T06:00:00.000Z","round":"第9回","status":"受付中","submissionDeadline":"2027-02-19"},{"date":"2027-03-22","startsAt":"2027-03-22T04:00:00.000Z","endsAt":"2027-03-22T06:00:00.000Z","round":"第10回","status":"受付中","submissionDeadline":"2027-03-19"},{"date":"2027-04-26","startsAt":"2027-04-26T04:00:00.000Z","endsAt":"2027-04-26T06:00:00.000Z","round":"第11回","status":"受付中","submissionDeadline":"2027-04-23"},{"date":"2027-05-24","startsAt":"2027-05-24T04:00:00.000Z","endsAt":"2027-05-24T06:00:00.000Z","round":"第12回","status":"","submissionDeadline":"2027-05-21"},{"date":"2027-06-28","startsAt":"2027-06-28T04:00:00.000Z","endsAt":"2027-06-28T06:00:00.000Z","round":"第13回","status":"","submissionDeadline":"2027-06-25"},{"date":"2027-07-26","startsAt":"2027-07-26T04:00:00.000Z","endsAt":"2027-07-26T06:00:00.000Z","round":"第14回","status":"","submissionDeadline":"2027-07-23"},{"date":"2027-08-23","startsAt":"2027-08-23T04:00:00.000Z","endsAt":"2027-08-23T06:00:00.000Z","round":"第15回","status":"","submissionDeadline":"2027-08-20"},{"date":"2027-09-27","startsAt":"2027-09-27T04:00:00.000Z","endsAt":"2027-09-27T06:00:00.000Z","round":"第16回","status":"","submissionDeadline":"2027-09-24"},{"date":"2027-10-25","startsAt":"2027-10-25T04:00:00.000Z","endsAt":"2027-10-25T06:00:00.000Z","round":"第17回","status":"","submissionDeadline":"2027-10-22"},{"date":"2027-11-22","startsAt":"2027-11-22T04:00:00.000Z","endsAt":"2027-11-22T06:00:00.000Z","round":"第18回","status":"","submissionDeadline":"2027-11-19"},{"date":"2027-12-27","startsAt":"2027-12-27T04:00:00.000Z","endsAt":"2027-12-27T06:00:00.000Z","round":"第19回","status":"","submissionDeadline":"2027-12-24"},{"date":"2028-01-24","startsAt":"2028-01-24T04:00:00.000Z","endsAt":"2028-01-24T06:00:00.000Z","round":"第20回","status":"","submissionDeadline":"2028-01-21"},{"date":"2028-02-28","startsAt":"2028-02-28T04:00:00.000Z","endsAt":"2028-02-28T06:00:00.000Z","round":"第21回","status":"","submissionDeadline":"2028-02-25"},{"date":"2028-03-27","startsAt":"2028-03-27T04:00:00.000Z","endsAt":"2028-03-27T06:00:00.000Z","round":"第22回","status":"","submissionDeadline":"2028-03-24"},{"date":"2028-04-24","startsAt":"2028-04-24T04:00:00.000Z","endsAt":"2028-04-24T06:00:00.000Z","round":"第23回","status":"","submissionDeadline":"2028-04-21"},{"date":"2028-05-22","startsAt":"2028-05-22T04:00:00.000Z","endsAt":"2028-05-22T06:00:00.000Z","round":"第24回","status":"","submissionDeadline":"2028-05-19"}]}</script>
+<script src="schedule.js"></script>
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
