@@ -27,13 +27,38 @@
       year: year ? 'numeric' : undefined, month: 'long', day: 'numeric', weekday: 'short'})
       .format(d).replace(/\((.)\)/, '（$1）');
   }
-  var api = {validate: validate, upcoming: upcoming, formatDate: formatDate};
+  function validateMetrics(m) {
+    var fields = ['heldCount','firstRound','lastRound','minRegistrants','maxRegistrants','surveyResponses','verySatisfied'];
+    if (!m || !fields.every(function (k) { return Number.isSafeInteger(m[k]) && m[k] >= 0; }) ||
+        m.heldCount < 1 || m.firstRound < 1 || m.lastRound < m.firstRound ||
+        m.heldCount > m.lastRound-m.firstRound+1 || m.minRegistrants > m.maxRegistrants ||
+        m.verySatisfied > m.surveyResponses || !/^\d{4}-\d{2}-\d{2}$/.test(m.firstDate) ||
+        !Number.isFinite(Date.parse(m.firstDate+'T00:00:00Z')) ||
+        new Date(m.firstDate+'T00:00:00Z').toISOString().slice(0,10) !== m.firstDate) throw new Error('Invalid metrics');
+    return Object.assign({}, m);
+  }
+  var api = {validate: validate, upcoming: upcoming, formatDate: formatDate, validateMetrics: validateMetrics};
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   var document = root.document;
   if (!document) return;
   var events = [], sequence = 0, running = false, lastAttempt = 0;
   var status = document.getElementById('schedule-status');
   var source = document.getElementById('schedule-source');
+  var recordStatus = document.getElementById('record-status');
+  function renderMetrics(m) {
+    document.querySelector('[data-metric-held]').textContent = m.heldCount;
+    var start = document.querySelector('[data-metric-start]');
+    start.replaceChildren();
+    [m.firstDate.slice(0,4)+'年', Number(m.firstDate.slice(5,7))+'月から'].forEach(function (text) {
+      var part = document.createElement('span'); part.className = 'nw'; part.textContent = text; start.appendChild(part);
+    });
+    document.querySelector('[data-metric-registrants]').textContent = m.minRegistrants === m.maxRegistrants ? m.minRegistrants : m.minRegistrants+'〜'+m.maxRegistrants;
+    document.querySelector('[data-metric-satisfied]').textContent = m.verySatisfied;
+    document.querySelector('[data-metric-responses]').textContent = m.surveyResponses;
+    document.querySelector('[data-metric-caption]').replaceChildren(
+      document.createTextNode('参加登録者：名簿からキャンセルを除外'), document.createElement('br'),
+      document.createTextNode('第'+m.firstRound+'〜'+m.lastRound+'回のアンケートの合計'));
+  }
   function render() {
     var now = Date.now(), list = upcoming(events, now), next = list[0];
     document.querySelector('[data-next-date]').textContent = next ? formatDate(next.date, false) : '日程を調整中';
@@ -88,12 +113,24 @@
       var payload = await request(), updated = validate(payload);
       events = updated; render();
       status.textContent = ''; status.dataset.state = 'live'; status.dataset.fetchedAt = payload.fetchedAt;
+      try {
+        renderMetrics(validateMetrics(payload.metrics));
+        recordStatus.textContent = ''; recordStatus.dataset.state = 'live';
+        recordStatus.dataset.fetchedAt = payload.fetchedAt;
+      } catch (_) {
+        recordStatus.textContent = '実績を再確認できませんでした。前回の集計を表示しています。';
+        recordStatus.dataset.state = 'stale';
+      }
     } catch (_) {
       render(); status.textContent = '日程を再確認できませんでした。最新情報は参加申込フォームをご確認ください。';
       status.dataset.state = 'stale';
+      recordStatus.textContent = '実績を再確認できませんでした。前回の集計を表示しています。';
+      recordStatus.dataset.state = 'stale';
     } finally { running = false; }
   }
-  try { events = validate(JSON.parse(source.textContent)); } catch (_) { events = []; }
+  var snapshot;
+  try { snapshot = JSON.parse(source.textContent); events = validate(snapshot); } catch (_) { events = []; }
+  try { if (snapshot && snapshot.metrics) renderMetrics(validateMetrics(snapshot.metrics)); } catch (_) { /* 日程は維持 */ }
   render(); sync();
   setInterval(function () { if (!document.hidden) { render(); if (Date.now() - lastAttempt >= 60000) sync(); } }, 60000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) { render(); sync(); } });
